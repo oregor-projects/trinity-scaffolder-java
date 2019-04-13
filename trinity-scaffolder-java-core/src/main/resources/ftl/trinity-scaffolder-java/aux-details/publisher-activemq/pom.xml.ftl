@@ -3,26 +3,20 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>com.oregor.trinity.scaffolder.java</groupId>
-    <artifactId>trinity-scaffolder-java</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>${ projectDescription.groupId }</groupId>
+    <artifactId>${ projectDescription.modulePrefix }-aux-details</artifactId>
+    <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.oregor.trinity.scaffolder.java</groupId>
-  <artifactId>trinity-scaffolder-java-core</artifactId>
+  <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-aux-details</groupId>
+  <artifactId>${ projectDescription.modulePrefix }-publisher-activemq</artifactId>
 
   <dependencies>
-    <!--APACHE-->
+    <!--SPRING BOOT JPA-->
     <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-    </dependency>
-
-    <!--FREEMARKER-->
-    <dependency>
-      <groupId>org.freemarker</groupId>
-      <artifactId>freemarker</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
 
     <!--TEST-->

@@ -20,27 +20,11 @@
 
 package com.oregor.trinity.scaffolder.java;
 
-import java.util.Scanner;
+import org.junit.Test;
 
-/**
- * The Trinity scaffolder CLI for Java projects.
- *
- * @author Christos Tsakostas
- */
-public class TrinityScaffolderJavaCli {
+/** @author Christos Tsakostas */
+public class TrinityScaffolderJavaCliTest {
 
-  /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
-   */
-  public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
-
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
-
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
-  }
+  @Test
+  public void main() {}
 }

@@ -18,29 +18,32 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java;
+package com.oregor.trinity.scaffolder.java.core.project;
 
-import java.util.Scanner;
+import com.oregor.trinity.scaffolder.java.core.AbstractTrinityScaffolderJavaTest;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * The Trinity scaffolder CLI for Java projects.
+ * The type Root scaffolder test.
  *
  * @author Christos Tsakostas
  */
-public class TrinityScaffolderJavaCli {
+public class RootScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
-  /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
-   */
-  public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
+  private RootScaffolder rootScaffolder;
 
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
+  /** Sets up. */
+  @Before
+  public void setUp() {
+    rootScaffolder = new RootScaffolder(freemarkerService);
+  }
 
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
+  /** Should scaffold successfully. */
+  @Test
+  public void shouldScaffoldSuccessfully() {
+    rootScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+
+    // TODO: write verifications
   }
 }

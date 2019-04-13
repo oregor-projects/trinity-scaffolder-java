@@ -18,29 +18,42 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java;
+package com.oregor.trinity.scaffolder.java.path;
 
-import java.util.Scanner;
+import com.oregor.trinity.scaffolder.java.assertion.Assertion;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
- * The Trinity scaffolder CLI for Java projects.
+ * The type Path service.
  *
  * @author Christos Tsakostas
  */
-public class TrinityScaffolderJavaCli {
+public final class PathService {
+
+  private PathService() {
+    throw new IllegalStateException("Utility class");
+  }
 
   /**
-   * The entry point of application.
+   * Ensures the provided path is valid by creating missing directories, if any.
    *
-   * @param args the input arguments
+   * @param path the path
    */
-  public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
+  public static void ensurePath(Path path) {
+    Assertion.isNotNull(path, "Path is required");
 
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
-
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
+    try {
+      if (!Files.exists(path)) {
+        Files.createDirectories(path);
+      }
+    } catch (IOException e) {
+      throw new IllegalArgumentException(
+          String.format(
+              "Cannot create directories for '%s'. Error message=%s",
+              path.toString(), e.getMessage()),
+          e);
+    }
   }
 }

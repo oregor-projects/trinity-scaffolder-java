@@ -18,29 +18,39 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java;
+package com.oregor.trinity.scaffolder.java.core.aux;
 
-import java.util.Scanner;
+import static org.mockito.Mockito.verify;
+
+import com.oregor.trinity.scaffolder.java.core.AbstractTrinityScaffolderJavaTest;
+import java.nio.file.Paths;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * The Trinity scaffolder CLI for Java projects.
+ * The type Aux details scaffolder test.
  *
  * @author Christos Tsakostas
  */
-public class TrinityScaffolderJavaCli {
+public class AuxDetailsScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
-  /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
-   */
-  public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
+  private AuxDetailsScaffolder auxDetailsScaffolder;
 
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
+  /** Sets up. */
+  @Before
+  public void setUp() {
+    auxDetailsScaffolder = new AuxDetailsScaffolder(freemarkerService);
+  }
 
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
+  /** Should scaffold successfully. */
+  @Test
+  public void shouldScaffoldSuccessfully() {
+    auxDetailsScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+
+    verify(freemarkerService)
+        .export(
+            dataModel(),
+            "trinity-scaffolder-java/aux-details/pom.xml.ftl",
+            Paths.get(generationPath().toString(), "prefix-aux-details", "pom.xml"));
   }
 }

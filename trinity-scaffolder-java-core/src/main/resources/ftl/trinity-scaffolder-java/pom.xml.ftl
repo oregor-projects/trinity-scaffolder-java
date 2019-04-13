@@ -5,8 +5,17 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
   <modules>
-    <module>trinity-scaffolder-java-core</module>
-    <module>trinity-scaffolder-java-cli</module>
+    <module>${ projectDescription.modulePrefix }-app</module>
+    <module>${ projectDescription.modulePrefix }-api</module>
+    <module>${ projectDescription.modulePrefix }-api-clients</module>
+    <module>${ projectDescription.modulePrefix }-api-detail</module>
+    <module>${ projectDescription.modulePrefix }-domain</module>
+    <module>${ projectDescription.modulePrefix }-domain-details</module>
+    <module>${ projectDescription.modulePrefix }-aux</module>
+    <module>${ projectDescription.modulePrefix }-aux-details</module>
+<#list projectDescription.extraModules as extraModule>
+    <module>${ projectDescription.modulePrefix }-${ extraModule }</module>
+</#list>
   </modules>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -14,24 +23,24 @@
     <version>2.1.3.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-  <groupId>com.oregor.trinity.scaffolder.java</groupId>
-  <artifactId>trinity-scaffolder-java</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>trinity-scaffolder-java</name>
-  <description>Scaffolder for Java Applications using the Trinity Architecture</description>
-  <url>https://www.oregor.com</url>
+  <groupId>${ projectDescription.groupId }</groupId>
+  <artifactId>${ projectDescription.artifactId }</artifactId>
+  <version>${ projectDescription.version }</version>
+  <name>${ projectDescription.name }</name>
+  <description>${ projectDescription.description }</description>
+  <url>${ projectDescription.url }</url>
 
-  <inceptionYear>2017</inceptionYear>
+  <inceptionYear>${ projectDescription.inceptionYear }</inceptionYear>
 
   <organization>
-    <name>OREGOR LTD</name>
-    <url>https://www.oregor.com</url>
+    <name>${ projectDescription.organizationName }</name>
+    <url>${ projectDescription.organizationUrl }</url>
   </organization>
 
   <licenses>
     <license>
-      <name>The Apache License, Version 2.0</name>
-      <url>https://www.oregor.com</url>
+      <name>${ projectDescription.licenseName }</name>
+      <url>${ projectDescription.url }</url>
     </license>
   </licenses>
 
@@ -46,24 +55,24 @@
 
   <scm>
     <connection>
-      scm:git:git://github.com/oregor-projects/trinity-scaffolder-java.git
+      ${ projectDescription.scmConnection }
     </connection>
     <developerConnection>
-      scm:git:git@github.com:oregor-projects/trinity-scaffolder-java.git
+      ${ projectDescription.scmDeveloperConnection }
     </developerConnection>
     <url>
-      http://github.com/oregor-projects/trinity-scaffolder-java/tree/master
+      ${ projectDescription.scmUrl }
     </url>
     <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
     <snapshotRepository>
-      <id>ossrh-oregor</id>
+      <id>${ projectDescription.distributionProfile }</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-      <id>ossrh-oregor</id>
+      <id>${ projectDescription.distributionProfile }</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
@@ -99,8 +108,29 @@
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
     <querydsl-apt-maven-plugin.version>1.1.3</querydsl-apt-maven-plugin.version>
 
+    <!--SPRING SECURITY OAUTH2-->
+    <spring-security-oauth2.version>2.3.5.RELEASE</spring-security-oauth2.version>
+    <spring-security-oauth2-autoconfigure.version>2.1.3.RELEASE</spring-security-oauth2-autoconfigure.version>
+
     <!--APACHE-->
+    <commons-lang3.version>3.5</commons-lang3.version>
     <commons-io-version>2.4</commons-io-version>
+    <commons-validator.version>1.5.1</commons-validator.version>
+
+    <!--GUAVA-->
+    <guava.version>26.0-jre</guava.version>
+
+    <!--FREEMARKER-->
+    <freemarker.version>2.3.28</freemarker.version>
+
+    <!--REFLECTIONS-->
+    <reflections.version>0.9.11</reflections.version>
+
+    <!--INFLECTOR-->
+    <evo-inflector.version>1.2.2</evo-inflector.version>
+
+    <!--OREGOR-->
+    <oregor-ddd4j.version>0.0.2-SNAPSHOT</oregor-ddd4j.version>
   </properties>
 
   <dependencies>
@@ -110,13 +140,127 @@
     <dependencies>
       <!--APACHE-->
       <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <#noparse>
+        <version>${commons-lang3.version}</version>
+        </#noparse>
+      </dependency>
+      <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
+        <#noparse>
         <version>${commons-io-version}</version>
+        </#noparse>
+      </dependency>
+      <dependency>
+        <groupId>commons-validator</groupId>
+        <artifactId>commons-validator</artifactId>
+        <#noparse>
+        <version>${commons-validator.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--API-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }</groupId>
+        <artifactId>${ projectDescription.modulePrefix }-api</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--DOMAIN-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }</groupId>
+        <artifactId>${ projectDescription.modulePrefix }-domain</artifactId>
+        <#noparse>
+          <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--AUXILIARY-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }</groupId>
+        <artifactId>${ projectDescription.modulePrefix }-aux</artifactId>
+        <#noparse>
+          <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--API DETAIL-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }</groupId>
+        <artifactId>${ projectDescription.modulePrefix }-api-detail</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- API CLIENTS                                                                           -->
+      <!-- ===================================================================================== -->
+
+      <!--REST SPRING-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
+        <artifactId>${ projectDescription.modulePrefix }-api-rest</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--SUBSCRIBER ACTIVEMQ-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
+        <artifactId>${ projectDescription.modulePrefix }-api-subscriber-activemq</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- DOMAIN DETAILS                                                                        -->
+      <!-- ===================================================================================== -->
+
+      <!--PERSISTENCE RDBMS-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-domain-details</groupId>
+        <artifactId>${ projectDescription.modulePrefix }-domain-persistence-rdbms</artifactId>
+        <#noparse>
+          <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- AUXILIARY DETAILS                                                                     -->
+      <!-- ===================================================================================== -->
+
+      <!--PUBLISHER ACTIVEMQ-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-aux-details</groupId>
+        <artifactId>${ projectDescription.modulePrefix }-publisher-activemq</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- OREGOR                                                                                -->
+      <!-- ===================================================================================== -->
+      <dependency>
+        <groupId>com.oregor.ddd4j</groupId>
+        <artifactId>ddd4j-bom</artifactId>
+        <#noparse>
+          <version>${oregor-ddd4j.version}</version>
+        </#noparse>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
 
+<#noparse>
 
   <build>
     <!-- ===================================================================== -->
@@ -146,7 +290,9 @@
           <version>${license-maven-plugin.version}</version>
           <configuration>
             <licenseName>apache_v2</licenseName>
-            <projectName>Trinity Scaffolder for Java Applications</projectName>
+            </#noparse>
+            <projectName>${ projectDescription.name }</projectName>
+            <#noparse>
             <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
             <emptyLineAfterHeader>true</emptyLineAfterHeader>
             <failOnMissingHeader>true</failOnMissingHeader>
@@ -164,9 +310,6 @@
               <exclude>**/*.txt</exclude>
               <exclude>**/*.properties</exclude>
               <exclude>**/*.yml</exclude>
-              <exclude>**/*.xml</exclude>
-              <exclude>**/*.sh</exclude>
-              <exclude>**/*.ftl</exclude>
             </excludes>
           </configuration>
         </plugin>
@@ -535,7 +678,9 @@
             <version>${nexus-staging-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>ossrh-oregor</serverId>
+</#noparse>
+              <serverId>${ projectDescription.distributionProfile }</serverId>
+<#noparse>
               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
@@ -801,4 +946,5 @@
   </reporting>
 
 </project>
+</#noparse>
 

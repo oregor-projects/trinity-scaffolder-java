@@ -3,26 +3,26 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>com.oregor.trinity.scaffolder.java</groupId>
-    <artifactId>trinity-scaffolder-java</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>${ projectDescription.groupId }</groupId>
+    <artifactId>${ projectDescription.modulePrefix }-domain-details</artifactId>
+    <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.oregor.trinity.scaffolder.java</groupId>
-  <artifactId>trinity-scaffolder-java-core</artifactId>
+  <groupId>${ projectDescription.groupId }</groupId>
+  <artifactId>${ projectDescription.modulePrefix }-domain-services</artifactId>
 
   <dependencies>
-    <!--APACHE-->
+    <!--SPRING STEREOTYPE-->
     <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
     </dependency>
 
-    <!--FREEMARKER-->
+    <!--DOMAIN MODEL-->
     <dependency>
-      <groupId>org.freemarker</groupId>
-      <artifactId>freemarker</artifactId>
+      <groupId>${ projectDescription.groupId }</groupId>
+      <artifactId>${ projectDescription.modulePrefix }-domain</artifactId>
     </dependency>
 
     <!--TEST-->
