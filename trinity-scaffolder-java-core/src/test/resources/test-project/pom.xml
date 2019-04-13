@@ -5,8 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
   <modules>
-    <module>trinity-scaffolder-java-core</module>
-    <module>trinity-scaffolder-java-cli</module>
+    <module>prefix-app</module>
+    <module>prefix-api</module>
+    <module>prefix-api-clients</module>
+    <module>prefix-api-detail</module>
+    <module>prefix-domain</module>
+    <module>prefix-domain-details</module>
+    <module>prefix-aux</module>
+    <module>prefix-aux-details</module>
   </modules>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -14,14 +20,14 @@
     <version>2.1.3.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-  <groupId>com.oregor.trinity.scaffolder.java</groupId>
-  <artifactId>trinity-scaffolder-java</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>trinity-scaffolder-java</name>
-  <description>Scaffolder for Java Applications using the Trinity Architecture</description>
+  <groupId>com.oregor</groupId>
+  <artifactId>test-project</artifactId>
+  <version>0.0.1</version>
+  <name>sample-name</name>
+  <description>Sample Description</description>
   <url>https://www.oregor.com</url>
 
-  <inceptionYear>2017</inceptionYear>
+  <inceptionYear>2019</inceptionYear>
 
   <organization>
     <name>OREGOR LTD</name>
@@ -30,7 +36,7 @@
 
   <licenses>
     <license>
-      <name>The Apache License, Version 2.0</name>
+      <name>APACHE</name>
       <url>https://www.oregor.com</url>
     </license>
   </licenses>
@@ -46,24 +52,24 @@
 
   <scm>
     <connection>
-      scm:git:git://github.com/oregor-projects/trinity-scaffolder-java.git
+      
     </connection>
     <developerConnection>
-      scm:git:git@github.com:oregor-projects/trinity-scaffolder-java.git
+      
     </developerConnection>
     <url>
-      http://github.com/oregor-projects/trinity-scaffolder-java/tree/master
+      
     </url>
     <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
     <snapshotRepository>
-      <id>ossrh-oregor</id>
+      <id>oss</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-      <id>ossrh-oregor</id>
+      <id>oss</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
@@ -99,8 +105,29 @@
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
     <querydsl-apt-maven-plugin.version>1.1.3</querydsl-apt-maven-plugin.version>
 
+    <!--SPRING SECURITY OAUTH2-->
+    <spring-security-oauth2.version>2.3.5.RELEASE</spring-security-oauth2.version>
+    <spring-security-oauth2-autoconfigure.version>2.1.3.RELEASE</spring-security-oauth2-autoconfigure.version>
+
     <!--APACHE-->
+    <commons-lang3.version>3.5</commons-lang3.version>
     <commons-io-version>2.4</commons-io-version>
+    <commons-validator.version>1.5.1</commons-validator.version>
+
+    <!--GUAVA-->
+    <guava.version>26.0-jre</guava.version>
+
+    <!--FREEMARKER-->
+    <freemarker.version>2.3.28</freemarker.version>
+
+    <!--REFLECTIONS-->
+    <reflections.version>0.9.11</reflections.version>
+
+    <!--INFLECTOR-->
+    <evo-inflector.version>1.2.2</evo-inflector.version>
+
+    <!--OREGOR-->
+    <oregor-ddd4j.version>0.0.2-SNAPSHOT</oregor-ddd4j.version>
   </properties>
 
   <dependencies>
@@ -110,9 +137,98 @@
     <dependencies>
       <!--APACHE-->
       <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+      <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>${commons-io-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-validator</groupId>
+        <artifactId>commons-validator</artifactId>
+        <version>${commons-validator.version}</version>
+      </dependency>
+
+      <!--API-->
+      <dependency>
+        <groupId>com.oregor</groupId>
+        <artifactId>prefix-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!--DOMAIN-->
+      <dependency>
+        <groupId>com.oregor</groupId>
+        <artifactId>prefix-domain</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+
+      <!--AUXILIARY-->
+      <dependency>
+        <groupId>com.oregor</groupId>
+        <artifactId>prefix-aux</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+
+      <!--API DETAIL-->
+      <dependency>
+        <groupId>com.oregor</groupId>
+        <artifactId>prefix-api-detail</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- API CLIENTS                                                                           -->
+      <!-- ===================================================================================== -->
+
+      <!--REST SPRING-->
+      <dependency>
+        <groupId>com.oregor.prefix-api-clients</groupId>
+        <artifactId>prefix-api-rest</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!--SUBSCRIBER ACTIVEMQ-->
+      <dependency>
+        <groupId>com.oregor.prefix-api-clients</groupId>
+        <artifactId>prefix-api-subscriber-activemq</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- DOMAIN DETAILS                                                                        -->
+      <!-- ===================================================================================== -->
+
+      <!--PERSISTENCE RDBMS-->
+      <dependency>
+        <groupId>com.oregor.prefix-domain-details</groupId>
+        <artifactId>prefix-domain-persistence-rdbms</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- AUXILIARY DETAILS                                                                     -->
+      <!-- ===================================================================================== -->
+
+      <!--PUBLISHER ACTIVEMQ-->
+      <dependency>
+        <groupId>com.oregor.prefix-aux-details</groupId>
+        <artifactId>prefix-publisher-activemq</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- OREGOR                                                                                -->
+      <!-- ===================================================================================== -->
+      <dependency>
+        <groupId>com.oregor.ddd4j</groupId>
+        <artifactId>ddd4j-bom</artifactId>
+          <version>${oregor-ddd4j.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -146,7 +262,7 @@
           <version>${license-maven-plugin.version}</version>
           <configuration>
             <licenseName>apache_v2</licenseName>
-            <projectName>Trinity Scaffolder for Java Applications</projectName>
+            <projectName>sample-name</projectName>
             <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
             <emptyLineAfterHeader>true</emptyLineAfterHeader>
             <failOnMissingHeader>true</failOnMissingHeader>
@@ -164,9 +280,6 @@
               <exclude>**/*.txt</exclude>
               <exclude>**/*.properties</exclude>
               <exclude>**/*.yml</exclude>
-              <exclude>**/*.xml</exclude>
-              <exclude>**/*.sh</exclude>
-              <exclude>**/*.ftl</exclude>
             </excludes>
           </configuration>
         </plugin>
@@ -535,7 +648,7 @@
             <version>${nexus-staging-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>ossrh-oregor</serverId>
+              <serverId>oss</serverId>
               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>

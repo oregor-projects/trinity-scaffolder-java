@@ -18,29 +18,22 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java;
-
-import java.util.Scanner;
+package com.oregor.trinity.scaffolder.java.freemarker;
 
 /**
- * The Trinity scaffolder CLI for Java projects.
+ * Author used in generated code.
  *
  * @author Christos Tsakostas
  */
-public class TrinityScaffolderJavaCli {
+public class FreemarkerAuthorService {
 
-  /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
-   */
-  public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
+  private static String author = "Trinity Scaffolder";
 
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
+  public static String getAuthor() {
+    return author;
+  }
 
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
+  public static void setAuthor(String author) {
+    FreemarkerAuthorService.author = author;
   }
 }

@@ -18,29 +18,24 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java;
+package com.oregor.trinity.scaffolder.java.core;
 
-import java.util.Scanner;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
 
 /**
- * The Trinity scaffolder CLI for Java projects.
+ * The type Trinity scaffolder java factory test.
  *
  * @author Christos Tsakostas
  */
-public class TrinityScaffolderJavaCli {
+public class TrinityScaffolderJavaFactoryTest {
 
-  /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
-   */
-  public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
+  /** New instance. */
+  @Test
+  public void newInstance() {
+    TrinityScaffolderJava trinityScaffolderJava = TrinityScaffolderJavaFactory.newInstance();
 
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
-
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
+    assertThat(trinityScaffolderJava).isNotNull();
   }
 }

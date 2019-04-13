@@ -18,29 +18,26 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java;
+package com.oregor.trinity.scaffolder.java.freemarker;
 
-import java.util.Scanner;
+import org.junit.Test;
 
 /**
- * The Trinity scaffolder CLI for Java projects.
+ * The type Freemarker service test.
  *
  * @author Christos Tsakostas
  */
-public class TrinityScaffolderJavaCli {
+public class FreemarkerServiceTest {
 
-  /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
-   */
-  public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
+  /** Export. */
+  @Test
+  public void export() {
+    // TODO
+  }
 
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
-
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
+  /** Export if not exists. */
+  @Test
+  public void exportIfNotExists() {
+    // TODO
   }
 }

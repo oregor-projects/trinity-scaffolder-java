@@ -18,29 +18,39 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java;
+package com.oregor.trinity.scaffolder.java.core.project;
 
-import java.util.Scanner;
+import static org.mockito.Mockito.verify;
+
+import com.oregor.trinity.scaffolder.java.core.AbstractTrinityScaffolderJavaTest;
+import java.nio.file.Paths;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * The Trinity scaffolder CLI for Java projects.
+ * The type Git ignore scaffolder test.
  *
  * @author Christos Tsakostas
  */
-public class TrinityScaffolderJavaCli {
+public class GitIgnoreScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
-  /**
-   * The entry point of application.
-   *
-   * @param args the input arguments
-   */
-  public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
+  private GitIgnoreScaffolder gitIgnoreScaffolder;
 
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
+  /** Sets up. */
+  @Before
+  public void setUp() {
+    gitIgnoreScaffolder = new GitIgnoreScaffolder(freemarkerService);
+  }
 
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
+  /** Should scaffold successfully. */
+  @Test
+  public void shouldScaffoldSuccessfully() {
+    gitIgnoreScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+
+    verify(freemarkerService)
+        .export(
+            dataModel(),
+            "trinity-scaffolder-java/.gitignore.ftl",
+            Paths.get(generationPath().toString(), ".gitignore"));
   }
 }
