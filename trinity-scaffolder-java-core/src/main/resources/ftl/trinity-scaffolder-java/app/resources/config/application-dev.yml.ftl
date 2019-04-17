@@ -12,7 +12,7 @@ spring-config:
       enabled: true
       max-connections: 10
   datasource:
-    url: jdbc:mysql://localhost:3306/${ projectDescription.context }-dev?useLegacyDatetimeCode=false&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/${ projectDescription.context }-dev?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${ projectDescription.context }-dev
     password: ${ projectDescription.context }-dev

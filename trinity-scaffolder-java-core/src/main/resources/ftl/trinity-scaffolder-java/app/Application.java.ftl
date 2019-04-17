@@ -1,5 +1,7 @@
 package ${ projectDescription.groupId };
 
+import java.util.TimeZone;
+import javax.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +12,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class Application {
+
+  /**
+   * On Started.
+   */
+  @PostConstruct
+  void started() {
+    TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+  }
 
 	/**
 	 * The entry point of application.

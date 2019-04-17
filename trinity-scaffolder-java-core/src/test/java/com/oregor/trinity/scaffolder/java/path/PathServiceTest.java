@@ -24,9 +24,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Paths;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 /**
@@ -51,9 +53,8 @@ public class PathServiceTest {
 
   /** Should successfully ensure path. */
   @Test
-  public void shouldSuccessfullyEnsurePath() {
-    // TODO
-    // FileUtils.deleteDirectory(new File("tmp"));
+  public void shouldSuccessfullyEnsurePath() throws IOException {
+    FileUtils.deleteDirectory(new File("tmp"));
 
     PathService.ensurePath(Paths.get("tmp"));
     assertThat(new File("tmp")).exists();

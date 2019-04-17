@@ -19,7 +19,7 @@
       <artifactId>spring-context</artifactId>
     </dependency>
 
-    <!--DOMAIN MODEL-->
+    <!--DOMAIN-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
       <artifactId>${ projectDescription.modulePrefix }-domain</artifactId>

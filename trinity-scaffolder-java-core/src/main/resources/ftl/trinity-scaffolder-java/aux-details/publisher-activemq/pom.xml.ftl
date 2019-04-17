@@ -13,10 +13,10 @@
   <artifactId>${ projectDescription.modulePrefix }-publisher-activemq</artifactId>
 
   <dependencies>
-    <!--SPRING BOOT JPA-->
+    <!--AUX-->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <groupId>${ projectDescription.groupId }</groupId>
+      <artifactId>${ projectDescription.modulePrefix }-aux</artifactId>
     </dependency>
 
     <!--TEST-->

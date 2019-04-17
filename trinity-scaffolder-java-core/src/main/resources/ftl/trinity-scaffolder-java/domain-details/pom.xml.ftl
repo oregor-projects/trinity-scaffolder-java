@@ -18,6 +18,4 @@
     <module>${ projectDescription.modulePrefix }-domain-services</module>
   </modules>
 
-  <dependencies>
-  </dependencies>
 </project>

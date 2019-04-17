@@ -18,6 +18,4 @@
     <module>${ projectDescription.modulePrefix }-api-subscriber-activemq</module>
   </modules>
 
-  <dependencies>
-  </dependencies>
 </project>

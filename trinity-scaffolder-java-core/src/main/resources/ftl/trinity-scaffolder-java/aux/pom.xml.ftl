@@ -13,10 +13,10 @@
   <artifactId>${ projectDescription.modulePrefix }-aux</artifactId>
 
   <dependencies>
-    <!--OREGOR-DDD4J-->
+    <!--DDD4J-->
     <dependency>
       <groupId>com.oregor.ddd4j</groupId>
-      <artifactId>ddd4j-api</artifactId>
+      <artifactId>ddd4j-aux</artifactId>
     </dependency>
 
     <!--TEST-->

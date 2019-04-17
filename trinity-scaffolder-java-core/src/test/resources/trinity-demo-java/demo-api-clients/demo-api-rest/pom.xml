@@ -3,14 +3,14 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.modulePrefix }-api-clients</artifactId>
-    <version>${ projectDescription.version }</version>
+    <groupId>com.oregor.trinity.demo.java</groupId>
+    <artifactId>demo-api-clients</artifactId>
+    <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-api-rest</artifactId>
+  <groupId>com.oregor.trinity.demo.java.demo-api-clients</groupId>
+  <artifactId>demo-api-rest</artifactId>
 
   <dependencies>
     <!--SPRING BOOT WEB-->
@@ -18,14 +18,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-    <#--<!--SPRING SECURITY OAUTH2&ndash;&gt;-->
-    <#--<dependency>-->
-    <#--<groupId>org.springframework.security.oauth.boot</groupId>-->
-    <#--<artifactId>spring-security-oauth2-autoconfigure</artifactId>-->
-    <#--<#noparse>-->
-    <#--<version>${spring-security-oauth2-autoconfigure.version}</version>-->
-    <#--</#noparse>-->
-    <#--</dependency>-->
 
     <!--APACHE-->
     <dependency>
@@ -45,8 +37,8 @@
 
     <!--API-->
     <dependency>
-      <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api</artifactId>
+      <groupId>com.oregor.trinity.demo.java</groupId>
+      <artifactId>demo-api</artifactId>
     </dependency>
 
     <!--TEST-->

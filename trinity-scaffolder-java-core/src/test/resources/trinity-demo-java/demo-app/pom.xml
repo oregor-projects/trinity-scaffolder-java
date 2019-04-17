@@ -3,14 +3,14 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.artifactId }</artifactId>
-    <version>${ projectDescription.version }</version>
+    <groupId>com.oregor.trinity.demo.java</groupId>
+    <artifactId>trinity-demo-java</artifactId>
+    <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-app</artifactId>
+  <groupId>com.oregor.trinity.demo.java</groupId>
+  <artifactId>demo-app</artifactId>
 
   <dependencies>
     <!-- ======================================================================================= -->
@@ -27,8 +27,8 @@
 
     <!--API DETAIL-->
     <dependency>
-      <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api-detail</artifactId>
+      <groupId>com.oregor.trinity.demo.java</groupId>
+      <artifactId>demo-api-detail</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
@@ -37,14 +37,14 @@
 
     <!-- REST SPRING -->
     <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api-rest</artifactId>
+      <groupId>com.oregor.trinity.demo.java.demo-api-clients</groupId>
+      <artifactId>demo-api-rest</artifactId>
     </dependency>
 
     <!-- SUBSCRIBER ACTIVEMQ -->
     <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api-subscriber-activemq</artifactId>
+      <groupId>com.oregor.trinity.demo.java.demo-api-clients</groupId>
+      <artifactId>demo-api-subscriber-activemq</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
@@ -53,8 +53,8 @@
 
     <!-- PERSISTENCE RDBMS -->
     <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-domain-details</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-domain-persistence-rdbms</artifactId>
+      <groupId>com.oregor.trinity.demo.java.demo-domain-details</groupId>
+      <artifactId>demo-domain-persistence-rdbms</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
@@ -63,8 +63,8 @@
 
     <!-- PUBLISHER ACTIVEMQ -->
     <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-aux-details</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-publisher-activemq</artifactId>
+      <groupId>com.oregor.trinity.demo.java.demo-aux-details</groupId>
+      <artifactId>demo-publisher-activemq</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
@@ -87,7 +87,7 @@
   </dependencies>
 
   <build>
-    <finalName>${ projectDescription.modulePrefix }-app</finalName>
+    <finalName>demo-app</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
