@@ -45,7 +45,7 @@ public final class PathService {
     Assertion.isNotNull(path, "Path is required");
 
     try {
-      if (!Files.exists(path)) {
+      if (!path.toFile().exists()) {
         Files.createDirectories(path);
       }
     } catch (IOException e) {

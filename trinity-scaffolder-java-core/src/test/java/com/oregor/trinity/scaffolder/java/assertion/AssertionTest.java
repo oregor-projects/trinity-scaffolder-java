@@ -67,7 +67,8 @@ public class AssertionTest {
   /** Should succeed is not null. */
   @Test
   public void shouldSucceedIsNotNull() {
-    Assertion.isNotNull(new Object(), "is not null");
+    assertThatCode(() -> Assertion.isNotNull(new Object(), "is not null"))
+        .doesNotThrowAnyException();
   }
 
   /** Should fail is not null. */
@@ -82,7 +83,7 @@ public class AssertionTest {
   /** Should succeed is not empty. */
   @Test
   public void shouldSucceedIsNotEmpty() {
-    Assertion.isNotEmpty("xxx", "not empty");
+    assertThatCode(() -> Assertion.isNotEmpty("xxx", "not empty")).doesNotThrowAnyException();
   }
 
   /** Should fail is not empty for null input. */

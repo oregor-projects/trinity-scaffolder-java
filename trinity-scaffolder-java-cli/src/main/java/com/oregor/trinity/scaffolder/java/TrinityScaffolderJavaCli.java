@@ -21,6 +21,8 @@
 package com.oregor.trinity.scaffolder.java;
 
 import java.util.Scanner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Trinity scaffolder CLI for Java projects.
@@ -29,18 +31,20 @@ import java.util.Scanner;
  */
 public class TrinityScaffolderJavaCli {
 
+  private static final Logger LOG = LoggerFactory.getLogger(TrinityScaffolderJavaCli.class);
+
   /**
    * The entry point of application.
    *
    * @param args the input arguments
    */
   public static void main(String[] args) {
-    System.out.println("Hello Java CLI");
+    LOG.info("Trinity Scaffolder for Java CLI");
 
-    Scanner myObj = new Scanner(System.in); // Create a Scanner object
-    System.out.println("Enter top level package (i.e. com.oregor.invoicing): ");
+    Scanner myObj = new Scanner(System.in);
+    LOG.info("Enter top level package (i.e. com.oregor.invoicing): ");
 
-    String userName = myObj.nextLine(); // Read user input
-    System.out.println("Top level package is: " + userName); // Output user input
+    String topLevelPackage = myObj.nextLine();
+    LOG.info("Top level package is: " + topLevelPackage);
   }
 }
