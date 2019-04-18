@@ -18,39 +18,17 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java.core.project;
+package com.oregor.trinity.scaffolder.java.freemarker;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractTrinityScaffolderJavaTest;
-import java.io.File;
-import java.io.IOException;
-import org.apache.commons.io.FileUtils;
-import org.junit.Before;
 import org.junit.Test;
 
-/**
- * The type Root scaffolder test.
- *
- * @author Christos Tsakostas
- */
-public class RootScaffolderTest extends AbstractTrinityScaffolderJavaTest {
+/** @author Christos Tsakostas */
+public class FreemarkerAuthorServiceTest {
 
-  private RootScaffolder rootScaffolder;
-
-  /** Sets up. */
-  @Before
-  public void setUp() {
-    rootScaffolder = new RootScaffolder(freemarkerService);
-  }
-
-  /** Should scaffold successfully. */
   @Test
-  public void shouldScaffoldSuccessfully() throws IOException {
-    FileUtils.deleteDirectory(new File(generationPath().toString()));
-
-    assertThatCode(
-            () -> rootScaffolder.scaffold(generationPath(), projectDescription(), dataModel()))
-        .doesNotThrowAnyException();
+  public void getAuthor() {
+    assertThat(FreemarkerAuthorService.getAuthor()).isEqualTo("Trinity Scaffolder");
   }
 }

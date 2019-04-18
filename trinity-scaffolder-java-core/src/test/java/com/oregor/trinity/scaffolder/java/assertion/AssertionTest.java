@@ -20,6 +20,7 @@
 
 package com.oregor.trinity.scaffolder.java.assertion;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.lang.reflect.Constructor;
@@ -51,7 +52,7 @@ public class AssertionTest {
   /** Should succeed is null. */
   @Test
   public void shouldSucceedIsNull() {
-    Assertion.isNull(null, "is null");
+    assertThatCode(() -> Assertion.isNull(null, "is null")).doesNotThrowAnyException();
   }
 
   /** Should fail is null. */
@@ -103,7 +104,7 @@ public class AssertionTest {
   /** Should succeed is true. */
   @Test
   public void shouldSucceedIsTrue() {
-    Assertion.isTrue(1 == 1, "wrong condition");
+    assertThatCode(() -> Assertion.isTrue(1 == 1, "wrong condition")).doesNotThrowAnyException();
   }
 
   /** Should fail is true. */
@@ -118,7 +119,7 @@ public class AssertionTest {
   /** Should succeed is false. */
   @Test
   public void shouldSucceedIsFalse() {
-    Assertion.isFalse(1 == 2, "wrong condition");
+    assertThatCode(() -> Assertion.isFalse(1 == 2, "wrong condition")).doesNotThrowAnyException();
   }
 
   /** Should fail is false. */

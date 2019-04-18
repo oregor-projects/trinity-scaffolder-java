@@ -76,7 +76,7 @@ public class FreemarkerService {
       file.flush();
       file.close();
     } catch (IOException | TemplateException e) {
-      throw new IllegalStateException(e.getMessage(), e);
+      throw new IllegalArgumentException(e.getMessage(), e);
     }
   }
 

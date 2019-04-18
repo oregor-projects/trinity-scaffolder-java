@@ -1,7 +1,7 @@
 # Contributing to the Project
 
-We would love for you to contribute to the Project and help make it even better than it is today! As a contributor, here are the 
-guidelines we would like you to follow:
+We would love for you to contribute to the Project and help make it even better than it is today! 
+As a contributor, here are the guidelines we would like you to follow:
 * Coding Rules
 * Commit Message Guidelines 
 * Working on a task
@@ -10,7 +10,17 @@ guidelines we would like you to follow:
 To ensure consistency throughout the source code, keep these rules in mind as you are working:
 * All features or bug fixes **must be tested** by one or more specs (unit-tests).
 * All public API methods must be documented.
-* Format your source code before any commit.
+* Execute `prepare-to-commit.sh` before your commit and fix any possible errors before committing.
+
+`prepare-to-commit.sh` will execute:
+
+```bash
+./mvnw license:update-file-header
+./mvnw fmt:format
+./mvnw clean install -P validate-license,validate-code-format,validate-code-style,validate-code-bugs,validate-code \
+ -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+./mvnw test -B
+```
 
 ## Commit Message Guidelines
 We have very precise rules over how our git commit messages can be formatted.  This leads to **more
@@ -50,7 +60,7 @@ refactor(api): standardize api calls to fetch and dispatch events
 Must be one of the following:
 
 * **chore**: Changes that affect the build system or external dependencies (example scopes: maven, flyway)
-* **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+* **ci**: Changes to CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs etc.)
 * **docs**: Documentation only changes
 * **feat**: A new feature
 * **fix**: A bug fix

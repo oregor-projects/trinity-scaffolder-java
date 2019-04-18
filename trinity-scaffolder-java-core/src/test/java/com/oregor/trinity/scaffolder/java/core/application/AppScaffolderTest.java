@@ -20,20 +20,23 @@
 
 package com.oregor.trinity.scaffolder.java.core.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import com.oregor.trinity.scaffolder.java.core.AbstractTrinityScaffolderJavaTest;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
 /**
  * The type App scaffolder test.
  *
  * @author Christos Tsakostas
  */
-@Ignore
 public class AppScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
   private AppScaffolder appScaffolder;
@@ -49,11 +52,71 @@ public class AppScaffolderTest extends AbstractTrinityScaffolderJavaTest {
   public void shouldScaffoldSuccessfully() {
     appScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
-    // TODO
-    verify(freemarkerService)
-        .export(
-            dataModel(),
-            "trinity-scaffolder-java/app/pom.xml.ftl",
-            Paths.get(generationPath().toString(), "prefix-api", "pom.xml"));
+    ArgumentCaptor<String> argumentCaptorFtlTemplate = ArgumentCaptor.forClass(String.class);
+    ArgumentCaptor<Path> argumentCaptorPath = ArgumentCaptor.forClass(Path.class);
+
+    verify(freemarkerService, times(6))
+        .export(eq(dataModel()), argumentCaptorFtlTemplate.capture(), argumentCaptorPath.capture());
+
+    assertThat(
+            argumentCaptorFtlTemplate
+                .getAllValues()
+                .contains("trinity-scaffolder-java/app/resources/application.yml.ftl"))
+        .isTrue();
+    assertThat(
+            argumentCaptorFtlTemplate
+                .getAllValues()
+                .contains("trinity-scaffolder-java/app/resources/config/application-dev.yml.ftl"))
+        .isTrue();
+    assertThat(
+            argumentCaptorFtlTemplate
+                .getAllValues()
+                .contains("trinity-scaffolder-java/app/resources/config/application-ci.yml.ftl"))
+        .isTrue();
+    assertThat(
+            argumentCaptorFtlTemplate
+                .getAllValues()
+                .contains("trinity-scaffolder-java/app/pom.xml.ftl"))
+        .isTrue();
+    assertThat(
+            argumentCaptorFtlTemplate
+                .getAllValues()
+                .contains("trinity-scaffolder-java/app/Application.java.ftl"))
+        .isTrue();
+    assertThat(
+            argumentCaptorFtlTemplate
+                .getAllValues()
+                .contains("trinity-scaffolder-java/app/ApplicationTest.java.ftl"))
+        .isTrue();
+
+    assertThat(
+            argumentCaptorPath
+                .getAllValues()
+                .contains(Paths.get("tmp/prefix-app/src/main/resources/application.yml")))
+        .isTrue();
+    assertThat(
+            argumentCaptorPath
+                .getAllValues()
+                .contains(
+                    Paths.get("tmp/prefix-app/src/main/resources/config/application-dev.yml")))
+        .isTrue();
+    assertThat(
+            argumentCaptorPath
+                .getAllValues()
+                .contains(Paths.get("tmp/prefix-app/src/main/resources/config/application-ci.yml")))
+        .isTrue();
+    assertThat(argumentCaptorPath.getAllValues().contains(Paths.get("tmp/prefix-app/pom.xml")))
+        .isTrue();
+    assertThat(
+            argumentCaptorPath
+                .getAllValues()
+                .contains(Paths.get("tmp/prefix-app/src/main/java/com/oregor/Application.java")))
+        .isTrue();
+    assertThat(
+            argumentCaptorPath
+                .getAllValues()
+                .contains(
+                    Paths.get("tmp/prefix-app/src/test/java/com/oregor/ApplicationTest.java")))
+        .isTrue();
   }
 }

@@ -33,7 +33,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class AbstractTrinityScaffolderJavaTest {
+public abstract class AbstractTrinityScaffolderJavaTest {
 
   /** The Freemarker service. */
   protected FreemarkerService freemarkerService;

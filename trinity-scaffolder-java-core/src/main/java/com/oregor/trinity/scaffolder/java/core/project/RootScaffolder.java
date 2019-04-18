@@ -65,7 +65,7 @@ public class RootScaffolder extends AbstractScaffolder {
       PathService.ensurePath(Paths.get(generationPath.toString(), ".mvn/wrapper/"));
 
       Path targetPrepareToCommit = Paths.get(generationPath.toString(), "prepare-to-commit.sh");
-      if (!Files.exists(targetPrepareToCommit)) {
+      if (!targetPrepareToCommit.toFile().exists()) {
         Files.copy(
             getClass().getResourceAsStream(FTL_PATH + "/prepare-to-commit.sh"),
             targetPrepareToCommit,
@@ -73,7 +73,7 @@ public class RootScaffolder extends AbstractScaffolder {
       }
 
       Path targetMvnw = Paths.get(generationPath.toString(), "mvnw");
-      if (!Files.exists(targetMvnw)) {
+      if (!targetMvnw.toFile().exists()) {
         Files.copy(
             getClass().getResourceAsStream(FTL_PATH + "/mvnw"),
             targetMvnw,
@@ -81,7 +81,7 @@ public class RootScaffolder extends AbstractScaffolder {
       }
 
       Path targetMvnwCmd = Paths.get(generationPath.toString(), "mvnw.cmd");
-      if (!Files.exists(targetMvnwCmd)) {
+      if (!targetMvnwCmd.toFile().exists()) {
         Files.copy(
             getClass().getResourceAsStream(FTL_PATH + "/mvnw.cmd"),
             targetMvnwCmd,

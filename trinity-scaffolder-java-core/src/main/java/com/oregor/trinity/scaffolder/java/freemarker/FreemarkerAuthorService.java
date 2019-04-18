@@ -29,10 +29,32 @@ public class FreemarkerAuthorService {
 
   private static String author = "Trinity Scaffolder";
 
+  // ===============================================================================================
+  // CONSTRUCTOR(S)
+  // ===============================================================================================
+
+  private FreemarkerAuthorService() {
+    super();
+  }
+
+  // ===============================================================================================
+  // STATIC METHODS
+  // ===============================================================================================
+
+  /**
+   * Gets author.
+   *
+   * @return the author
+   */
   public static String getAuthor() {
     return author;
   }
 
+  /**
+   * Sets author.
+   *
+   * @param author the author
+   */
   public static void setAuthor(String author) {
     FreemarkerAuthorService.author = author;
   }
