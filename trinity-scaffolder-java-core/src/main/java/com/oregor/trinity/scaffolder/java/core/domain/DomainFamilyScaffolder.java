@@ -40,7 +40,8 @@ public class DomainFamilyScaffolder extends AbstractScaffolder {
   private final DomainModelScaffolder domainModelScaffolder;
   private final DomainDetailsScaffolder domainDetailsScaffolder;
   private final DomainServicesScaffolder domainServicesScaffolder;
-  private final DomainDetailsPersistenceRdbmsScaffolder domainDetailsPersistenceRdbmsScaffolder;
+  private final DomainDetailsRepositorySpringDataJpaScaffolder
+      domainDetailsRepositorySpringDataJpaScaffolder;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -53,19 +54,22 @@ public class DomainFamilyScaffolder extends AbstractScaffolder {
    * @param domainModelScaffolder the domain model scaffolder
    * @param domainDetailsScaffolder the domain details scaffolder
    * @param domainServicesScaffolder the domain services scaffolder
-   * @param domainDetailsPersistenceRdbmsScaffolder the domain details persistence rdbms scaffolder
+   * @param domainDetailsRepositorySpringDataJpaScaffolder the domain details persistence rdbms
+   *     scaffolder
    */
   public DomainFamilyScaffolder(
       FreemarkerService freemarkerService,
       DomainModelScaffolder domainModelScaffolder,
       DomainDetailsScaffolder domainDetailsScaffolder,
       DomainServicesScaffolder domainServicesScaffolder,
-      DomainDetailsPersistenceRdbmsScaffolder domainDetailsPersistenceRdbmsScaffolder) {
+      DomainDetailsRepositorySpringDataJpaScaffolder
+          domainDetailsRepositorySpringDataJpaScaffolder) {
     super(freemarkerService);
     this.domainModelScaffolder = domainModelScaffolder;
     this.domainDetailsScaffolder = domainDetailsScaffolder;
     this.domainServicesScaffolder = domainServicesScaffolder;
-    this.domainDetailsPersistenceRdbmsScaffolder = domainDetailsPersistenceRdbmsScaffolder;
+    this.domainDetailsRepositorySpringDataJpaScaffolder =
+        domainDetailsRepositorySpringDataJpaScaffolder;
   }
 
   // ===============================================================================================
@@ -79,6 +83,7 @@ public class DomainFamilyScaffolder extends AbstractScaffolder {
     domainModelScaffolder.scaffold(generationPath, projectDescription, dataModel);
     domainDetailsScaffolder.scaffold(generationPath, projectDescription, dataModel);
     domainServicesScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    domainDetailsPersistenceRdbmsScaffolder.scaffold(generationPath, projectDescription, dataModel);
+    domainDetailsRepositorySpringDataJpaScaffolder.scaffold(
+        generationPath, projectDescription, dataModel);
   }
 }

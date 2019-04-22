@@ -14,8 +14,8 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>${ projectDescription.modulePrefix }-api-rest</module>
-    <module>${ projectDescription.modulePrefix }-api-subscriber-activemq</module>
+    <module>${ projectDescription.modulePrefix }-api-client-rest-spring</module>
+    <module>${ projectDescription.modulePrefix }-api-client-subscriber-activemq</module>
   </modules>
 
 </project>

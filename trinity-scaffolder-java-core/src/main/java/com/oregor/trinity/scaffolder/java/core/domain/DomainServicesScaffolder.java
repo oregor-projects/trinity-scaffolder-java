@@ -59,7 +59,7 @@ public class DomainServicesScaffolder extends AbstractScaffolder {
         Paths.get(
             generationPath.toString(),
             projectDescription.getModulePrefix() + "-domain-details",
-            projectDescription.getModulePrefix() + "-domain-services");
+            projectDescription.getModulePrefix() + "-domain-detail-services");
 
     ensureSources(modulePath, projectDescription);
 
@@ -70,7 +70,7 @@ public class DomainServicesScaffolder extends AbstractScaffolder {
 
     freemarkerService.export(
         dataModel,
-        "trinity-scaffolder-java/domain-details/domain-services/pom.xml.ftl",
+        "trinity-scaffolder-java/domain-details/domain-detail-services/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

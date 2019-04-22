@@ -50,8 +50,11 @@ public class ApiClientRestScaffolderTest extends AbstractTrinityScaffolderJavaTe
     verify(freemarkerService)
         .export(
             dataModel(),
-            "trinity-scaffolder-java/api-clients/api-rest/pom.xml.ftl",
+            "trinity-scaffolder-java/api-clients/api-client-rest-spring/pom.xml.ftl",
             Paths.get(
-                generationPath().toString(), "prefix-api-clients", "prefix-api-rest", "pom.xml"));
+                generationPath().toString(),
+                "prefix-api-clients",
+                "prefix-api-client-rest-spring",
+                "pom.xml"));
   }
 }

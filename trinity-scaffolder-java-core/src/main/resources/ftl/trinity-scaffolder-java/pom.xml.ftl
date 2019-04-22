@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
   <modules>
@@ -83,7 +83,7 @@
     <java.version>1.8</java.version>
 
     <!--BUILD-->
-    <oregor-build-tools-java.version>0.0.3</oregor-build-tools-java.version>
+    <oregor-build-tools-java.version>0.0.4</oregor-build-tools-java.version>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
     <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
@@ -129,8 +129,8 @@
     <!--INFLECTOR-->
     <evo-inflector.version>1.2.2</evo-inflector.version>
 
-    <!--OREGOR-->
-    <oregor-ddd4j.version>0.0.2-SNAPSHOT</oregor-ddd4j.version>
+    <!--DDD4J-->
+    <ddd4j.version>0.0.2</ddd4j.version>
   </properties>
 
   <dependencies>
@@ -175,7 +175,7 @@
         <groupId>${ projectDescription.groupId }</groupId>
         <artifactId>${ projectDescription.modulePrefix }-domain</artifactId>
         <#noparse>
-          <version>${project.version}</version>
+        <version>${project.version}</version>
         </#noparse>
       </dependency>
 
@@ -184,7 +184,7 @@
         <groupId>${ projectDescription.groupId }</groupId>
         <artifactId>${ projectDescription.modulePrefix }-aux</artifactId>
         <#noparse>
-          <version>${project.version}</version>
+        <version>${project.version}</version>
         </#noparse>
       </dependency>
 
@@ -204,7 +204,7 @@
       <!--REST SPRING-->
       <dependency>
         <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-api-rest</artifactId>
+        <artifactId>${ projectDescription.modulePrefix }-api-client-rest-spring</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -213,7 +213,7 @@
       <!--SUBSCRIBER ACTIVEMQ-->
       <dependency>
         <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-api-subscriber-activemq</artifactId>
+        <artifactId>${ projectDescription.modulePrefix }-api-client-subscriber-activemq</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -223,12 +223,12 @@
       <!-- DOMAIN DETAILS                                                                        -->
       <!-- ===================================================================================== -->
 
-      <!--PERSISTENCE RDBMS-->
+      <!--REPOSITORY SPRING DATA JPA-->
       <dependency>
         <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-domain-details</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-domain-persistence-rdbms</artifactId>
+        <artifactId>${ projectDescription.modulePrefix }-domain-detail-repository-springdatajpa</artifactId>
         <#noparse>
-          <version>${project.version}</version>
+        <version>${project.version}</version>
         </#noparse>
       </dependency>
 
@@ -239,7 +239,7 @@
       <!--PUBLISHER ACTIVEMQ-->
       <dependency>
         <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-aux-details</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-publisher-activemq</artifactId>
+        <artifactId>${ projectDescription.modulePrefix }-aux-detail-publisher-activemq</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -252,7 +252,7 @@
         <groupId>com.oregor.ddd4j</groupId>
         <artifactId>ddd4j-bom</artifactId>
         <#noparse>
-          <version>${oregor-ddd4j.version}</version>
+        <version>${ddd4j.version}</version>
         </#noparse>
         <type>pom</type>
         <scope>import</scope>
@@ -279,6 +279,11 @@
             <source>${java.version}</source>
             <target>${java.version}</target>
             <encoding>${project.build.sourceEncoding}</encoding>
+            <showWarnings>true</showWarnings>
+            <compilerArgs>
+              <arg>-Xlint:all</arg>
+              <arg>-Werror</arg>
+            </compilerArgs>
           </configuration>
         </plugin>
         <!-- ===================================================================== -->

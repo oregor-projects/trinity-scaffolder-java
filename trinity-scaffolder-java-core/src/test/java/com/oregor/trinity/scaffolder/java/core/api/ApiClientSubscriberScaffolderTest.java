@@ -50,11 +50,11 @@ public class ApiClientSubscriberScaffolderTest extends AbstractTrinityScaffolder
     verify(freemarkerService)
         .export(
             dataModel(),
-            "trinity-scaffolder-java/api-clients/api-subscriber-activemq/pom.xml.ftl",
+            "trinity-scaffolder-java/api-clients/api-client-subscriber-activemq/pom.xml.ftl",
             Paths.get(
                 generationPath().toString(),
                 "prefix-api-clients",
-                "prefix-api-subscriber-activemq",
+                "prefix-api-client-subscriber-activemq",
                 "pom.xml"));
   }
 }

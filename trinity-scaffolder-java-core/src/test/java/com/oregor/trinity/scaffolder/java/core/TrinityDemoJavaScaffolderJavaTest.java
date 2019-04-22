@@ -37,6 +37,7 @@ import org.junit.Test;
 public class TrinityDemoJavaScaffolderJavaTest {
 
   private static final String EXPORT_PATH = "tmp";
+
   private static final String TEST_PATH = "./src/test/resources/trinity-demo-java";
   private static final String PREFIX = "demo";
 

@@ -59,12 +59,12 @@ public class ApiClientSubscriberScaffolder extends AbstractScaffolder {
         Paths.get(
             generationPath.toString(),
             projectDescription.getModulePrefix() + "-api-clients",
-            projectDescription.getModulePrefix() + "-api-subscriber-activemq");
+            projectDescription.getModulePrefix() + "-api-client-subscriber-activemq");
     ensureSources(modulePath, projectDescription);
 
     freemarkerService.export(
         dataModel,
-        "trinity-scaffolder-java/api-clients/api-subscriber-activemq/pom.xml.ftl",
+        "trinity-scaffolder-java/api-clients/api-client-subscriber-activemq/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

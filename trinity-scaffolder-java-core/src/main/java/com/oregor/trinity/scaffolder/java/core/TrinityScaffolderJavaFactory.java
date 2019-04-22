@@ -31,7 +31,7 @@ import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailPublisherScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxScaffolder;
-import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailsPersistenceRdbmsScaffolder;
+import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailsRepositorySpringDataJpaScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainModelScaffolder;
@@ -96,7 +96,7 @@ public class TrinityScaffolderJavaFactory {
             new DomainModelScaffolder(freemarkerService),
             new DomainDetailsScaffolder(freemarkerService),
             new DomainServicesScaffolder(freemarkerService),
-            new DomainDetailsPersistenceRdbmsScaffolder(freemarkerService));
+            new DomainDetailsRepositorySpringDataJpaScaffolder(freemarkerService));
   }
 
   // ===============================================================================================

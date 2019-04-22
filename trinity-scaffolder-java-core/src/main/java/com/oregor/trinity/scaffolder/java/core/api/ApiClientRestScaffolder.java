@@ -59,13 +59,13 @@ public class ApiClientRestScaffolder extends AbstractScaffolder {
         Paths.get(
             generationPath.toString(),
             projectDescription.getModulePrefix() + "-api-clients",
-            projectDescription.getModulePrefix() + "-api-rest");
+            projectDescription.getModulePrefix() + "-api-client-rest-spring");
 
     ensureSources(modulePath, projectDescription);
 
     freemarkerService.export(
         dataModel,
-        "trinity-scaffolder-java/api-clients/api-rest/pom.xml.ftl",
+        "trinity-scaffolder-java/api-clients/api-client-rest-spring/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

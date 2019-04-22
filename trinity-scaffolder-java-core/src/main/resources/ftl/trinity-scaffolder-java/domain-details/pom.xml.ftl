@@ -14,8 +14,8 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>${ projectDescription.modulePrefix }-domain-persistence-rdbms</module>
-    <module>${ projectDescription.modulePrefix }-domain-services</module>
+    <module>${ projectDescription.modulePrefix }-domain-detail-repository-springdatajpa</module>
+    <module>${ projectDescription.modulePrefix }-domain-detail-services</module>
   </modules>
 
 </project>

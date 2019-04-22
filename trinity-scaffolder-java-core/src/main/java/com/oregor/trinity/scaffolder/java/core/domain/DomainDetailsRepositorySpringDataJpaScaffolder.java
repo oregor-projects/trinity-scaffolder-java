@@ -27,23 +27,19 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
-/**
- * The type secondary adapters scaffolder.
- *
- * @author Christos Tsakostas
- */
-public class DomainDetailsPersistenceRdbmsScaffolder extends AbstractScaffolder {
+/** The type Domain details repository spring data jpa scaffolder. */
+public class DomainDetailsRepositorySpringDataJpaScaffolder extends AbstractScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
   /**
-   * Instantiates a new secondary adapter rdbms scaffolder.
+   * Instantiates a new Domain details repository spring data jpa scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
-  public DomainDetailsPersistenceRdbmsScaffolder(FreemarkerService freemarkerService) {
+  public DomainDetailsRepositorySpringDataJpaScaffolder(FreemarkerService freemarkerService) {
     super(freemarkerService);
   }
 
@@ -59,12 +55,12 @@ public class DomainDetailsPersistenceRdbmsScaffolder extends AbstractScaffolder 
         Paths.get(
             generationPath.toString(),
             projectDescription.getModulePrefix() + "-domain-details",
-            projectDescription.getModulePrefix() + "-domain-persistence-rdbms");
+            projectDescription.getModulePrefix() + "-domain-detail-repository-springdatajpa");
     ensureSources(modulePath, projectDescription);
 
     freemarkerService.export(
         dataModel,
-        "trinity-scaffolder-java/domain-details/domain-persistence-rdbms/pom.xml.ftl",
+        "trinity-scaffolder-java/domain-details/domain-detail-repository-springdatajpa/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

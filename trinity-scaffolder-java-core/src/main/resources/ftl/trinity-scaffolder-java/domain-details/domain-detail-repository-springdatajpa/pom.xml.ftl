@@ -10,7 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-domain-details</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-domain-persistence-rdbms</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }-domain-detail-repository-springdatajpa</artifactId>
 
   <dependencies>
     <!--SPRING BOOT JPA-->
@@ -44,8 +44,8 @@
 
     <!--DDD4J-->
     <dependency>
-      <groupId>com.oregor.ddd4j</groupId>
-      <artifactId>ddd4j-domain-detail-persistence-springdatajpa</artifactId>
+      <groupId>com.oregor.ddd4j.ddd4j-domain-details</groupId>
+      <artifactId>ddd4j-domain-detail-repository-springdatajpa</artifactId>
     </dependency>
 
     <!--DOMAIN-->
@@ -58,6 +58,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

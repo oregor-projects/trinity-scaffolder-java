@@ -4,19 +4,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.modulePrefix }-api-clients</artifactId>
+    <artifactId>${ projectDescription.modulePrefix }-domain-details</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-api-subscriber-activemq</artifactId>
+  <groupId>${ projectDescription.groupId }</groupId>
+  <artifactId>${ projectDescription.modulePrefix }-domain-detail-services</artifactId>
 
   <dependencies>
-    <!--API-->
+    <!--SPRING STEREOTYPE-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+    </dependency>
+
+    <!--DOMAIN-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api</artifactId>
+      <artifactId>${ projectDescription.modulePrefix }-domain</artifactId>
     </dependency>
 
     <!--TEST-->

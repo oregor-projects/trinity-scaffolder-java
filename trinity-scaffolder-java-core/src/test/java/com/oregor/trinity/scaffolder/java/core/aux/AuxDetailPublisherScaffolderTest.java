@@ -50,11 +50,11 @@ public class AuxDetailPublisherScaffolderTest extends AbstractTrinityScaffolderJ
     verify(freemarkerService)
         .export(
             dataModel(),
-            "trinity-scaffolder-java/aux-details/publisher-activemq/pom.xml.ftl",
+            "trinity-scaffolder-java/aux-details/aux-detail-publisher-activemq/pom.xml.ftl",
             Paths.get(
                 generationPath().toString(),
                 "prefix-aux-details",
-                "prefix-publisher-activemq",
+                "prefix-aux-detail-publisher-activemq",
                 "pom.xml"));
   }
 }

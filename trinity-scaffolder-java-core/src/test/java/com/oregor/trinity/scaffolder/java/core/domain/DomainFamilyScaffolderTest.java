@@ -37,7 +37,8 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
   private DomainModelScaffolder domainModelScaffolder;
   private DomainDetailsScaffolder domainDetailsScaffolder;
   private DomainServicesScaffolder domainServicesScaffolder;
-  private DomainDetailsPersistenceRdbmsScaffolder domainDetailsPersistenceRdbmsScaffolder;
+  private DomainDetailsRepositorySpringDataJpaScaffolder
+      domainDetailsRepositorySpringDataJpaScaffolder;
   private DomainFamilyScaffolder domainFamilyScaffolder;
 
   /** Sets up. */
@@ -46,7 +47,8 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
     domainModelScaffolder = mock(DomainModelScaffolder.class);
     domainDetailsScaffolder = mock(DomainDetailsScaffolder.class);
     domainServicesScaffolder = mock(DomainServicesScaffolder.class);
-    domainDetailsPersistenceRdbmsScaffolder = mock(DomainDetailsPersistenceRdbmsScaffolder.class);
+    domainDetailsRepositorySpringDataJpaScaffolder =
+        mock(DomainDetailsRepositorySpringDataJpaScaffolder.class);
 
     domainFamilyScaffolder =
         new DomainFamilyScaffolder(
@@ -54,7 +56,7 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
             domainModelScaffolder,
             domainDetailsScaffolder,
             domainServicesScaffolder,
-            domainDetailsPersistenceRdbmsScaffolder);
+            domainDetailsRepositorySpringDataJpaScaffolder);
   }
 
   /** Should scaffold successfully. */
@@ -65,7 +67,7 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
     verify(domainModelScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
     verify(domainDetailsScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
     verify(domainServicesScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
-    verify(domainDetailsPersistenceRdbmsScaffolder)
+    verify(domainDetailsRepositorySpringDataJpaScaffolder)
         .scaffold(generationPath(), projectDescription(), dataModel());
   }
 }

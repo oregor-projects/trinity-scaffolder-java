@@ -50,11 +50,11 @@ public class DomainServicesScaffolderTest extends AbstractTrinityScaffolderJavaT
     verify(freemarkerService)
         .export(
             dataModel(),
-            "trinity-scaffolder-java/domain-details/domain-services/pom.xml.ftl",
+            "trinity-scaffolder-java/domain-details/domain-detail-services/pom.xml.ftl",
             Paths.get(
                 generationPath().toString(),
                 "prefix-domain-details",
-                "prefix-domain-services",
+                "prefix-domain-detail-services",
                 "pom.xml"));
   }
 }

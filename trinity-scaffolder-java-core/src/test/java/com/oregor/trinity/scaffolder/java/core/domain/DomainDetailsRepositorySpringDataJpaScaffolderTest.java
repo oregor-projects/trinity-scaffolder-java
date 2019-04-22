@@ -28,35 +28,37 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The type Domain details persistence rdbms scaffolder test.
+ * The type Domain details repository rdbms scaffolder test.
  *
  * @author Christos Tsakostas
  */
-public class DomainDetailsPersistenceRdbmsScaffolderTest extends AbstractTrinityScaffolderJavaTest {
+public class DomainDetailsRepositorySpringDataJpaScaffolderTest
+    extends AbstractTrinityScaffolderJavaTest {
 
-  private DomainDetailsPersistenceRdbmsScaffolder domainDetailsPersistenceRdbmsScaffolder;
+  private DomainDetailsRepositorySpringDataJpaScaffolder
+      domainDetailsRepositorySpringDataJpaScaffolder;
 
   /** Sets up. */
   @Before
   public void setUp() {
-    domainDetailsPersistenceRdbmsScaffolder =
-        new DomainDetailsPersistenceRdbmsScaffolder(freemarkerService);
+    domainDetailsRepositorySpringDataJpaScaffolder =
+        new DomainDetailsRepositorySpringDataJpaScaffolder(freemarkerService);
   }
 
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    domainDetailsPersistenceRdbmsScaffolder.scaffold(
+    domainDetailsRepositorySpringDataJpaScaffolder.scaffold(
         generationPath(), projectDescription(), dataModel());
 
     verify(freemarkerService)
         .export(
             dataModel(),
-            "trinity-scaffolder-java/domain-details/domain-persistence-rdbms/pom.xml.ftl",
+            "trinity-scaffolder-java/domain-details/domain-detail-repository-springdatajpa/pom.xml.ftl",
             Paths.get(
                 generationPath().toString(),
                 "prefix-domain-details",
-                "prefix-domain-persistence-rdbms",
+                "prefix-domain-detail-repository-springdatajpa",
                 "pom.xml"));
   }
 }

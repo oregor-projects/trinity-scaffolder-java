@@ -59,12 +59,12 @@ public class AuxDetailPublisherScaffolder extends AbstractScaffolder {
         Paths.get(
             generationPath.toString(),
             projectDescription.getModulePrefix() + "-aux-details",
-            projectDescription.getModulePrefix() + "-publisher-activemq");
+            projectDescription.getModulePrefix() + "-aux-detail-publisher-activemq");
     ensureSources(modulePath, projectDescription);
 
     freemarkerService.export(
         dataModel,
-        "trinity-scaffolder-java/aux-details/publisher-activemq/pom.xml.ftl",
+        "trinity-scaffolder-java/aux-details/aux-detail-publisher-activemq/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }
