@@ -29,10 +29,10 @@
       <artifactId>commons-io</artifactId>
     </dependency>
 
-    <!--DDD4J-->
+    <!--TRINITY4J-->
     <dependency>
-      <groupId>com.oregor.ddd4j</groupId>
-      <artifactId>ddd4j-api-client-rest-spring</artifactId>
+      <groupId>com.oregor.trinity4j</groupId>
+      <artifactId>trinity4j-api-client-rest-spring</artifactId>
     </dependency>
 
     <!--API-->

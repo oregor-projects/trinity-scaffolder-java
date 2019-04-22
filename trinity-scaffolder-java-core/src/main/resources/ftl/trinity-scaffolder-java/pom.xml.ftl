@@ -129,8 +129,8 @@
     <!--INFLECTOR-->
     <evo-inflector.version>1.2.2</evo-inflector.version>
 
-    <!--DDD4J-->
-    <ddd4j.version>0.0.2</ddd4j.version>
+    <!--TRINITY4J-->
+    <trinity4j.version>0.0.2-SNAPSHOT</trinity4j.version>
   </properties>
 
   <dependencies>
@@ -249,10 +249,10 @@
       <!-- OREGOR                                                                                -->
       <!-- ===================================================================================== -->
       <dependency>
-        <groupId>com.oregor.ddd4j</groupId>
-        <artifactId>ddd4j-bom</artifactId>
+        <groupId>com.oregor.trinity4j</groupId>
+        <artifactId>trinity4j-bom</artifactId>
         <#noparse>
-        <version>${ddd4j.version}</version>
+        <version>${trinity4j.version}</version>
         </#noparse>
         <type>pom</type>
         <scope>import</scope>
