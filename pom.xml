@@ -14,7 +14,7 @@
   </parent>
   <groupId>com.oregor.trinity.scaffolder.java</groupId>
   <artifactId>trinity-scaffolder-java</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.4</version>
   <name>trinity-scaffolder-java</name>
   <description>Scaffolder for Java Applications using the Trinity Architecture</description>
   <url>https://www.oregor.com</url>
@@ -52,7 +52,7 @@
     <url>
       http://github.com/oregor-projects/trinity-scaffolder-java/tree/master
     </url>
-    <tag>HEAD</tag>
+    <tag>v0.0.4</tag>
   </scm>
 
   <distributionManagement>
