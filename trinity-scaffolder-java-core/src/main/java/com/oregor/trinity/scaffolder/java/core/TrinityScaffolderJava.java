@@ -2,7 +2,7 @@
  * ==========================LICENSE_START=================================
  * Trinity Scaffolder for Java Applications
  * ========================================================================
- * Copyright (C) 2017 - 2019 OREGOR LTD
+ * Copyright (C) 2019 Christos Tsakostas, OREGOR LTD
  * ========================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import com.oregor.trinity.scaffolder.java.core.api.ApiFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.application.AppScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainFamilyScaffolder;
+import com.oregor.trinity.scaffolder.java.core.extra.ExtraModuleScaffolder;
 import com.oregor.trinity.scaffolder.java.core.project.ProjectFamilyScaffolder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -45,6 +46,7 @@ public class TrinityScaffolderJava {
   private final ApiFamilyScaffolder apiFamilyScaffolder;
   private final AuxFamilyScaffolder auxFamilyScaffolder;
   private final DomainFamilyScaffolder domainFamilyScaffolder;
+  private final ExtraModuleScaffolder extraModuleScaffolder;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -58,18 +60,21 @@ public class TrinityScaffolderJava {
    * @param apiFamilyScaffolder the api family scaffolder
    * @param auxFamilyScaffolder the aux family scaffolder
    * @param domainFamilyScaffolder the domain family scaffolder
+   * @param extraModuleScaffolder the extra module scaffolder
    */
   public TrinityScaffolderJava(
       ProjectFamilyScaffolder projectFamilyScaffolder,
       AppScaffolder appScaffolder,
       ApiFamilyScaffolder apiFamilyScaffolder,
       AuxFamilyScaffolder auxFamilyScaffolder,
-      DomainFamilyScaffolder domainFamilyScaffolder) {
+      DomainFamilyScaffolder domainFamilyScaffolder,
+      ExtraModuleScaffolder extraModuleScaffolder) {
     this.projectFamilyScaffolder = projectFamilyScaffolder;
     this.appScaffolder = appScaffolder;
     this.apiFamilyScaffolder = apiFamilyScaffolder;
     this.auxFamilyScaffolder = auxFamilyScaffolder;
     this.domainFamilyScaffolder = domainFamilyScaffolder;
+    this.extraModuleScaffolder = extraModuleScaffolder;
   }
 
   // ===============================================================================================
@@ -94,5 +99,6 @@ public class TrinityScaffolderJava {
     apiFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
     auxFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
     domainFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
+    extraModuleScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
   }
 }

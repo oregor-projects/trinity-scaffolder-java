@@ -18,33 +18,27 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java.core.project;
+package com.oregor.trinity.scaffolder.java.core.extra;
 
 import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
-import com.oregor.trinity.scaffolder.java.path.PathService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
-/**
- * The type Git ignore scaffolder.
- *
- * @author Christos Tsakostas
- */
-public class GitIgnoreScaffolder extends AbstractScaffolder {
+public class ExtraModuleScaffolder extends AbstractScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
   /**
-   * Instantiates a new Git ignore scaffolder.
+   * Instantiates a new Extra module scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
-  public GitIgnoreScaffolder(FreemarkerService freemarkerService) {
+  public ExtraModuleScaffolder(FreemarkerService freemarkerService) {
     super(freemarkerService);
   }
 
@@ -55,11 +49,31 @@ public class GitIgnoreScaffolder extends AbstractScaffolder {
   @Override
   public void scaffold(
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
-    PathService.ensurePath(generationPath);
+
+    projectDescription
+        .getExtraModules()
+        .forEach(module -> scaffoldModule(generationPath, projectDescription, dataModel, module));
+  }
+
+  // ===============================================================================================
+  // PRIVATE
+  // ===============================================================================================
+
+  private void scaffoldModule(
+      Path generationPath,
+      ProjectDescription projectDescription,
+      Map<String, Object> dataModel,
+      String module) {
+    Path modulePath =
+        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "-" + module);
+
+    ensureSources(modulePath, projectDescription);
+
+    dataModel.put("module", module);
 
     freemarkerService.export(
         dataModel,
-        "trinity-scaffolder-java/.gitignore.ftl",
-        Paths.get(generationPath.toString(), ".gitignore"));
+        "trinity-scaffolder-java/extra-module/pom.xml.ftl",
+        Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

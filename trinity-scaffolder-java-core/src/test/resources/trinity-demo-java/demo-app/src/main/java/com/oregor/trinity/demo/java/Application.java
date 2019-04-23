@@ -2,7 +2,7 @@
  * ==========================LICENSE_START=================================
  * Trinity Scaffolder for Java Applications
  * ========================================================================
- * Copyright (C) 2017 - 2019 OREGOR LTD
+ * Copyright (C) 2019 Christos Tsakostas, OREGOR LTD
  * ========================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
  * limitations under the License.
  * ===========================LICENSE_END==================================
  */
+
 
 package com.oregor.trinity.demo.java;
 

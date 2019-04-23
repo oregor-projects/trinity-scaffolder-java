@@ -130,7 +130,7 @@
     <evo-inflector.version>1.2.2</evo-inflector.version>
 
     <!--TRINITY4J-->
-    <trinity4j.version>0.0.2-SNAPSHOT</trinity4j.version>
+    <trinity4j.version>0.0.2</trinity4j.version>
   </properties>
 
   <dependencies>

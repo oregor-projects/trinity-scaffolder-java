@@ -13,6 +13,7 @@
     <module>demo-domain-details</module>
     <module>demo-aux</module>
     <module>demo-aux-details</module>
+    <module>demo-tools</module>
   </modules>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -127,7 +128,7 @@
     <evo-inflector.version>1.2.2</evo-inflector.version>
 
     <!--TRINITY4J-->
-    <trinity4j.version>0.0.2-SNAPSHOT</trinity4j.version>
+    <trinity4j.version>0.0.2</trinity4j.version>
   </properties>
 
   <dependencies>

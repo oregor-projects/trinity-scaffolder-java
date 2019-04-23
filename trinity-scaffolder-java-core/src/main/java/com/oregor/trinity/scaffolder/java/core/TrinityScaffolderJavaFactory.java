@@ -2,7 +2,7 @@
  * ==========================LICENSE_START=================================
  * Trinity Scaffolder for Java Applications
  * ========================================================================
- * Copyright (C) 2017 - 2019 OREGOR LTD
+ * Copyright (C) 2019 Christos Tsakostas, OREGOR LTD
  * ========================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainModelScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainServicesScaffolder;
+import com.oregor.trinity.scaffolder.java.core.extra.ExtraModuleScaffolder;
 import com.oregor.trinity.scaffolder.java.core.project.GitIgnoreScaffolder;
 import com.oregor.trinity.scaffolder.java.core.project.MavenParentPomScaffolder;
 import com.oregor.trinity.scaffolder.java.core.project.MavenSettingsScaffolder;
@@ -59,6 +60,7 @@ public class TrinityScaffolderJavaFactory {
   private static ApiFamilyScaffolder apiFamilyScaffolder;
   private static AuxFamilyScaffolder auxFamilyScaffolder;
   private static DomainFamilyScaffolder domainFamilyScaffolder;
+  private static ExtraModuleScaffolder extraModuleScaffolder;
 
   static {
     FreemarkerService freemarkerService =
@@ -97,6 +99,8 @@ public class TrinityScaffolderJavaFactory {
             new DomainDetailsScaffolder(freemarkerService),
             new DomainServicesScaffolder(freemarkerService),
             new DomainDetailsRepositorySpringDataJpaScaffolder(freemarkerService));
+
+    extraModuleScaffolder = new ExtraModuleScaffolder(freemarkerService);
   }
 
   // ===============================================================================================
@@ -122,6 +126,7 @@ public class TrinityScaffolderJavaFactory {
         appScaffolder,
         apiFamilyScaffolder,
         auxFamilyScaffolder,
-        domainFamilyScaffolder);
+        domainFamilyScaffolder,
+        extraModuleScaffolder);
   }
 }

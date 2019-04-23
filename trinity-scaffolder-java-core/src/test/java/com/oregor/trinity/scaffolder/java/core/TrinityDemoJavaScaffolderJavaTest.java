@@ -2,7 +2,7 @@
  * ==========================LICENSE_START=================================
  * Trinity Scaffolder for Java Applications
  * ========================================================================
- * Copyright (C) 2017 - 2019 OREGOR LTD
+ * Copyright (C) 2019 Christos Tsakostas, OREGOR LTD
  * ========================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ import static org.assertj.core.api.Assertions.contentOf;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
@@ -105,6 +107,7 @@ public class TrinityDemoJavaScaffolderJavaTest {
         .setScmDeveloperConnection("scm:git:git@github.com:oregor-projects/trinity-demo-java.git")
         .setScmUrl("http://github.com/oregor-projects/trinity-demo-java/tree/master")
         .setDistributionProfile("ossrh-oregor")
+        .setExtraModules(new LinkedHashSet<>(Arrays.asList("tools")))
         .createProjectDescription();
   }
 }

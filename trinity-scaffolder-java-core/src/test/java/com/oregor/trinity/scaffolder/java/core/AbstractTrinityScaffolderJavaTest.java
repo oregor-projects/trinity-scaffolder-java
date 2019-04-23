@@ -2,7 +2,7 @@
  * ==========================LICENSE_START=================================
  * Trinity Scaffolder for Java Applications
  * ========================================================================
- * Copyright (C) 2017 - 2019 OREGOR LTD
+ * Copyright (C) 2019 Christos Tsakostas, OREGOR LTD
  * ========================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ import static org.mockito.Mockito.mock;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 
 /**
@@ -75,6 +77,7 @@ public abstract class AbstractTrinityScaffolderJavaTest {
         .setScmDeveloperConnection("")
         .setScmUrl("")
         .setDistributionProfile("oss")
+        .setExtraModules(new LinkedHashSet<>(Arrays.asList("tools")))
         .createProjectDescription();
   }
 
@@ -85,6 +88,7 @@ public abstract class AbstractTrinityScaffolderJavaTest {
    */
   protected Map<String, Object> dataModel() {
     Map<String, Object> map = new HashMap<>();
+    map.put("module", "tools");
     return map;
   }
 }

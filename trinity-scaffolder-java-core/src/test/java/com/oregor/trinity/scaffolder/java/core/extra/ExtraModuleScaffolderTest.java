@@ -18,7 +18,7 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java.core.api;
+package com.oregor.trinity.scaffolder.java.core.extra;
 
 import static org.mockito.Mockito.verify;
 
@@ -27,30 +27,25 @@ import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * The type Api scaffolder test.
- *
- * @author Christos Tsakostas
- */
-public class ApiScaffolderTest extends AbstractTrinityScaffolderJavaTest {
+public class ExtraModuleScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
-  private ApiScaffolder apiScaffolder;
+  private ExtraModuleScaffolder extraModuleScaffolder;
 
   /** Sets up. */
   @Before
   public void setUp() {
-    apiScaffolder = new ApiScaffolder(freemarkerService);
+    extraModuleScaffolder = new ExtraModuleScaffolder(freemarkerService);
   }
 
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    apiScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+    extraModuleScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
     verify(freemarkerService)
         .export(
             dataModel(),
-            "trinity-scaffolder-java/api/pom.xml.ftl",
-            Paths.get(generationPath().toString(), "prefix-api", "pom.xml"));
+            "trinity-scaffolder-java/extra-module/pom.xml.ftl",
+            Paths.get(generationPath().toString(), "prefix-tools", "pom.xml"));
   }
 }
