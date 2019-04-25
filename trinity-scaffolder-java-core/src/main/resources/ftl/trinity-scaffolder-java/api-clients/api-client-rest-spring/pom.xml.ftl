@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.modulePrefix }-api-clients</artifactId>
+    <artifactId>${ projectDescription.modulePrefix }api-clients</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-api-client-rest-spring</artifactId>
+  <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
+  <artifactId>${ projectDescription.modulePrefix }api-client-rest-spring</artifactId>
 
   <dependencies>
     <!--SPRING BOOT WEB-->
@@ -50,7 +50,7 @@
     <!--API-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api</artifactId>
+      <artifactId>${ projectDescription.modulePrefix }api</artifactId>
     </dependency>
 
     <!--TEST-->

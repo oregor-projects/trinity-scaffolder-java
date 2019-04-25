@@ -10,7 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-api</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }api</artifactId>
 
   <dependencies>
     <!--TRINITY4J-->

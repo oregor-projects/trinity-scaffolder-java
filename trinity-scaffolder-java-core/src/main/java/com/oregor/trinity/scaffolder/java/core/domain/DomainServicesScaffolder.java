@@ -58,8 +58,8 @@ public class DomainServicesScaffolder extends AbstractScaffolder {
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            projectDescription.getModulePrefix() + "-domain-details",
-            projectDescription.getModulePrefix() + "-domain-detail-services");
+            projectDescription.getModulePrefix() + "domain-details",
+            projectDescription.getModulePrefix() + "domain-detail-services");
 
     ensureSources(modulePath, projectDescription);
 

@@ -30,8 +30,11 @@ import java.util.Set;
  */
 public class ProjectDescription {
 
+  // ===============================================================================================
+  // STATE
+  // ===============================================================================================
+
   private String context;
-  private String tablePrefix;
   private String groupId;
   private String artifactId;
   private String modulePrefix;
@@ -58,7 +61,6 @@ public class ProjectDescription {
    * Instantiates a new Project description.
    *
    * @param context the context
-   * @param tablePrefix the table prefix
    * @param groupId the group id
    * @param artifactId the artifact id
    * @param modulePrefix the module prefix
@@ -79,7 +81,6 @@ public class ProjectDescription {
    */
   ProjectDescription(
       String context,
-      String tablePrefix,
       String groupId,
       String artifactId,
       String modulePrefix,
@@ -97,25 +98,24 @@ public class ProjectDescription {
       String scmUrl,
       String distributionProfile,
       Set<String> extraModules) {
-    this.context = context;
-    this.tablePrefix = tablePrefix;
-    this.groupId = groupId;
-    this.artifactId = artifactId;
-    this.modulePrefix = modulePrefix;
-    this.version = version;
-    this.name = name;
-    this.description = description;
-    this.url = url;
-    this.inceptionYear = inceptionYear;
-    this.organizationName = organizationName;
-    this.organizationUrl = organizationUrl;
-    this.licenseName = licenseName;
-    this.licenseUrl = licenseUrl;
-    this.scmConnection = scmConnection;
-    this.scmDeveloperConnection = scmDeveloperConnection;
-    this.scmUrl = scmUrl;
-    this.distributionProfile = distributionProfile;
-    this.extraModules = extraModules;
+    setContext(context);
+    setGroupId(groupId);
+    setArtifactId(artifactId);
+    setModulePrefix(modulePrefix);
+    setVersion(version);
+    setName(name);
+    setDescription(description);
+    setUrl(url);
+    setInceptionYear(inceptionYear);
+    setOrganizationName(organizationName);
+    setOrganizationUrl(organizationUrl);
+    setLicenseName(licenseName);
+    setLicenseUrl(licenseUrl);
+    setScmConnection(scmConnection);
+    setScmDeveloperConnection(scmDeveloperConnection);
+    setScmUrl(scmUrl);
+    setDistributionProfile(distributionProfile);
+    setExtraModules(extraModules);
   }
 
   // ===============================================================================================
@@ -129,15 +129,6 @@ public class ProjectDescription {
    */
   public String getContext() {
     return context;
-  }
-
-  /**
-   * Gets table prefix.
-   *
-   * @return the table prefix
-   */
-  public String getTablePrefix() {
-    return tablePrefix;
   }
 
   /**
@@ -302,17 +293,8 @@ public class ProjectDescription {
    *
    * @param context the context
    */
-  public void setContext(String context) {
+  private void setContext(String context) {
     this.context = context;
-  }
-
-  /**
-   * Sets table prefix.
-   *
-   * @param tablePrefix the table prefix
-   */
-  public void setTablePrefix(String tablePrefix) {
-    this.tablePrefix = tablePrefix;
   }
 
   /**
@@ -320,7 +302,7 @@ public class ProjectDescription {
    *
    * @param groupId the group id
    */
-  public void setGroupId(String groupId) {
+  private void setGroupId(String groupId) {
     this.groupId = groupId;
   }
 
@@ -329,7 +311,7 @@ public class ProjectDescription {
    *
    * @param artifactId the artifact id
    */
-  public void setArtifactId(String artifactId) {
+  private void setArtifactId(String artifactId) {
     this.artifactId = artifactId;
   }
 
@@ -338,8 +320,12 @@ public class ProjectDescription {
    *
    * @param modulePrefix the module prefix
    */
-  public void setModulePrefix(String modulePrefix) {
-    this.modulePrefix = modulePrefix;
+  private void setModulePrefix(String modulePrefix) {
+    if (!modulePrefix.endsWith("-")) {
+      this.modulePrefix = modulePrefix + "-";
+    } else {
+      this.modulePrefix = modulePrefix;
+    }
   }
 
   /**
@@ -347,7 +333,7 @@ public class ProjectDescription {
    *
    * @param version the version
    */
-  public void setVersion(String version) {
+  private void setVersion(String version) {
     this.version = version;
   }
 
@@ -356,7 +342,7 @@ public class ProjectDescription {
    *
    * @param name the name
    */
-  public void setName(String name) {
+  private void setName(String name) {
     this.name = name;
   }
 
@@ -365,7 +351,7 @@ public class ProjectDescription {
    *
    * @param description the description
    */
-  public void setDescription(String description) {
+  private void setDescription(String description) {
     this.description = description;
   }
 
@@ -374,7 +360,7 @@ public class ProjectDescription {
    *
    * @param url the url
    */
-  public void setUrl(String url) {
+  private void setUrl(String url) {
     this.url = url;
   }
 
@@ -383,7 +369,7 @@ public class ProjectDescription {
    *
    * @param inceptionYear the inception year
    */
-  public void setInceptionYear(String inceptionYear) {
+  private void setInceptionYear(String inceptionYear) {
     this.inceptionYear = inceptionYear;
   }
 
@@ -392,7 +378,7 @@ public class ProjectDescription {
    *
    * @param organizationName the organization name
    */
-  public void setOrganizationName(String organizationName) {
+  private void setOrganizationName(String organizationName) {
     this.organizationName = organizationName;
   }
 
@@ -401,7 +387,7 @@ public class ProjectDescription {
    *
    * @param organizationUrl the organization url
    */
-  public void setOrganizationUrl(String organizationUrl) {
+  private void setOrganizationUrl(String organizationUrl) {
     this.organizationUrl = organizationUrl;
   }
 
@@ -410,7 +396,7 @@ public class ProjectDescription {
    *
    * @param licenseName the license name
    */
-  public void setLicenseName(String licenseName) {
+  private void setLicenseName(String licenseName) {
     this.licenseName = licenseName;
   }
 
@@ -419,7 +405,7 @@ public class ProjectDescription {
    *
    * @param licenseUrl the license url
    */
-  public void setLicenseUrl(String licenseUrl) {
+  private void setLicenseUrl(String licenseUrl) {
     this.licenseUrl = licenseUrl;
   }
 
@@ -428,7 +414,7 @@ public class ProjectDescription {
    *
    * @param scmConnection the scm connection
    */
-  public void setScmConnection(String scmConnection) {
+  private void setScmConnection(String scmConnection) {
     this.scmConnection = scmConnection;
   }
 
@@ -437,7 +423,7 @@ public class ProjectDescription {
    *
    * @param scmDeveloperConnection the scm developer connection
    */
-  public void setScmDeveloperConnection(String scmDeveloperConnection) {
+  private void setScmDeveloperConnection(String scmDeveloperConnection) {
     this.scmDeveloperConnection = scmDeveloperConnection;
   }
 
@@ -446,7 +432,7 @@ public class ProjectDescription {
    *
    * @param scmUrl the scm url
    */
-  public void setScmUrl(String scmUrl) {
+  private void setScmUrl(String scmUrl) {
     this.scmUrl = scmUrl;
   }
 
@@ -455,7 +441,7 @@ public class ProjectDescription {
    *
    * @param distributionProfile the distribution profile
    */
-  public void setDistributionProfile(String distributionProfile) {
+  private void setDistributionProfile(String distributionProfile) {
     this.distributionProfile = distributionProfile;
   }
 
@@ -464,7 +450,7 @@ public class ProjectDescription {
    *
    * @param extraModules the extra modules
    */
-  public void setExtraModules(Set<String> extraModules) {
+  private void setExtraModules(Set<String> extraModules) {
     this.extraModules = extraModules;
   }
 
@@ -482,7 +468,6 @@ public class ProjectDescription {
     }
     ProjectDescription that = (ProjectDescription) o;
     return Objects.equals(context, that.context)
-        && Objects.equals(tablePrefix, that.tablePrefix)
         && Objects.equals(groupId, that.groupId)
         && Objects.equals(artifactId, that.artifactId)
         && Objects.equals(modulePrefix, that.modulePrefix)
@@ -506,7 +491,6 @@ public class ProjectDescription {
   public int hashCode() {
     return Objects.hash(
         context,
-        tablePrefix,
         groupId,
         artifactId,
         modulePrefix,

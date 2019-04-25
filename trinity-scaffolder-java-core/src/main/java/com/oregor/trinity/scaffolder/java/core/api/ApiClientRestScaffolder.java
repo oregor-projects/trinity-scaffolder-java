@@ -58,8 +58,8 @@ public class ApiClientRestScaffolder extends AbstractScaffolder {
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            projectDescription.getModulePrefix() + "-api-clients",
-            projectDescription.getModulePrefix() + "-api-client-rest-spring");
+            projectDescription.getModulePrefix() + "api-clients",
+            projectDescription.getModulePrefix() + "api-client-rest-spring");
 
     ensureSources(modulePath, projectDescription);
 

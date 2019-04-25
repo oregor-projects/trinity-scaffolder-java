@@ -16,10 +16,17 @@
       <groupId>org.slf4j</groupId>
       <artifactId>jul-to-slf4j</artifactId>
     </dependency>
+
     <!--LOGBACK-->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
+    </dependency>
+
+    <!--TRINITY-SCAFFOLDER-JAVA-CORE-->
+    <dependency>
+      <groupId>com.oregor.trinity.scaffolder.java</groupId>
+      <artifactId>trinity-scaffolder-java-core</artifactId>
     </dependency>
 
     <!--TEST-->

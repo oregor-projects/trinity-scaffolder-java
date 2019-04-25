@@ -10,12 +10,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-domain-details</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }domain-details</artifactId>
   <packaging>pom</packaging>
 
   <modules>
-    <module>${ projectDescription.modulePrefix }-domain-detail-repository-springdatajpa</module>
-    <module>${ projectDescription.modulePrefix }-domain-detail-services</module>
+    <module>${ projectDescription.modulePrefix }domain-detail-repository-springdatajpa</module>
+    <module>${ projectDescription.modulePrefix }domain-detail-services</module>
   </modules>
 
 </project>

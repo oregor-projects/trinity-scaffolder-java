@@ -10,12 +10,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-api-clients</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }api-clients</artifactId>
   <packaging>pom</packaging>
 
   <modules>
-    <module>${ projectDescription.modulePrefix }-api-client-rest-spring</module>
-    <module>${ projectDescription.modulePrefix }-api-client-subscriber-activemq</module>
+    <module>${ projectDescription.modulePrefix }api-client-rest-spring</module>
+    <module>${ projectDescription.modulePrefix }api-client-subscriber-activemq</module>
   </modules>
 
 </project>

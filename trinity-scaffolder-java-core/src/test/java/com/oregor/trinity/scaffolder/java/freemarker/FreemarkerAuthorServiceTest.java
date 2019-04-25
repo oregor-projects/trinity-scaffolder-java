@@ -21,14 +21,29 @@
 package com.oregor.trinity.scaffolder.java.freemarker;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import org.junit.Test;
 
 /** @author Christos Tsakostas */
 public class FreemarkerAuthorServiceTest {
 
   @Test
-  public void getAuthor() {
+  public void shouldFailToInstantiate() throws NoSuchMethodException {
+    Constructor<FreemarkerAuthorService> constructor =
+        FreemarkerAuthorService.class.getDeclaredConstructor();
+    constructor.setAccessible(true);
+    assertThatThrownBy(constructor::newInstance).isInstanceOf(InvocationTargetException.class);
+  }
+
+  @Test
+  public void shouldGetAndSetAuthor() {
     assertThat(FreemarkerAuthorService.getAuthor()).isEqualTo("Trinity Scaffolder");
+
+    FreemarkerAuthorService.setAuthor("some author");
+
+    assertThat(FreemarkerAuthorService.getAuthor()).isEqualTo("some author");
   }
 }

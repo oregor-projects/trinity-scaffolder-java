@@ -24,7 +24,7 @@ set -e
 ./mvnw fmt:format
 
 # Add profile "validate-license" in the line below to validate license information.
-./mvnw clean install -P validate-license,validate-code-format,validate-code-style,validate-code-bugs,validate-code \
+./mvnw clean install -P validate-license,validate-code-format,validate-code-style,validate-code-bugs,validate-code,docs \
  -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 ./mvnw test -B

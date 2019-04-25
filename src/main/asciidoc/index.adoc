@@ -1,0 +1,11 @@
+:icons: font
+
+= Trinity Scaffolder for Java
+Christos Tsakostas, OREGOR LTD
+
+[abstract]
+Scaffolder for Java applications based on the Trinity Architecture.
+
+include::1-introduction/index.adoc[]
+
+include::2-getting-started/index.adoc[]

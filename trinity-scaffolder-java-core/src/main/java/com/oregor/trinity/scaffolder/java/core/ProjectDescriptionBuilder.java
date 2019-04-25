@@ -21,6 +21,7 @@
 package com.oregor.trinity.scaffolder.java.core;
 
 import com.oregor.trinity.scaffolder.java.assertion.Assertion;
+import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -32,7 +33,6 @@ import java.util.Set;
 public class ProjectDescriptionBuilder {
 
   private String context;
-  private String tablePrefix;
   private String groupId;
   private String artifactId;
   private String modulePrefix;
@@ -51,6 +51,19 @@ public class ProjectDescriptionBuilder {
   private String distributionProfile;
   private Set<String> extraModules = new LinkedHashSet<>();
 
+  // ===============================================================================================
+  // CONSTRUCTOR(S)
+  // ===============================================================================================
+
+  /** Instantiates a new Project description builder. */
+  public ProjectDescriptionBuilder() {
+    initializeWithDefaultValues();
+  }
+
+  // ===============================================================================================
+  // SETTERS
+  // ===============================================================================================
+
   /**
    * Sets context.
    *
@@ -59,17 +72,6 @@ public class ProjectDescriptionBuilder {
    */
   public ProjectDescriptionBuilder setContext(String context) {
     this.context = context;
-    return this;
-  }
-
-  /**
-   * Sets table prefix.
-   *
-   * @param tablePrefix the table prefix
-   * @return the table prefix
-   */
-  public ProjectDescriptionBuilder setTablePrefix(String tablePrefix) {
-    this.tablePrefix = tablePrefix;
     return this;
   }
 
@@ -285,7 +287,6 @@ public class ProjectDescriptionBuilder {
 
     return new ProjectDescription(
         context,
-        tablePrefix,
         groupId,
         artifactId,
         modulePrefix,
@@ -303,5 +304,31 @@ public class ProjectDescriptionBuilder {
         scmUrl,
         distributionProfile,
         extraModules);
+  }
+
+  // ===============================================================================================
+  // PRIVATE
+  // ===============================================================================================
+
+  /** Initialize with default values. */
+  private void initializeWithDefaultValues() {
+    context = "context";
+    groupId = "com.company.project";
+    artifactId = "artifactId";
+    modulePrefix = "prefix";
+    version = "0.0.1-SNAPSHOT";
+    name = "Project Name";
+    description = "Project Description";
+    url = "https://www.company-project.com";
+    inceptionYear = String.valueOf(LocalDateTime.now().getYear());
+    organizationName = "Your Company Name";
+    organizationUrl = "https://www.company.com";
+    licenseName = "apache_v2";
+    licenseUrl = "https://www.license-url.com";
+    scmConnection = "";
+    scmDeveloperConnection = "";
+    scmUrl = "";
+    distributionProfile = "";
+    extraModules = new LinkedHashSet<>();
   }
 }

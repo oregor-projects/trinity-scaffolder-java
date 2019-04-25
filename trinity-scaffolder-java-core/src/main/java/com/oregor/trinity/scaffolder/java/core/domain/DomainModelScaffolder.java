@@ -56,7 +56,7 @@ public class DomainModelScaffolder extends AbstractScaffolder {
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
 
     Path modulePath =
-        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "-domain");
+        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "domain");
 
     ensureSources(modulePath, projectDescription);
 

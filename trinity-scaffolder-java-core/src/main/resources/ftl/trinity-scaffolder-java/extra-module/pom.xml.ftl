@@ -29,7 +29,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-${ module }</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }${ module }</artifactId>
 
   <dependencies>
     <!--TEST-->

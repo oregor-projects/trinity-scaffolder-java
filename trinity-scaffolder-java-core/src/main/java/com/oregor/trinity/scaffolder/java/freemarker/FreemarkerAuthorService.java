@@ -34,7 +34,7 @@ public class FreemarkerAuthorService {
   // ===============================================================================================
 
   private FreemarkerAuthorService() {
-    super();
+    throw new IllegalStateException("Utility class");
   }
 
   // ===============================================================================================

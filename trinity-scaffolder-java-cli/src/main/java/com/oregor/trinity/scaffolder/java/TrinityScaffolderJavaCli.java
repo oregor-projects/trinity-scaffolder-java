@@ -20,9 +20,8 @@
 
 package com.oregor.trinity.scaffolder.java;
 
+import java.nio.file.Paths;
 import java.util.Scanner;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * The Trinity scaffolder CLI for Java projects.
@@ -31,7 +30,8 @@ import org.slf4j.LoggerFactory;
  */
 public class TrinityScaffolderJavaCli {
 
-  private static final Logger LOG = LoggerFactory.getLogger(TrinityScaffolderJavaCli.class);
+  private static TrinityScaffolderJavaLauncher trinityScaffolderJavaLauncher =
+      new TrinityScaffolderJavaLauncher(new Scanner(System.in));
 
   /**
    * The entry point of application.
@@ -39,12 +39,16 @@ public class TrinityScaffolderJavaCli {
    * @param args the input arguments
    */
   public static void main(String[] args) {
-    LOG.info("Trinity Scaffolder for Java CLI");
+    trinityScaffolderJavaLauncher.run(Paths.get(""));
+  }
 
-    Scanner myObj = new Scanner(System.in);
-    LOG.info("Enter top level package (i.e. com.oregor.invoicing): ");
-
-    String topLevelPackage = myObj.nextLine();
-    LOG.info("Top level package is: " + topLevelPackage);
+  /**
+   * Sets trinity scaffolder java launcher.
+   *
+   * @param trinityScaffolderJavaLauncher the trinity scaffolder java launcher
+   */
+  static void setTrinityScaffolderJavaLauncher(
+      TrinityScaffolderJavaLauncher trinityScaffolderJavaLauncher) {
+    TrinityScaffolderJavaCli.trinityScaffolderJavaLauncher = trinityScaffolderJavaLauncher;
   }
 }

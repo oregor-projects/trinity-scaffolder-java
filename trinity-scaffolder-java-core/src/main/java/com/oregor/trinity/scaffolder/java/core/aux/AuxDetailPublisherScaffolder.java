@@ -58,8 +58,8 @@ public class AuxDetailPublisherScaffolder extends AbstractScaffolder {
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            projectDescription.getModulePrefix() + "-aux-details",
-            projectDescription.getModulePrefix() + "-aux-detail-publisher-activemq");
+            projectDescription.getModulePrefix() + "aux-details",
+            projectDescription.getModulePrefix() + "aux-detail-publisher-activemq");
     ensureSources(modulePath, projectDescription);
 
     freemarkerService.export(
