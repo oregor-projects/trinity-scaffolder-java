@@ -57,7 +57,7 @@ public class AuxScaffolder extends AbstractScaffolder {
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
 
     Path modulePath =
-        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "-aux");
+        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "aux");
 
     PathService.ensurePath(generationPath);
 

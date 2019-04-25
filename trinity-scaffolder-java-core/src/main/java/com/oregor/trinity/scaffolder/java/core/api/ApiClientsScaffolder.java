@@ -57,7 +57,7 @@ public class ApiClientsScaffolder extends AbstractScaffolder {
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
 
     Path modulePath =
-        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "-api-clients");
+        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "api-clients");
     PathService.ensurePath(generationPath);
 
     freemarkerService.export(

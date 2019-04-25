@@ -54,8 +54,8 @@ public class DomainDetailsRepositorySpringDataJpaScaffolder extends AbstractScaf
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            projectDescription.getModulePrefix() + "-domain-details",
-            projectDescription.getModulePrefix() + "-domain-detail-repository-springdatajpa");
+            projectDescription.getModulePrefix() + "domain-details",
+            projectDescription.getModulePrefix() + "domain-detail-repository-springdatajpa");
     ensureSources(modulePath, projectDescription);
 
     freemarkerService.export(

@@ -10,11 +10,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-aux-details</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }aux-details</artifactId>
   <packaging>pom</packaging>
 
   <modules>
-    <module>${ projectDescription.modulePrefix }-aux-detail-publisher-activemq</module>
+    <module>${ projectDescription.modulePrefix }aux-detail-publisher-activemq</module>
   </modules>
 
 </project>

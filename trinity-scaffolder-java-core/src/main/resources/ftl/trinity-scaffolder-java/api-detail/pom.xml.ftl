@@ -10,7 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-api-detail</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }api-detail</artifactId>
 
   <dependencies>
     <!--SPRING STEREOTYPE & TRANSACTION ANNOTATIONS-->
@@ -26,19 +26,19 @@
     <!--API-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api</artifactId>
+      <artifactId>${ projectDescription.modulePrefix }api</artifactId>
     </dependency>
 
     <!--AUX-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-aux</artifactId>
+      <artifactId>${ projectDescription.modulePrefix }aux</artifactId>
     </dependency>
 
     <!--DOMAIN-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-domain</artifactId>
+      <artifactId>${ projectDescription.modulePrefix }domain</artifactId>
     </dependency>
 
     <!--TEST-->

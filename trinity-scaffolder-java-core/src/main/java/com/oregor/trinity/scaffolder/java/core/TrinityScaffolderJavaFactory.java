@@ -108,7 +108,7 @@ public class TrinityScaffolderJavaFactory {
   // ===============================================================================================
 
   private TrinityScaffolderJavaFactory() {
-    super();
+    throw new IllegalStateException("Utility class");
   }
 
   // ===============================================================================================

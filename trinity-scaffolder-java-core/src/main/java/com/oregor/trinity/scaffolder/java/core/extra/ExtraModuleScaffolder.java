@@ -65,7 +65,7 @@ public class ExtraModuleScaffolder extends AbstractScaffolder {
       Map<String, Object> dataModel,
       String module) {
     Path modulePath =
-        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "-" + module);
+        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "" + module);
 
     ensureSources(modulePath, projectDescription);
 

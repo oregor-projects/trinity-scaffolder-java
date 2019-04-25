@@ -58,8 +58,8 @@ public class ApiClientSubscriberScaffolder extends AbstractScaffolder {
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            projectDescription.getModulePrefix() + "-api-clients",
-            projectDescription.getModulePrefix() + "-api-client-subscriber-activemq");
+            projectDescription.getModulePrefix() + "api-clients",
+            projectDescription.getModulePrefix() + "api-client-subscriber-activemq");
     ensureSources(modulePath, projectDescription);
 
     freemarkerService.export(

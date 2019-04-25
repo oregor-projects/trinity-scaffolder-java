@@ -21,7 +21,10 @@
 package com.oregor.trinity.scaffolder.java.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import org.junit.Test;
 
 /**
@@ -30,6 +33,14 @@ import org.junit.Test;
  * @author Christos Tsakostas
  */
 public class TrinityScaffolderJavaFactoryTest {
+
+  @Test
+  public void shouldFailToInstantiate() throws NoSuchMethodException {
+    Constructor<TrinityScaffolderJavaFactory> constructor =
+        TrinityScaffolderJavaFactory.class.getDeclaredConstructor();
+    constructor.setAccessible(true);
+    assertThatThrownBy(constructor::newInstance).isInstanceOf(InvocationTargetException.class);
+  }
 
   /** New instance. */
   @Test

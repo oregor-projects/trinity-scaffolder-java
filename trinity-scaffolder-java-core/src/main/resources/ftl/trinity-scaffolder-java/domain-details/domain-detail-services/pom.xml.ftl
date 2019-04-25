@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.modulePrefix }-domain-details</artifactId>
+    <artifactId>${ projectDescription.modulePrefix }domain-details</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-domain-detail-services</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }domain-detail-services</artifactId>
 
   <dependencies>
     <!--SPRING STEREOTYPE-->
@@ -22,7 +22,7 @@
     <!--DOMAIN-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-domain</artifactId>
+      <artifactId>${ projectDescription.modulePrefix }domain</artifactId>
     </dependency>
 
     <!--TEST-->

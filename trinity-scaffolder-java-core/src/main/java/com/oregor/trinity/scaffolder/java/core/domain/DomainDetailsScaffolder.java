@@ -57,7 +57,7 @@ public class DomainDetailsScaffolder extends AbstractScaffolder {
 
     Path modulePath =
         Paths.get(
-            generationPath.toString(), projectDescription.getModulePrefix() + "-domain-details");
+            generationPath.toString(), projectDescription.getModulePrefix() + "domain-details");
 
     exportDomainDetailsMavenPomXml(modulePath, dataModel);
   }

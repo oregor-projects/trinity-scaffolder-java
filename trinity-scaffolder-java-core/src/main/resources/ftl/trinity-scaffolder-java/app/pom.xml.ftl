@@ -10,7 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }-app</artifactId>
+  <artifactId>${ projectDescription.modulePrefix }app</artifactId>
 
   <dependencies>
     <!-- ======================================================================================= -->
@@ -28,7 +28,7 @@
     <!--API DETAIL-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api-detail</artifactId>
+      <artifactId>${ projectDescription.modulePrefix }api-detail</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
@@ -37,14 +37,14 @@
 
     <!-- REST SPRING -->
     <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api-client-rest-spring</artifactId>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ projectDescription.modulePrefix }api-client-rest-spring</artifactId>
     </dependency>
 
     <!-- SUBSCRIBER ACTIVEMQ -->
     <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-api-client-subscriber-activemq</artifactId>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ projectDescription.modulePrefix }api-client-subscriber-activemq</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
@@ -53,8 +53,8 @@
 
     <!-- PERSISTENCE RDBMS -->
     <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-domain-details</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-domain-detail-repository-springdatajpa</artifactId>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }domain-details</groupId>
+      <artifactId>${ projectDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
@@ -63,8 +63,8 @@
 
     <!-- PUBLISHER ACTIVEMQ -->
     <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-aux-details</groupId>
-      <artifactId>${ projectDescription.modulePrefix }-aux-detail-publisher-activemq</artifactId>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }aux-details</groupId>
+      <artifactId>${ projectDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
@@ -92,7 +92,7 @@
   </dependencies>
 
   <build>
-    <finalName>${ projectDescription.modulePrefix }-app</finalName>
+    <finalName>${ projectDescription.modulePrefix }app</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>

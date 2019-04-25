@@ -5,16 +5,16 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
   <modules>
-    <module>${ projectDescription.modulePrefix }-app</module>
-    <module>${ projectDescription.modulePrefix }-api</module>
-    <module>${ projectDescription.modulePrefix }-api-clients</module>
-    <module>${ projectDescription.modulePrefix }-api-detail</module>
-    <module>${ projectDescription.modulePrefix }-domain</module>
-    <module>${ projectDescription.modulePrefix }-domain-details</module>
-    <module>${ projectDescription.modulePrefix }-aux</module>
-    <module>${ projectDescription.modulePrefix }-aux-details</module>
+    <module>${ projectDescription.modulePrefix }app</module>
+    <module>${ projectDescription.modulePrefix }api</module>
+    <module>${ projectDescription.modulePrefix }api-clients</module>
+    <module>${ projectDescription.modulePrefix }api-detail</module>
+    <module>${ projectDescription.modulePrefix }domain</module>
+    <module>${ projectDescription.modulePrefix }domain-details</module>
+    <module>${ projectDescription.modulePrefix }aux</module>
+    <module>${ projectDescription.modulePrefix }aux-details</module>
 <#list projectDescription.extraModules as extraModule>
-    <module>${ projectDescription.modulePrefix }-${ extraModule }</module>
+    <module>${ projectDescription.modulePrefix }${ extraModule }</module>
 </#list>
   </modules>
   <parent>
@@ -164,7 +164,7 @@
       <!--API-->
       <dependency>
         <groupId>${ projectDescription.groupId }</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-api</artifactId>
+        <artifactId>${ projectDescription.modulePrefix }api</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -173,7 +173,7 @@
       <!--DOMAIN-->
       <dependency>
         <groupId>${ projectDescription.groupId }</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-domain</artifactId>
+        <artifactId>${ projectDescription.modulePrefix }domain</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -182,7 +182,7 @@
       <!--AUXILIARY-->
       <dependency>
         <groupId>${ projectDescription.groupId }</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-aux</artifactId>
+        <artifactId>${ projectDescription.modulePrefix }aux</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -191,7 +191,7 @@
       <!--API DETAIL-->
       <dependency>
         <groupId>${ projectDescription.groupId }</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-api-detail</artifactId>
+        <artifactId>${ projectDescription.modulePrefix }api-detail</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -203,8 +203,8 @@
 
       <!--REST SPRING-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-api-client-rest-spring</artifactId>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ projectDescription.modulePrefix }api-client-rest-spring</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -212,8 +212,8 @@
 
       <!--SUBSCRIBER ACTIVEMQ-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-api-clients</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-api-client-subscriber-activemq</artifactId>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ projectDescription.modulePrefix }api-client-subscriber-activemq</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -225,8 +225,8 @@
 
       <!--REPOSITORY SPRING DATA JPA-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-domain-details</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-domain-detail-repository-springdatajpa</artifactId>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }domain-details</groupId>
+        <artifactId>${ projectDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -238,8 +238,8 @@
 
       <!--PUBLISHER ACTIVEMQ-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }-aux-details</groupId>
-        <artifactId>${ projectDescription.modulePrefix }-aux-detail-publisher-activemq</artifactId>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }aux-details</groupId>
+        <artifactId>${ projectDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>

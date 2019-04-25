@@ -58,7 +58,7 @@ public class ApiScaffolder extends AbstractScaffolder {
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            String.format("%s-api", projectDescription.getModulePrefix()));
+            String.format("%sapi", projectDescription.getModulePrefix()));
 
     ensureSources(modulePath, projectDescription);
 
