@@ -1,2 +1,4 @@
 == Introduction
 
+image::https://www.oregor.com/assets/images/trinity/trinity-circular.png[Trinity Architecture]
+

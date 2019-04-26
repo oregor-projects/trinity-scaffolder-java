@@ -88,14 +88,21 @@ public class TrinityScaffolderJavaLauncher {
 
   private void groupId(ProjectDescriptionBuilder projectDescriptionBuilder) {
     LOG.info("Enter GroupId (i.e. com.company.project): ");
-    projectDescriptionBuilder.setGroupId(scanner.nextLine());
+
+    String providedGroupId = scanner.nextLine();
+    if (!providedGroupId.equals("")) {
+      projectDescriptionBuilder.setGroupId(providedGroupId);
+    }
   }
 
   private void artifactId(ProjectDescriptionBuilder projectDescriptionBuilder) {
-    LOG.info("Enter ArtifactId (i.e. my-project): ");
+    LOG.info("Enter ArtifactId (i.e. project): ");
+
     String providedArtifactId = scanner.nextLine();
-    projectDescriptionBuilder.setArtifactId(providedArtifactId);
-    projectDescriptionBuilder.setModulePrefix(providedArtifactId);
+    if (!providedArtifactId.equals("")) {
+      projectDescriptionBuilder.setArtifactId(providedArtifactId);
+      projectDescriptionBuilder.setModulePrefix(providedArtifactId);
+    }
   }
 
   private ProjectDescription projectDescription(
@@ -103,8 +110,8 @@ public class TrinityScaffolderJavaLauncher {
     ProjectDescription projectDescription = projectDescriptionBuilder.createProjectDescription();
 
     LOG.info("Creating Project...");
-    LOG.info("GroupId is: " + projectDescription.getGroupId());
-    LOG.info("ArtifactId is: " + projectDescription.getArtifactId());
+    LOG.info("GroupId is: {}", projectDescription.getGroupId());
+    LOG.info("ArtifactId is: {}", projectDescription.getArtifactId());
 
     return projectDescription;
   }

@@ -18,7 +18,7 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java.core.application;
+package com.oregor.trinity.scaffolder.java.core.app;
 
 import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;

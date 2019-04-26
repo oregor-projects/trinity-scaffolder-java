@@ -26,7 +26,7 @@ import com.oregor.trinity.scaffolder.java.core.api.ApiClientsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiDetailScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiScaffolder;
-import com.oregor.trinity.scaffolder.java.core.application.AppScaffolder;
+import com.oregor.trinity.scaffolder.java.core.app.AppScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailPublisherScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;

@@ -312,23 +312,23 @@ public class ProjectDescriptionBuilder {
 
   /** Initialize with default values. */
   private void initializeWithDefaultValues() {
-    context = "context";
-    groupId = "com.company.project";
-    artifactId = "artifactId";
-    modulePrefix = "prefix";
-    version = "0.0.1-SNAPSHOT";
-    name = "Project Name";
-    description = "Project Description";
-    url = "https://www.company-project.com";
-    inceptionYear = String.valueOf(LocalDateTime.now().getYear());
-    organizationName = "Your Company Name";
-    organizationUrl = "https://www.company.com";
-    licenseName = "apache_v2";
-    licenseUrl = "https://www.license-url.com";
-    scmConnection = "";
-    scmDeveloperConnection = "";
-    scmUrl = "";
-    distributionProfile = "";
-    extraModules = new LinkedHashSet<>();
+    setContext("context");
+    setGroupId("com.company.project");
+    setArtifactId("project");
+    setModulePrefix("project-");
+    setVersion("0.0.1-SNAPSHOT");
+    setName("Project Name");
+    setDescription("Project Description");
+    setUrl("https://www.company-project.com");
+    setInceptionYear(String.valueOf(LocalDateTime.now().getYear()));
+    setOrganizationName("Your Company Name");
+    setOrganizationUrl("https://www.company.com");
+    setLicenseName("apache_v2");
+    setLicenseUrl("https://www.license-url.com");
+    setScmConnection("");
+    setScmDeveloperConnection("");
+    setScmUrl("");
+    setDistributionProfile("");
+    setExtraModules(new LinkedHashSet<>());
   }
 }

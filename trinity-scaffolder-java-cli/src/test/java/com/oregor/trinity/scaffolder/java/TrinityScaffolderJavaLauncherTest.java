@@ -21,6 +21,7 @@
 package com.oregor.trinity.scaffolder.java;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,11 +38,11 @@ public class TrinityScaffolderJavaLauncherTest {
 
     Scanner scanner = new Scanner(fileInputStream);
 
-    String firstLine = "groupId";
+    String firstLine = "com.oregor.project";
     String scannerFirstLine = scanner.nextLine();
     assertThat(scannerFirstLine).isEqualTo(firstLine);
 
-    String secondLine = "artifactId";
+    String secondLine = "project";
     String scannerSecondLine = scanner.nextLine();
     assertThat(scannerSecondLine).isEqualTo(secondLine);
   }
@@ -55,6 +56,7 @@ public class TrinityScaffolderJavaLauncherTest {
     TrinityScaffolderJavaLauncher trinityScaffolderJavaLauncher =
         new TrinityScaffolderJavaLauncher(scanner);
 
-    trinityScaffolderJavaLauncher.run(Paths.get("tmp"));
+    assertThatCode(() -> trinityScaffolderJavaLauncher.run(Paths.get("tmp")))
+        .doesNotThrowAnyException();
   }
 }

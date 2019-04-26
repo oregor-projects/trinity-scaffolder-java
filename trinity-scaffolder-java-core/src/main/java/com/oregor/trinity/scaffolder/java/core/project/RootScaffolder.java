@@ -38,7 +38,7 @@ import java.util.Map;
  */
 public class RootScaffolder extends AbstractScaffolder {
 
-  private static final String FTL_PATH = "/ftl/trinity-scaffolder-java";
+  private static final String FTL_PATH = Paths.get("/ftl", "trinity-scaffolder-java").toString();
 
   // ===============================================================================================
   // CONSTRUCTOR(S)

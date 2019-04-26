@@ -26,6 +26,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import com.oregor.trinity.scaffolder.java.core.AbstractTrinityScaffolderJavaTest;
+import com.oregor.trinity.scaffolder.java.core.app.AppScaffolder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.Before;
