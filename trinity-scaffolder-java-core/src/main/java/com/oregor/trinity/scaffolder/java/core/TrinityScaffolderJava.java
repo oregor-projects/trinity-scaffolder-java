@@ -21,7 +21,7 @@
 package com.oregor.trinity.scaffolder.java.core;
 
 import com.oregor.trinity.scaffolder.java.core.api.ApiFamilyScaffolder;
-import com.oregor.trinity.scaffolder.java.core.application.AppScaffolder;
+import com.oregor.trinity.scaffolder.java.core.app.AppScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.extra.ExtraModuleScaffolder;

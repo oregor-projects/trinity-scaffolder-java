@@ -1,2 +1,2 @@
-groupId
-artifactId
+com.oregor.project
+project

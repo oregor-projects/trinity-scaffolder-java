@@ -36,8 +36,8 @@ public class ProjectDescriptionBuilderTest {
 
     assertThat(projectDescription.getContext()).isEqualTo("context");
     assertThat(projectDescription.getGroupId()).isEqualTo("com.company.project");
-    assertThat(projectDescription.getArtifactId()).isEqualTo("artifactId");
-    assertThat(projectDescription.getModulePrefix()).isEqualTo("prefix-");
+    assertThat(projectDescription.getArtifactId()).isEqualTo("project");
+    assertThat(projectDescription.getModulePrefix()).isEqualTo("project-");
     assertThat(projectDescription.getVersion()).isEqualTo("0.0.1-SNAPSHOT");
     assertThat(projectDescription.getName()).isEqualTo("Project Name");
     assertThat(projectDescription.getDescription()).isEqualTo("Project Description");
