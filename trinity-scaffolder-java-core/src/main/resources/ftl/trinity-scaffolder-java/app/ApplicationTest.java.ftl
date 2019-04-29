@@ -1,5 +1,8 @@
 package ${ projectDescription.groupId };
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.TimeZone;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,5 +19,6 @@ public class ApplicationTest {
 
   @Test
   public void contextLoads() {
+    assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("UTC"));
   }
 }
