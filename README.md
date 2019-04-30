@@ -12,9 +12,9 @@ To learn more about the Trinity Architecture go to: https://medium.com/oregor
 To browse an existing scaffolded Java project go to: https://github.com/oregor-projects/trinity-demo-java
 
 
-# *************************************************************
-# WORK IN PROGRESS
-# *************************************************************
+## 
+## WORK IN PROGRESS
+
 
 
 ## Get started
@@ -43,5 +43,11 @@ git clone https://github.com/oregor-projects/trinity-scaffolder-java.git
 cd trinity-scaffolder-java
 chmod +x mvnw
 ./mvnw package
+java -jar trinity-scaffolder-java-cli/target/trinity-scaffolder-java-cli.jar 
+```
+
+And then execute:
+
+```bash
 java -jar trinity-scaffolder-java-cli/target/trinity-scaffolder-java-cli.jar 
 ```
