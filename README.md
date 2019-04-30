@@ -26,7 +26,12 @@ And then execute:
 java -jar trinity-scaffolder-java-cli-{latest-version}.jar 
 ```
 
-Make sure to replace the **{latest-version}**
+Make sure to replace the **{latest-version}** with the actual version. 
+For example:
+
+```bash
+java -jar trinity-scaffolder-java-cli-0.0.6.jar 
+```
 
 
 ### Build Binary
