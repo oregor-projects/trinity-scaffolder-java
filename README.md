@@ -7,7 +7,7 @@
 
 Scaffolder for Java applications based on the Trinity Architecture.
 
-To learn more about the Trinity Architecture go to: https://medium.com/oregor
+To learn more about the Trinity Architecture go to: https://medium.com/oregor/the-trinity-architecture-c89ed5743c1e
 
 To browse an existing scaffolded Java project go to: https://github.com/oregor-projects/trinity-demo-java
 
