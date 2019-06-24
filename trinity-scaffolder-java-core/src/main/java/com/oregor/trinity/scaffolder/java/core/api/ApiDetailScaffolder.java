@@ -20,8 +20,8 @@
 
 package com.oregor.trinity.scaffolder.java.core.api;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
-import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
+import com.oregor.trinity.scaffolder.java.core.AbstractContextScaffolder;
+import com.oregor.trinity.scaffolder.java.core.ContextDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,7 +32,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class ApiDetailScaffolder extends AbstractScaffolder {
+public class ApiDetailScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -53,13 +53,14 @@ public class ApiDetailScaffolder extends AbstractScaffolder {
 
   @Override
   public void scaffold(
-      Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
+      Path generationPath, ContextDescription contextDescription, Map<String, Object> dataModel) {
 
     Path modulePath =
-        Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "api-detail");
-    ensureSources(modulePath, projectDescription);
+        Paths.get(generationPath.toString(), contextDescription.getModulePrefix() + "api-detail");
 
-    freemarkerService.export(
+    ensureSources(modulePath, contextDescription);
+
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/api-detail/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));

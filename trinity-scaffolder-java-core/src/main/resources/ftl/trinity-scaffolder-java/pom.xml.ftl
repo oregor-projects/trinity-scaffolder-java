@@ -5,6 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
   <modules>
+<#if projectDescription.contextDescriptions?size gt 1>
+    <module>${ projectDescription.modulePrefix }app</module>
+<#list projectDescription.contextDescriptions as contextDescription>
+    <module>${ contextDescription.contextFolder }</module>
+</#list>
+<#else>
     <module>${ projectDescription.modulePrefix }app</module>
     <module>${ projectDescription.modulePrefix }api</module>
     <module>${ projectDescription.modulePrefix }api-clients</module>
@@ -13,6 +19,7 @@
     <module>${ projectDescription.modulePrefix }domain-details</module>
     <module>${ projectDescription.modulePrefix }aux</module>
     <module>${ projectDescription.modulePrefix }aux-details</module>
+</#if>
 <#list projectDescription.extraModules as extraModule>
     <module>${ projectDescription.modulePrefix }${ extraModule }</module>
 </#list>
@@ -124,7 +131,7 @@
     <junit-jupiter.version>5.4.2</junit-jupiter.version>
 
     <!--TRINITY4J-->
-    <trinity4j.version>0.0.4</trinity4j.version>
+    <trinity4j.version>0.0.5-SNAPSHOT</trinity4j.version>
   </properties>
 
   <dependencies>
@@ -166,10 +173,15 @@
         </#noparse>
       </dependency>
 
+<#list projectDescription.contextDescriptions as contextDescription>
+      <!-- ===================================================================================== -->
+      <!-- CONTEXT: ${contextDescription.contextName} -->
+      <!-- ===================================================================================== -->
+
       <!--API-->
       <dependency>
-        <groupId>${ projectDescription.groupId }</groupId>
-        <artifactId>${ projectDescription.modulePrefix }api</artifactId>
+        <groupId>${ contextDescription.groupId }</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -177,8 +189,8 @@
 
       <!--DOMAIN-->
       <dependency>
-        <groupId>${ projectDescription.groupId }</groupId>
-        <artifactId>${ projectDescription.modulePrefix }domain</artifactId>
+        <groupId>${ contextDescription.groupId }</groupId>
+        <artifactId>${ contextDescription.modulePrefix }domain</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -186,8 +198,8 @@
 
       <!--AUXILIARY-->
       <dependency>
-        <groupId>${ projectDescription.groupId }</groupId>
-        <artifactId>${ projectDescription.modulePrefix }aux</artifactId>
+        <groupId>${ contextDescription.groupId }</groupId>
+        <artifactId>${ contextDescription.modulePrefix }aux</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -195,8 +207,8 @@
 
       <!--API DETAIL-->
       <dependency>
-        <groupId>${ projectDescription.groupId }</groupId>
-        <artifactId>${ projectDescription.modulePrefix }api-detail</artifactId>
+        <groupId>${ contextDescription.groupId }</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-detail</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -206,10 +218,37 @@
       <!-- API CLIENTS                                                                           -->
       <!-- ===================================================================================== -->
 
+      <!--PERIODIC PROCESS-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--PERIODIC PROCESS TRIGGER ACTIVEMQ-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process-trigger-activemq</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
       <!--REST SPRING-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
-        <artifactId>${ projectDescription.modulePrefix }api-client-rest-spring</artifactId>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-rest-spring</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--SCHEDULER CAMEL-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-scheduler-camel</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -217,8 +256,8 @@
 
       <!--SUBSCRIBER-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
-        <artifactId>${ projectDescription.modulePrefix }api-client-subscriber</artifactId>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-subscriber</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -226,8 +265,8 @@
 
       <!--SUBSCRIBER ACTIVEMQ-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
-        <artifactId>${ projectDescription.modulePrefix }api-client-subscriber-activemq</artifactId>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-subscriber-activemq</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -239,12 +278,31 @@
 
       <!--REPOSITORY SPRING DATA JPA-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }domain-details</groupId>
-        <artifactId>${ projectDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+        <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
       </dependency>
+
+      <!--SCHEDULED PUBLISHER CAMEL ACTIVEMQ-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+        <artifactId>${ contextDescription.modulePrefix }domain-detail-scheduled-publisher-camel-activemq</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--DOMAIN SERVICES-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+        <artifactId>${ contextDescription.modulePrefix }domain-detail-services</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
 
       <!-- ===================================================================================== -->
       <!-- AUXILIARY DETAILS                                                                     -->
@@ -252,13 +310,14 @@
 
       <!--PUBLISHER ACTIVEMQ-->
       <dependency>
-        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }aux-details</groupId>
-        <artifactId>${ projectDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+        <artifactId>${ contextDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
       </dependency>
 
+</#list>
       <!-- ===================================================================================== -->
       <!-- OREGOR                                                                                -->
       <!-- ===================================================================================== -->
@@ -271,6 +330,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+
     </dependencies>
   </dependencyManagement>
 

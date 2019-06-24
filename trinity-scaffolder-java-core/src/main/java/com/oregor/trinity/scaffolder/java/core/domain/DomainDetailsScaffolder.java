@@ -20,8 +20,8 @@
 
 package com.oregor.trinity.scaffolder.java.core.domain;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
-import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
+import com.oregor.trinity.scaffolder.java.core.AbstractContextScaffolder;
+import com.oregor.trinity.scaffolder.java.core.ContextDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,7 +32,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class DomainDetailsScaffolder extends AbstractScaffolder {
+public class DomainDetailsScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -53,18 +53,18 @@ public class DomainDetailsScaffolder extends AbstractScaffolder {
 
   @Override
   public void scaffold(
-      Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
+      Path generationPath, ContextDescription contextDescription, Map<String, Object> dataModel) {
 
     Path modulePath =
         Paths.get(
-            generationPath.toString(), projectDescription.getModulePrefix() + "domain-details");
+            generationPath.toString(), contextDescription.getModulePrefix() + "domain-details");
 
     exportDomainDetailsMavenPomXml(modulePath, dataModel);
   }
 
   private void exportDomainDetailsMavenPomXml(Path modulePath, Map<String, Object> dataModel) {
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/domain-details/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));

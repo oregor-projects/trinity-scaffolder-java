@@ -20,7 +20,7 @@
 
 package com.oregor.trinity.scaffolder.java.core.project;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
+import com.oregor.trinity.scaffolder.java.core.AbstractProjectScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class ProjectFamilyScaffolder extends AbstractScaffolder {
+public class ProjectFamilyScaffolder extends AbstractProjectScaffolder {
 
   // ===============================================================================================
   // DEPENDENCIES

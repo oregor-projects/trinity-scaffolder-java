@@ -3,14 +3,14 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.modulePrefix }domain-details</artifactId>
+    <groupId>${ contextDescription.groupId }</groupId>
+    <artifactId>${ contextDescription.modulePrefix }domain-details</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }domain-details</groupId>
-  <artifactId>${ projectDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
+  <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+  <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
 
   <dependencies>
     <!--SPRING BOOT JPA-->
@@ -50,8 +50,8 @@
 
     <!--DOMAIN-->
     <dependency>
-      <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }domain</artifactId>
+      <groupId>${ contextDescription.groupId }</groupId>
+      <artifactId>${ contextDescription.modulePrefix }domain</artifactId>
     </dependency>
 
     <!--TEST-->

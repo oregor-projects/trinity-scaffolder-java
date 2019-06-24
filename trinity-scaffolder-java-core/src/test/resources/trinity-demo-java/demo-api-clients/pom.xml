@@ -14,7 +14,10 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>demo-api-client-periodic-process</module>
+    <module>demo-api-client-periodic-process-trigger-activemq</module>
     <module>demo-api-client-rest-spring</module>
+    <module>demo-api-client-scheduler-camel</module>
     <module>demo-api-client-subscriber</module>
     <module>demo-api-client-subscriber-activemq</module>
   </modules>

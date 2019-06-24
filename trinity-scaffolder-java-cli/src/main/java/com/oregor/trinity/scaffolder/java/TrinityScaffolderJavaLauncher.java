@@ -77,6 +77,7 @@ public class TrinityScaffolderJavaLauncher {
     artifactId(projectDescriptionBuilder);
 
     TrinityScaffolderJava trinityScaffolderJava = TrinityScaffolderJavaFactory.newInstance();
+
     trinityScaffolderJava.scaffold(scaffoldingPath, projectDescription(projectDescriptionBuilder));
 
     LOG.info("Done!");

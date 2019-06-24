@@ -3,20 +3,23 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.artifactId }</artifactId>
+    <groupId>${ contextDescription.groupId }</groupId>
+    <artifactId>${ contextDescription.artifactId }</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }api-clients</artifactId>
+  <groupId>${ contextDescription.groupId }</groupId>
+  <artifactId>${ contextDescription.modulePrefix }api-clients</artifactId>
   <packaging>pom</packaging>
 
   <modules>
-    <module>${ projectDescription.modulePrefix }api-client-rest-spring</module>
-    <module>${ projectDescription.modulePrefix }api-client-subscriber</module>
-    <module>${ projectDescription.modulePrefix }api-client-subscriber-activemq</module>
+    <module>${ contextDescription.modulePrefix }api-client-periodic-process</module>
+    <module>${ contextDescription.modulePrefix }api-client-periodic-process-trigger-activemq</module>
+    <module>${ contextDescription.modulePrefix }api-client-rest-spring</module>
+    <module>${ contextDescription.modulePrefix }api-client-scheduler-camel</module>
+    <module>${ contextDescription.modulePrefix }api-client-subscriber</module>
+    <module>${ contextDescription.modulePrefix }api-client-subscriber-activemq</module>
   </modules>
 
 </project>

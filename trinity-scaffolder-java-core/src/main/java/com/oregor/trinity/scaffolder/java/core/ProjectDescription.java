@@ -54,6 +54,7 @@ public class ProjectDescription {
   private String distributionProfile;
   private Set<String> extraModules;
   private Set<ContextDescription> contextDescriptions;
+  private AppConfigLocationType appConfigLocationType;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -82,6 +83,7 @@ public class ProjectDescription {
    * @param distributionProfile the distribution profile
    * @param extraModules the extra modules
    * @param contextDescriptions the context descriptions
+   * @param appConfigLocationType the app config location type
    */
   public ProjectDescription(
       String projectFolder,
@@ -103,7 +105,8 @@ public class ProjectDescription {
       String scmUrl,
       String distributionProfile,
       Set<String> extraModules,
-      Set<ContextDescription> contextDescriptions) {
+      Set<ContextDescription> contextDescriptions,
+      AppConfigLocationType appConfigLocationType) {
     setProjectFolder(projectFolder);
     setContext(context);
     setGroupId(groupId);
@@ -124,6 +127,7 @@ public class ProjectDescription {
     setDistributionProfile(distributionProfile);
     setExtraModules(extraModules);
     setContextDescriptions(contextDescriptions);
+    setAppConfigLocationType(appConfigLocationType);
   }
 
   // ===============================================================================================
@@ -308,6 +312,15 @@ public class ProjectDescription {
    */
   public Set<ContextDescription> getContextDescriptions() {
     return contextDescriptions;
+  }
+
+  /**
+   * Gets app config location type.
+   *
+   * @return the app config location type
+   */
+  public AppConfigLocationType getAppConfigLocationType() {
+    return appConfigLocationType;
   }
 
   // ===============================================================================================
@@ -498,6 +511,15 @@ public class ProjectDescription {
     this.contextDescriptions = contextDescriptions;
   }
 
+  /**
+   * Sets app config location type.
+   *
+   * @param appConfigLocationType the app config location type
+   */
+  public void setAppConfigLocationType(AppConfigLocationType appConfigLocationType) {
+    this.appConfigLocationType = appConfigLocationType;
+  }
+
   // ===============================================================================================
   // OVERRIDES
   // ===============================================================================================
@@ -530,7 +552,8 @@ public class ProjectDescription {
         && Objects.equals(scmUrl, that.scmUrl)
         && Objects.equals(distributionProfile, that.distributionProfile)
         && Objects.equals(extraModules, that.extraModules)
-        && Objects.equals(contextDescriptions, that.contextDescriptions);
+        && Objects.equals(contextDescriptions, that.contextDescriptions)
+        && appConfigLocationType == that.appConfigLocationType;
   }
 
   @Override
@@ -555,6 +578,7 @@ public class ProjectDescription {
         scmUrl,
         distributionProfile,
         extraModules,
-        contextDescriptions);
+        contextDescriptions,
+        appConfigLocationType);
   }
 }

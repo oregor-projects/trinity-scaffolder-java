@@ -45,10 +45,10 @@ public class DomainDetailsScaffolderTest extends AbstractTrinityScaffolderJavaTe
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    domainDetailsScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+    domainDetailsScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/domain-details/pom.xml.ftl",
             Paths.get(generationPath().toString(), "prefix-domain-details", "pom.xml"));

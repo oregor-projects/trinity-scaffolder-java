@@ -20,30 +20,26 @@
 
 package com.oregor.trinity.scaffolder.java.core.domain;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
-import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
+import com.oregor.trinity.scaffolder.java.core.AbstractContextScaffolder;
+import com.oregor.trinity.scaffolder.java.core.ContextDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
-/**
- * The type Domain services scaffolder.
- *
- * @author Christos Tsakostas
- */
-public class DomainServicesScaffolder extends AbstractScaffolder {
+/** The type Domain details repository spring data jpa scaffolder. */
+public class DomainDetailRepositorySpringDataJpaScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
   /**
-   * Instantiates a new Domain services scaffolder.
+   * Instantiates a new Domain details repository spring data jpa scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
-  public DomainServicesScaffolder(FreemarkerService freemarkerService) {
+  public DomainDetailRepositorySpringDataJpaScaffolder(FreemarkerService freemarkerService) {
     super(freemarkerService);
   }
 
@@ -53,24 +49,19 @@ public class DomainServicesScaffolder extends AbstractScaffolder {
 
   @Override
   public void scaffold(
-      Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
+      Path generationPath, ContextDescription contextDescription, Map<String, Object> dataModel) {
 
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            projectDescription.getModulePrefix() + "domain-details",
-            projectDescription.getModulePrefix() + "domain-detail-services");
+            contextDescription.getModulePrefix() + "domain-details",
+            contextDescription.getModulePrefix() + "domain-detail-repository-springdatajpa");
 
-    ensureSources(modulePath, projectDescription);
+    ensureSources(modulePath, contextDescription);
 
-    exportDomainMavenPomXml(modulePath, dataModel);
-  }
-
-  private void exportDomainMavenPomXml(Path modulePath, Map<String, Object> dataModel) {
-
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
-        "trinity-scaffolder-java/domain-details/domain-detail-services/pom.xml.ftl",
+        "trinity-scaffolder-java/domain-details/domain-detail-repository-springdatajpa/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

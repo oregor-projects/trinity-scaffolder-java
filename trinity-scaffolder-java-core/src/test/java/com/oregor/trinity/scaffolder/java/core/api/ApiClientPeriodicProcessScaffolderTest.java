@@ -18,7 +18,7 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java.core.domain;
+package com.oregor.trinity.scaffolder.java.core.api;
 
 import static org.mockito.Mockito.verify;
 
@@ -27,38 +27,31 @@ import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * The type Domain details repository rdbms scaffolder test.
- *
- * @author Christos Tsakostas
- */
-public class DomainDetailsRepositorySpringDataJpaScaffolderTest
-    extends AbstractTrinityScaffolderJavaTest {
+/** @author Christos Tsakostas */
+public class ApiClientPeriodicProcessScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
-  private DomainDetailsRepositorySpringDataJpaScaffolder
-      domainDetailsRepositorySpringDataJpaScaffolder;
+  private ApiClientPeriodicProcessScaffolder apiClientPeriodicProcessScaffolder;
 
   /** Sets up. */
   @Before
   public void setUp() {
-    domainDetailsRepositorySpringDataJpaScaffolder =
-        new DomainDetailsRepositorySpringDataJpaScaffolder(freemarkerService);
+    apiClientPeriodicProcessScaffolder = new ApiClientPeriodicProcessScaffolder(freemarkerService);
   }
 
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    domainDetailsRepositorySpringDataJpaScaffolder.scaffold(
-        generationPath(), projectDescription(), dataModel());
+    apiClientPeriodicProcessScaffolder.scaffold(
+        generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
-            "trinity-scaffolder-java/domain-details/domain-detail-repository-springdatajpa/pom.xml.ftl",
+            "trinity-scaffolder-java/api-clients/api-client-periodic-process/pom.xml.ftl",
             Paths.get(
                 generationPath().toString(),
-                "prefix-domain-details",
-                "prefix-domain-detail-repository-springdatajpa",
+                "prefix-api-clients",
+                "prefix-api-client-periodic-process",
                 "pom.xml"));
   }
 }

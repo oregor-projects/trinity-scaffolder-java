@@ -24,7 +24,6 @@ import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import com.oregor.trinity.scaffolder.java.path.PathService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Map;
 
 /**
  * The type Abstract scaffolder.
@@ -54,16 +53,6 @@ public abstract class AbstractScaffolder {
   // ===============================================================================================
 
   /**
-   * Scaffold.
-   *
-   * @param generationPath the generation path
-   * @param projectDescription the project description
-   * @param dataModel the data model
-   */
-  public abstract void scaffold(
-      Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel);
-
-  /**
    * Ensure sources.
    *
    * @param generationPath the generation path
@@ -88,6 +77,34 @@ public abstract class AbstractScaffolder {
     PathService.ensurePath(Paths.get(generationPath.toString(), "src/test/resources"));
   }
 
+  /**
+   * Ensure sources.
+   *
+   * @param generationPath the generation path
+   * @param contextDescription the context description
+   */
+  protected void ensureSources(Path generationPath, ContextDescription contextDescription) {
+    PathService.ensurePath(generationPath);
+
+    PathService.ensurePath(
+        Paths.get(
+            generationPath.toString(), "src/main/java", toPath(contextDescription.getGroupId())));
+
+    PathService.ensurePath(Paths.get(generationPath.toString(), "src/main/resources"));
+
+    PathService.ensurePath(
+        Paths.get(
+            generationPath.toString(), "src/test/java", toPath(contextDescription.getGroupId())));
+
+    PathService.ensurePath(Paths.get(generationPath.toString(), "src/test/resources"));
+  }
+
+  /**
+   * To path string.
+   *
+   * @param groupId the group id
+   * @return the string
+   */
   protected String toPath(String groupId) {
     return Paths.get(groupId.replaceAll("\\.", "/")).toString();
   }

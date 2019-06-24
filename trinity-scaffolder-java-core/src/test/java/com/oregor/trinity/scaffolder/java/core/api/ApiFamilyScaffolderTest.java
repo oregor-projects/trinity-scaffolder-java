@@ -38,9 +38,13 @@ public class ApiFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
   private ApiDetailScaffolder apiDetailScaffolder;
   private ApiClientsScaffolder apiClientsScaffolder;
   private ApiClientRestScaffolder apiClientRestScaffolder;
+  private ApiClientSchedulerScaffolder apiClientSchedulerScaffolder;
   private ApiClientSubscriberScaffolder apiClientSubscriberScaffolder;
   private ApiFamilyScaffolder apiFamilyScaffolder;
   private ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder;
+  private ApiClientPeriodicProcessScaffolder apiClientPeriodicProcessScaffolder;
+  private ApiClientPeriodicProcessTriggerActiveMqScaffolder
+      apiClientPeriodicProcessTriggerActiveMqScaffolder;
 
   /** Sets up. */
   @Before
@@ -49,8 +53,12 @@ public class ApiFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
     apiDetailScaffolder = mock(ApiDetailScaffolder.class);
     apiClientsScaffolder = mock(ApiClientsScaffolder.class);
     apiClientRestScaffolder = mock(ApiClientRestScaffolder.class);
+    apiClientSchedulerScaffolder = mock(ApiClientSchedulerScaffolder.class);
     apiClientSubscriberScaffolder = mock(ApiClientSubscriberScaffolder.class);
     apiClientSubscriberActiveMqScaffolder = mock(ApiClientSubscriberActiveMqScaffolder.class);
+    apiClientPeriodicProcessScaffolder = mock(ApiClientPeriodicProcessScaffolder.class);
+    apiClientPeriodicProcessTriggerActiveMqScaffolder =
+        mock(ApiClientPeriodicProcessTriggerActiveMqScaffolder.class);
 
     apiFamilyScaffolder =
         new ApiFamilyScaffolder(
@@ -59,8 +67,11 @@ public class ApiFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
             apiDetailScaffolder,
             apiClientsScaffolder,
             apiClientRestScaffolder,
+            apiClientSchedulerScaffolder,
             apiClientSubscriberScaffolder,
-            apiClientSubscriberActiveMqScaffolder);
+            apiClientSubscriberActiveMqScaffolder,
+            apiClientPeriodicProcessScaffolder,
+            apiClientPeriodicProcessTriggerActiveMqScaffolder);
   }
 
   /** Should scaffold successfully. */
@@ -68,11 +79,15 @@ public class ApiFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
   public void shouldScaffoldSuccessfully() {
     apiFamilyScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
-    verify(apiScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
-    verify(apiDetailScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
-    verify(apiClientsScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
-    verify(apiClientRestScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
+    verify(apiScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
+    verify(apiDetailScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
+    verify(apiClientsScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
+    verify(apiClientRestScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
     verify(apiClientSubscriberScaffolder)
-        .scaffold(generationPath(), projectDescription(), dataModel());
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
   }
 }

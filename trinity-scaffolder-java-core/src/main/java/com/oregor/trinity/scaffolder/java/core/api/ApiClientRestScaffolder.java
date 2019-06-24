@@ -20,8 +20,8 @@
 
 package com.oregor.trinity.scaffolder.java.core.api;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
-import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
+import com.oregor.trinity.scaffolder.java.core.AbstractContextScaffolder;
+import com.oregor.trinity.scaffolder.java.core.ContextDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,7 +32,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class ApiClientRestScaffolder extends AbstractScaffolder {
+public class ApiClientRestScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -53,17 +53,17 @@ public class ApiClientRestScaffolder extends AbstractScaffolder {
 
   @Override
   public void scaffold(
-      Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
+      Path generationPath, ContextDescription contextDescription, Map<String, Object> dataModel) {
 
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            projectDescription.getModulePrefix() + "api-clients",
-            projectDescription.getModulePrefix() + "api-client-rest-spring");
+            contextDescription.getModulePrefix() + "api-clients",
+            contextDescription.getModulePrefix() + "api-client-rest-spring");
 
-    ensureSources(modulePath, projectDescription);
+    ensureSources(modulePath, contextDescription);
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/api-clients/api-client-rest-spring/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));

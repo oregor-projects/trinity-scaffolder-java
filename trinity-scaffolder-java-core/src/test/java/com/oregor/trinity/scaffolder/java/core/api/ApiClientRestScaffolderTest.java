@@ -45,10 +45,10 @@ public class ApiClientRestScaffolderTest extends AbstractTrinityScaffolderJavaTe
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    apiClientRestScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+    apiClientRestScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/api-clients/api-client-rest-spring/pom.xml.ftl",
             Paths.get(

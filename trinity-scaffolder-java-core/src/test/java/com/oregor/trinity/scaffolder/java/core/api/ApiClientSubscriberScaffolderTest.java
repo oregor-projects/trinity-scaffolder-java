@@ -45,10 +45,10 @@ public class ApiClientSubscriberScaffolderTest extends AbstractTrinityScaffolder
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    apiClientSubscriberScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+    apiClientSubscriberScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/api-clients/api-client-subscriber/pom.xml.ftl",
             Paths.get(

@@ -20,14 +20,14 @@
 
 package com.oregor.trinity.scaffolder.java.core.extra;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
+import com.oregor.trinity.scaffolder.java.core.AbstractProjectScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
-public class ExtraModuleScaffolder extends AbstractScaffolder {
+public class ExtraModuleScaffolder extends AbstractProjectScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -64,6 +64,7 @@ public class ExtraModuleScaffolder extends AbstractScaffolder {
       ProjectDescription projectDescription,
       Map<String, Object> dataModel,
       String module) {
+
     Path modulePath =
         Paths.get(generationPath.toString(), projectDescription.getModulePrefix() + "" + module);
 

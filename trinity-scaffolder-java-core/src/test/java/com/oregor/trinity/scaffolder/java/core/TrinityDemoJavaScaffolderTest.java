@@ -91,6 +91,7 @@ public class TrinityDemoJavaScaffolderTest {
 
   private ProjectDescription trinityDemoProjectDescription() {
     return new ProjectDescriptionBuilder()
+        .setProjectFolder("trinity-demo-java")
         .setContext("demo")
         .setGroupId("com.oregor.trinity.demo.java")
         .setArtifactId("trinity-demo-java")

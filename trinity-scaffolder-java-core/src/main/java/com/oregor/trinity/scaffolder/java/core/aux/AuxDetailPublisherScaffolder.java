@@ -20,8 +20,8 @@
 
 package com.oregor.trinity.scaffolder.java.core.aux;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
-import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
+import com.oregor.trinity.scaffolder.java.core.AbstractContextScaffolder;
+import com.oregor.trinity.scaffolder.java.core.ContextDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,7 +32,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class AuxDetailPublisherScaffolder extends AbstractScaffolder {
+public class AuxDetailPublisherScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -53,16 +53,17 @@ public class AuxDetailPublisherScaffolder extends AbstractScaffolder {
 
   @Override
   public void scaffold(
-      Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
+      Path generationPath, ContextDescription contextDescription, Map<String, Object> dataModel) {
 
     Path modulePath =
         Paths.get(
             generationPath.toString(),
-            projectDescription.getModulePrefix() + "aux-details",
-            projectDescription.getModulePrefix() + "aux-detail-publisher-activemq");
-    ensureSources(modulePath, projectDescription);
+            contextDescription.getModulePrefix() + "aux-details",
+            contextDescription.getModulePrefix() + "aux-detail-publisher-activemq");
 
-    freemarkerService.export(
+    ensureSources(modulePath, contextDescription);
+
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/aux-details/aux-detail-publisher-activemq/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
