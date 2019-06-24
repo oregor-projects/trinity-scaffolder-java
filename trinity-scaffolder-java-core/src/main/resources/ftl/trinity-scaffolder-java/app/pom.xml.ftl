@@ -25,6 +25,8 @@
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
 
+<#if projectDescription.contextDescriptions?size gt 1>
+<#else>
     <!--API DETAIL-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
@@ -66,6 +68,7 @@
       <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }aux-details</groupId>
       <artifactId>${ projectDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
     </dependency>
+</#if>
 
     <!-- ======================================================================================= -->
     <!-- DATABASE -->

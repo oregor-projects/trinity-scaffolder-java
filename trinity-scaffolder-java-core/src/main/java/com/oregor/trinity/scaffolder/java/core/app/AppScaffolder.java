@@ -20,7 +20,8 @@
 
 package com.oregor.trinity.scaffolder.java.core.app;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
+import com.oregor.trinity.scaffolder.java.core.AbstractProjectScaffolder;
+import com.oregor.trinity.scaffolder.java.core.AppConfigLocationType;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
@@ -32,7 +33,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class AppScaffolder extends AbstractScaffolder {
+public class AppScaffolder extends AbstractProjectScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -61,15 +62,17 @@ public class AppScaffolder extends AbstractScaffolder {
     ensureSources(modulePath, projectDescription);
 
     exportApplicationYml(modulePath, dataModel);
-    exportConfigApplicationDevYml(modulePath, dataModel);
-    exportConfigApplicationCiYml(modulePath, dataModel);
+    exportConfigApplicationDevYml(
+        projectDescription.getAppConfigLocationType(), modulePath, dataModel);
+    exportConfigApplicationCiYml(
+        projectDescription.getAppConfigLocationType(), modulePath, dataModel);
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/app/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/app/Application.java.ftl",
         Paths.get(
@@ -78,7 +81,7 @@ public class AppScaffolder extends AbstractScaffolder {
             toPath(projectDescription.getGroupId()),
             "Application.java"));
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/app/ApplicationTest.java.ftl",
         Paths.get(
@@ -89,23 +92,29 @@ public class AppScaffolder extends AbstractScaffolder {
   }
 
   private void exportApplicationYml(Path modulePath, Map<String, Object> dataModel) {
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/app/resources/application.yml.ftl",
         Paths.get(modulePath.toString(), "src/main/resources", "application.yml"));
   }
 
-  private void exportConfigApplicationDevYml(Path modulePath, Map<String, Object> dataModel) {
-    freemarkerService.export(
-        dataModel,
-        "trinity-scaffolder-java/app/resources/config/application-dev.yml.ftl",
-        Paths.get(modulePath.toString(), "src/main/resources/config", "application-dev.yml"));
+  private void exportConfigApplicationDevYml(
+      AppConfigLocationType appConfigLocationType, Path modulePath, Map<String, Object> dataModel) {
+    if (appConfigLocationType.equals(AppConfigLocationType.INSIDE)) {
+      freemarkerService.exportIfNotExists(
+          dataModel,
+          "trinity-scaffolder-java/app/resources/config/application-dev.yml.ftl",
+          Paths.get(modulePath.toString(), "src/main/resources/config", "application-dev.yml"));
+    }
   }
 
-  private void exportConfigApplicationCiYml(Path modulePath, Map<String, Object> dataModel) {
-    freemarkerService.export(
-        dataModel,
-        "trinity-scaffolder-java/app/resources/config/application-ci.yml.ftl",
-        Paths.get(modulePath.toString(), "src/main/resources/config", "application-ci.yml"));
+  private void exportConfigApplicationCiYml(
+      AppConfigLocationType appConfigLocationType, Path modulePath, Map<String, Object> dataModel) {
+    if (appConfigLocationType.equals(AppConfigLocationType.INSIDE)) {
+      freemarkerService.exportIfNotExists(
+          dataModel,
+          "trinity-scaffolder-java/app/resources/config/application-ci.yml.ftl",
+          Paths.get(modulePath.toString(), "src/main/resources/config", "application-ci.yml"));
+    }
   }
 }

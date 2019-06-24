@@ -36,9 +36,10 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
 
   private DomainModelScaffolder domainModelScaffolder;
   private DomainDetailsScaffolder domainDetailsScaffolder;
-  private DomainServicesScaffolder domainServicesScaffolder;
-  private DomainDetailsRepositorySpringDataJpaScaffolder
-      domainDetailsRepositorySpringDataJpaScaffolder;
+  private DomainDetailServicesScaffolder domainDetailServicesScaffolder;
+  private DomainDetailRepositorySpringDataJpaScaffolder
+      domainDetailRepositorySpringDataJpaScaffolder;
+  private DomainDetailScheduledPublisherScaffolder domainDetailScheduledPublisherScaffolder;
   private DomainFamilyScaffolder domainFamilyScaffolder;
 
   /** Sets up. */
@@ -46,17 +47,19 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
   public void setUp() {
     domainModelScaffolder = mock(DomainModelScaffolder.class);
     domainDetailsScaffolder = mock(DomainDetailsScaffolder.class);
-    domainServicesScaffolder = mock(DomainServicesScaffolder.class);
-    domainDetailsRepositorySpringDataJpaScaffolder =
-        mock(DomainDetailsRepositorySpringDataJpaScaffolder.class);
+    domainDetailServicesScaffolder = mock(DomainDetailServicesScaffolder.class);
+    domainDetailRepositorySpringDataJpaScaffolder =
+        mock(DomainDetailRepositorySpringDataJpaScaffolder.class);
+    domainDetailScheduledPublisherScaffolder = mock(DomainDetailScheduledPublisherScaffolder.class);
 
     domainFamilyScaffolder =
         new DomainFamilyScaffolder(
             freemarkerService,
             domainModelScaffolder,
             domainDetailsScaffolder,
-            domainServicesScaffolder,
-            domainDetailsRepositorySpringDataJpaScaffolder);
+            domainDetailServicesScaffolder,
+            domainDetailRepositorySpringDataJpaScaffolder,
+            domainDetailScheduledPublisherScaffolder);
   }
 
   /** Should scaffold successfully. */
@@ -64,10 +67,13 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
   public void shouldScaffoldSuccessfully() {
     domainFamilyScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
-    verify(domainModelScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
-    verify(domainDetailsScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
-    verify(domainServicesScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
-    verify(domainDetailsRepositorySpringDataJpaScaffolder)
-        .scaffold(generationPath(), projectDescription(), dataModel());
+    verify(domainModelScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
+    verify(domainDetailsScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
+    verify(domainDetailServicesScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
+    verify(domainDetailRepositorySpringDataJpaScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
   }
 }

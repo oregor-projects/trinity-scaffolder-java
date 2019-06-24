@@ -52,6 +52,7 @@ public class ProjectDescriptionBuilder {
   private String distributionProfile;
   private Set<String> extraModules = new LinkedHashSet<>();
   private Set<ContextDescription> contextDescriptions;
+  private AppConfigLocationType appConfigLocationType;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -287,6 +288,12 @@ public class ProjectDescriptionBuilder {
     return this;
   }
 
+  public ProjectDescriptionBuilder setAppConfigLocationType(
+      AppConfigLocationType appConfigLocationType) {
+    this.appConfigLocationType = appConfigLocationType;
+    return this;
+  }
+
   /**
    * Create project description project description.
    *
@@ -310,6 +317,11 @@ public class ProjectDescriptionBuilder {
     Assertion.isNotNull(scmDeveloperConnection, "scmDeveloperConnection is required");
     Assertion.isNotNull(scmUrl, "scmUrl is required");
     Assertion.isNotNull(distributionProfile, "distributionProfile is required");
+    Assertion.isNotNull(appConfigLocationType, "appConfigLocationType is required");
+
+    if (contextDescriptions.isEmpty()) {
+      contextDescriptions.add(makeProjectContextDescription());
+    }
 
     return new ProjectDescription(
         projectFolder,
@@ -331,7 +343,8 @@ public class ProjectDescriptionBuilder {
         scmUrl,
         distributionProfile,
         extraModules,
-        contextDescriptions);
+        contextDescriptions,
+        appConfigLocationType);
   }
 
   // ===============================================================================================
@@ -360,5 +373,11 @@ public class ProjectDescriptionBuilder {
     setDistributionProfile("");
     setExtraModules(new LinkedHashSet<>());
     setContextDescriptions(new LinkedHashSet<>());
+    setAppConfigLocationType(AppConfigLocationType.INSIDE);
+  }
+
+  private ContextDescription makeProjectContextDescription() {
+    return new ContextDescription(
+        "", this.context, this.groupId, this.artifactId, this.modulePrefix);
   }
 }

@@ -3,20 +3,20 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.modulePrefix }aux-details</artifactId>
+    <groupId>${ contextDescription.groupId }</groupId>
+    <artifactId>${ contextDescription.modulePrefix }aux-details</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }aux-details</groupId>
-  <artifactId>${ projectDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
+  <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+  <artifactId>${ contextDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
 
   <dependencies>
     <!--AUX-->
     <dependency>
-      <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }aux</artifactId>
+      <groupId>${ contextDescription.groupId }</groupId>
+      <artifactId>${ contextDescription.modulePrefix }aux</artifactId>
     </dependency>
 
     <!--TEST-->

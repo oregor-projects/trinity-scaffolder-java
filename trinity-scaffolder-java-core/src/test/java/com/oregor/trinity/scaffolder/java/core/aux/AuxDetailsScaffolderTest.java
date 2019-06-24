@@ -45,10 +45,10 @@ public class AuxDetailsScaffolderTest extends AbstractTrinityScaffolderJavaTest 
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    auxDetailsScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+    auxDetailsScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/aux-details/pom.xml.ftl",
             Paths.get(generationPath().toString(), "prefix-aux-details", "pom.xml"));

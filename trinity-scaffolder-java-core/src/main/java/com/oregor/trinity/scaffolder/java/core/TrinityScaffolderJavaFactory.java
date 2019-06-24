@@ -20,7 +20,10 @@
 
 package com.oregor.trinity.scaffolder.java.core;
 
+import com.oregor.trinity.scaffolder.java.core.api.ApiClientPeriodicProcessScaffolder;
+import com.oregor.trinity.scaffolder.java.core.api.ApiClientPeriodicProcessTriggerActiveMqScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientRestScaffolder;
+import com.oregor.trinity.scaffolder.java.core.api.ApiClientSchedulerScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientSubscriberActiveMqScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientSubscriberScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientsScaffolder;
@@ -32,11 +35,14 @@ import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailPublisherScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxScaffolder;
-import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailsRepositorySpringDataJpaScaffolder;
+import com.oregor.trinity.scaffolder.java.core.bom.BomScaffolder;
+import com.oregor.trinity.scaffolder.java.core.context.ContextScaffolder;
+import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailRepositorySpringDataJpaScaffolder;
+import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailScheduledPublisherScaffolder;
+import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailServicesScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainModelScaffolder;
-import com.oregor.trinity.scaffolder.java.core.domain.DomainServicesScaffolder;
 import com.oregor.trinity.scaffolder.java.core.extra.ExtraModuleScaffolder;
 import com.oregor.trinity.scaffolder.java.core.project.GitIgnoreScaffolder;
 import com.oregor.trinity.scaffolder.java.core.project.MavenParentPomScaffolder;
@@ -61,6 +67,8 @@ public class TrinityScaffolderJavaFactory {
   private static ApiFamilyScaffolder apiFamilyScaffolder;
   private static AuxFamilyScaffolder auxFamilyScaffolder;
   private static DomainFamilyScaffolder domainFamilyScaffolder;
+  private static BomScaffolder bomScaffolder;
+  private static ContextScaffolder contextScaffolder;
   private static ExtraModuleScaffolder extraModuleScaffolder;
 
   static {
@@ -77,6 +85,10 @@ public class TrinityScaffolderJavaFactory {
 
     appScaffolder = new AppScaffolder(freemarkerService);
 
+    bomScaffolder = new BomScaffolder(freemarkerService);
+
+    contextScaffolder = new ContextScaffolder(freemarkerService);
+
     apiFamilyScaffolder =
         new ApiFamilyScaffolder(
             freemarkerService,
@@ -84,8 +96,11 @@ public class TrinityScaffolderJavaFactory {
             new ApiDetailScaffolder(freemarkerService),
             new ApiClientsScaffolder(freemarkerService),
             new ApiClientRestScaffolder(freemarkerService),
+            new ApiClientSchedulerScaffolder(freemarkerService),
             new ApiClientSubscriberScaffolder(freemarkerService),
-            new ApiClientSubscriberActiveMqScaffolder(freemarkerService));
+            new ApiClientSubscriberActiveMqScaffolder(freemarkerService),
+            new ApiClientPeriodicProcessScaffolder(freemarkerService),
+            new ApiClientPeriodicProcessTriggerActiveMqScaffolder(freemarkerService));
 
     auxFamilyScaffolder =
         new AuxFamilyScaffolder(
@@ -99,8 +114,9 @@ public class TrinityScaffolderJavaFactory {
             freemarkerService,
             new DomainModelScaffolder(freemarkerService),
             new DomainDetailsScaffolder(freemarkerService),
-            new DomainServicesScaffolder(freemarkerService),
-            new DomainDetailsRepositorySpringDataJpaScaffolder(freemarkerService));
+            new DomainDetailServicesScaffolder(freemarkerService),
+            new DomainDetailRepositorySpringDataJpaScaffolder(freemarkerService),
+            new DomainDetailScheduledPublisherScaffolder(freemarkerService));
 
     extraModuleScaffolder = new ExtraModuleScaffolder(freemarkerService);
   }
@@ -129,6 +145,8 @@ public class TrinityScaffolderJavaFactory {
         apiFamilyScaffolder,
         auxFamilyScaffolder,
         domainFamilyScaffolder,
+        bomScaffolder,
+        contextScaffolder,
         extraModuleScaffolder);
   }
 }

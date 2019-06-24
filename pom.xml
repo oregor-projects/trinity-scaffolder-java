@@ -83,9 +83,9 @@
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
     <sonar-maven-plugin.version>3.5.0.1254</sonar-maven-plugin.version>
     <license-maven-plugin.version>1.14</license-maven-plugin.version>
-    <fmt-maven-plugin.version>2.6.0</fmt-maven-plugin.version>
+    <fmt-maven-plugin.version>2.9</fmt-maven-plugin.version>
     <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>8.15</checkstyle.version>
+    <checkstyle.version>8.19</checkstyle.version>
     <findbugs-maven-plugin.version>3.0.0</findbugs-maven-plugin.version>
     <maven-pmd-plugin.version>3.11.0</maven-pmd-plugin.version>
     <maven-jxr-plugin.version>2.4</maven-jxr-plugin.version>
@@ -111,6 +111,11 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>com.puppycrawl.tools</groupId>
+      <artifactId>checkstyle</artifactId>
+      <version>${checkstyle.version}</version>
+    </dependency>
   </dependencies>
 
   <dependencyManagement>
@@ -232,7 +237,7 @@
           <configuration>
             <configLocation>oregor/build/tools/checkstyle/checkstyle.xml</configLocation>
             <suppressionsLocation>
-              oregor/build/tools/checkstyle/checkstyle-suppressions.xml
+              src/main/resources/checkstyle-suppressions.xml
             </suppressionsLocation>
             <consoleOutput>true</consoleOutput>
             <failsOnError>true</failsOnError>

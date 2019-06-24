@@ -20,10 +20,11 @@
 
 package com.oregor.trinity.scaffolder.java.core.domain;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
+import com.oregor.trinity.scaffolder.java.core.AbstractProjectScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 
 /**
@@ -31,7 +32,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class DomainFamilyScaffolder extends AbstractScaffolder {
+public class DomainFamilyScaffolder extends AbstractProjectScaffolder {
 
   // ===============================================================================================
   // DEPENDENCIES
@@ -39,9 +40,10 @@ public class DomainFamilyScaffolder extends AbstractScaffolder {
 
   private final DomainModelScaffolder domainModelScaffolder;
   private final DomainDetailsScaffolder domainDetailsScaffolder;
-  private final DomainServicesScaffolder domainServicesScaffolder;
-  private final DomainDetailsRepositorySpringDataJpaScaffolder
-      domainDetailsRepositorySpringDataJpaScaffolder;
+  private final DomainDetailServicesScaffolder domainDetailServicesScaffolder;
+  private final DomainDetailRepositorySpringDataJpaScaffolder
+      domainDetailRepositorySpringDataJpaScaffolder;
+  private final DomainDetailScheduledPublisherScaffolder domainDetailScheduledPublisherScaffolder;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -53,23 +55,26 @@ public class DomainFamilyScaffolder extends AbstractScaffolder {
    * @param freemarkerService the freemarker service
    * @param domainModelScaffolder the domain model scaffolder
    * @param domainDetailsScaffolder the domain details scaffolder
-   * @param domainServicesScaffolder the domain services scaffolder
-   * @param domainDetailsRepositorySpringDataJpaScaffolder the domain details persistence rdbms
+   * @param domainDetailServicesScaffolder the domain detail services scaffolder
+   * @param domainDetailRepositorySpringDataJpaScaffolder the domain detail repository spring data
+   *     jpa scaffolder
+   * @param domainDetailScheduledPublisherScaffolder the domain detail scheduled publisher
    *     scaffolder
    */
   public DomainFamilyScaffolder(
       FreemarkerService freemarkerService,
       DomainModelScaffolder domainModelScaffolder,
       DomainDetailsScaffolder domainDetailsScaffolder,
-      DomainServicesScaffolder domainServicesScaffolder,
-      DomainDetailsRepositorySpringDataJpaScaffolder
-          domainDetailsRepositorySpringDataJpaScaffolder) {
+      DomainDetailServicesScaffolder domainDetailServicesScaffolder,
+      DomainDetailRepositorySpringDataJpaScaffolder domainDetailRepositorySpringDataJpaScaffolder,
+      DomainDetailScheduledPublisherScaffolder domainDetailScheduledPublisherScaffolder) {
     super(freemarkerService);
     this.domainModelScaffolder = domainModelScaffolder;
     this.domainDetailsScaffolder = domainDetailsScaffolder;
-    this.domainServicesScaffolder = domainServicesScaffolder;
-    this.domainDetailsRepositorySpringDataJpaScaffolder =
-        domainDetailsRepositorySpringDataJpaScaffolder;
+    this.domainDetailServicesScaffolder = domainDetailServicesScaffolder;
+    this.domainDetailRepositorySpringDataJpaScaffolder =
+        domainDetailRepositorySpringDataJpaScaffolder;
+    this.domainDetailScheduledPublisherScaffolder = domainDetailScheduledPublisherScaffolder;
   }
 
   // ===============================================================================================
@@ -80,10 +85,25 @@ public class DomainFamilyScaffolder extends AbstractScaffolder {
   public void scaffold(
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
 
-    domainModelScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    domainDetailsScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    domainServicesScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    domainDetailsRepositorySpringDataJpaScaffolder.scaffold(
-        generationPath, projectDescription, dataModel);
+    projectDescription
+        .getContextDescriptions()
+        .forEach(
+            contextDescription -> {
+              Path generationPathWithContext =
+                  Paths.get(generationPath.toString(), contextDescription.getContextFolder());
+
+              dataModel.put("contextDescription", contextDescription);
+
+              domainModelScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              domainDetailsScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              domainDetailServicesScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              domainDetailRepositorySpringDataJpaScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              domainDetailScheduledPublisherScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+            });
   }
 }

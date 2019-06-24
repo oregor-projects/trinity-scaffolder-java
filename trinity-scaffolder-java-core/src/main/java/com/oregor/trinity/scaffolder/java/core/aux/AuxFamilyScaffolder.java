@@ -20,10 +20,11 @@
 
 package com.oregor.trinity.scaffolder.java.core.aux;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
+import com.oregor.trinity.scaffolder.java.core.AbstractProjectScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 
 /**
@@ -31,7 +32,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class AuxFamilyScaffolder extends AbstractScaffolder {
+public class AuxFamilyScaffolder extends AbstractProjectScaffolder {
 
   // ===============================================================================================
   // DEPENDENCIES
@@ -72,8 +73,20 @@ public class AuxFamilyScaffolder extends AbstractScaffolder {
   public void scaffold(
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
 
-    auxScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    auxDetailsScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    auxDetailPublisherScaffolder.scaffold(generationPath, projectDescription, dataModel);
+    projectDescription
+        .getContextDescriptions()
+        .forEach(
+            contextDescription -> {
+              Path generationPathWithContext =
+                  Paths.get(generationPath.toString(), contextDescription.getContextFolder());
+
+              dataModel.put("contextDescription", contextDescription);
+
+              auxScaffolder.scaffold(generationPathWithContext, contextDescription, dataModel);
+              auxDetailsScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              auxDetailPublisherScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+            });
   }
 }

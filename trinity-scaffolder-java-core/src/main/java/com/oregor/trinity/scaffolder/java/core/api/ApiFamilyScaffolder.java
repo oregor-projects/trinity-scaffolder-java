@@ -20,10 +20,11 @@
 
 package com.oregor.trinity.scaffolder.java.core.api;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
+import com.oregor.trinity.scaffolder.java.core.AbstractProjectScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 
 /**
@@ -31,7 +32,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class ApiFamilyScaffolder extends AbstractScaffolder {
+public class ApiFamilyScaffolder extends AbstractProjectScaffolder {
 
   // ===============================================================================================
   // DEPENDENCIES
@@ -41,8 +42,12 @@ public class ApiFamilyScaffolder extends AbstractScaffolder {
   private final ApiDetailScaffolder apiDetailScaffolder;
   private final ApiClientsScaffolder apiClientsScaffolder;
   private final ApiClientRestScaffolder apiClientRestScaffolder;
+  private final ApiClientSchedulerScaffolder apiClientSchedulerScaffolder;
   private final ApiClientSubscriberScaffolder apiClientSubscriberScaffolder;
   private final ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder;
+  private final ApiClientPeriodicProcessScaffolder apiClientPeriodicProcessScaffolder;
+  private final ApiClientPeriodicProcessTriggerActiveMqScaffolder
+      apiClientPeriodicProcessTriggerActiveMqScaffolder;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -56,8 +61,12 @@ public class ApiFamilyScaffolder extends AbstractScaffolder {
    * @param apiDetailScaffolder the api detail scaffolder
    * @param apiClientsScaffolder the api clients scaffolder
    * @param apiClientRestScaffolder the api client rest scaffolder
+   * @param apiClientSchedulerScaffolder the api client scheduler scaffolder
    * @param apiClientSubscriberScaffolder the api client subscriber scaffolder
    * @param apiClientSubscriberActiveMqScaffolder the api client subscriber active mq scaffolder
+   * @param apiClientPeriodicProcessScaffolder the api client periodic process scaffolder
+   * @param apiClientPeriodicProcessTriggerActiveMqScaffolder the api client periodic process
+   *     trigger active mq scaffolder
    */
   public ApiFamilyScaffolder(
       FreemarkerService freemarkerService,
@@ -65,15 +74,23 @@ public class ApiFamilyScaffolder extends AbstractScaffolder {
       ApiDetailScaffolder apiDetailScaffolder,
       ApiClientsScaffolder apiClientsScaffolder,
       ApiClientRestScaffolder apiClientRestScaffolder,
+      ApiClientSchedulerScaffolder apiClientSchedulerScaffolder,
       ApiClientSubscriberScaffolder apiClientSubscriberScaffolder,
-      ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder) {
+      ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder,
+      ApiClientPeriodicProcessScaffolder apiClientPeriodicProcessScaffolder,
+      ApiClientPeriodicProcessTriggerActiveMqScaffolder
+          apiClientPeriodicProcessTriggerActiveMqScaffolder) {
     super(freemarkerService);
     this.apiScaffolder = apiScaffolder;
     this.apiDetailScaffolder = apiDetailScaffolder;
     this.apiClientsScaffolder = apiClientsScaffolder;
     this.apiClientRestScaffolder = apiClientRestScaffolder;
+    this.apiClientSchedulerScaffolder = apiClientSchedulerScaffolder;
     this.apiClientSubscriberScaffolder = apiClientSubscriberScaffolder;
     this.apiClientSubscriberActiveMqScaffolder = apiClientSubscriberActiveMqScaffolder;
+    this.apiClientPeriodicProcessScaffolder = apiClientPeriodicProcessScaffolder;
+    this.apiClientPeriodicProcessTriggerActiveMqScaffolder =
+        apiClientPeriodicProcessTriggerActiveMqScaffolder;
   }
 
   // ===============================================================================================
@@ -84,11 +101,32 @@ public class ApiFamilyScaffolder extends AbstractScaffolder {
   public void scaffold(
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
 
-    apiScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    apiDetailScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    apiClientsScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    apiClientRestScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    apiClientSubscriberScaffolder.scaffold(generationPath, projectDescription, dataModel);
-    apiClientSubscriberActiveMqScaffolder.scaffold(generationPath, projectDescription, dataModel);
+    projectDescription
+        .getContextDescriptions()
+        .forEach(
+            contextDescription -> {
+              Path generationPathWithContext =
+                  Paths.get(generationPath.toString(), contextDescription.getContextFolder());
+
+              dataModel.put("contextDescription", contextDescription);
+
+              apiScaffolder.scaffold(generationPathWithContext, contextDescription, dataModel);
+              apiDetailScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              apiClientsScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              apiClientRestScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              apiClientSchedulerScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              apiClientSubscriberScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              apiClientSubscriberActiveMqScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              apiClientPeriodicProcessScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              apiClientPeriodicProcessTriggerActiveMqScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+            });
   }
 }

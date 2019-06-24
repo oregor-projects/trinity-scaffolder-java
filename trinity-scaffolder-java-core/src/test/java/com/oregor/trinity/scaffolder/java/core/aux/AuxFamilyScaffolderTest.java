@@ -56,9 +56,11 @@ public class AuxFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
   public void shouldScaffoldSuccessfully() {
     auxFamilyScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
-    verify(auxScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
-    verify(auxDetailsScaffolder).scaffold(generationPath(), projectDescription(), dataModel());
+    verify(auxScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
+    verify(auxDetailsScaffolder)
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
     verify(auxDetailPublisherScaffolder)
-        .scaffold(generationPath(), projectDescription(), dataModel());
+        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
   }
 }

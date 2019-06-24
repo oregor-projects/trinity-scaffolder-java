@@ -32,23 +32,23 @@ import org.junit.Test;
  *
  * @author Christos Tsakostas
  */
-public class DomainServicesScaffolderTest extends AbstractTrinityScaffolderJavaTest {
+public class DomainDetailServicesScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
-  private DomainServicesScaffolder domainServicesScaffolder;
+  private DomainDetailServicesScaffolder domainDetailServicesScaffolder;
 
   /** Sets up. */
   @Before
   public void setUp() {
-    domainServicesScaffolder = new DomainServicesScaffolder(freemarkerService);
+    domainDetailServicesScaffolder = new DomainDetailServicesScaffolder(freemarkerService);
   }
 
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    domainServicesScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
+    domainDetailServicesScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/domain-details/domain-detail-services/pom.xml.ftl",
             Paths.get(

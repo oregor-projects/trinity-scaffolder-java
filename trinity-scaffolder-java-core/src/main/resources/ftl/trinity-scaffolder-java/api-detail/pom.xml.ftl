@@ -3,14 +3,14 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <groupId>${ projectDescription.groupId }</groupId>
-    <artifactId>${ projectDescription.artifactId }</artifactId>
+    <groupId>${ contextDescription.groupId }</groupId>
+    <artifactId>${ contextDescription.artifactId }</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ projectDescription.groupId }</groupId>
-  <artifactId>${ projectDescription.modulePrefix }api-detail</artifactId>
+  <groupId>${ contextDescription.groupId }</groupId>
+  <artifactId>${ contextDescription.modulePrefix }api-detail</artifactId>
 
   <dependencies>
     <!--SPRING STEREOTYPE & TRANSACTION ANNOTATIONS-->
@@ -25,20 +25,20 @@
 
     <!--API-->
     <dependency>
-      <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }api</artifactId>
+      <groupId>${ contextDescription.groupId }</groupId>
+      <artifactId>${ contextDescription.modulePrefix }api</artifactId>
     </dependency>
 
     <!--AUX-->
     <dependency>
-      <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }aux</artifactId>
+      <groupId>${ contextDescription.groupId }</groupId>
+      <artifactId>${ contextDescription.modulePrefix }aux</artifactId>
     </dependency>
 
     <!--DOMAIN-->
     <dependency>
-      <groupId>${ projectDescription.groupId }</groupId>
-      <artifactId>${ projectDescription.modulePrefix }domain</artifactId>
+      <groupId>${ contextDescription.groupId }</groupId>
+      <artifactId>${ contextDescription.modulePrefix }domain</artifactId>
     </dependency>
 
     <!--TEST-->

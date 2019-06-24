@@ -81,6 +81,10 @@ public abstract class AbstractTrinityScaffolderJavaTest {
         .createProjectDescription();
   }
 
+  protected ContextDescription contextDescription() {
+    return new ContextDescription("", "context", "com.oregor", "test-project", "prefix");
+  }
+
   /**
    * Data model map.
    *
@@ -89,6 +93,13 @@ public abstract class AbstractTrinityScaffolderJavaTest {
   protected Map<String, Object> dataModel() {
     Map<String, Object> map = new HashMap<>();
     map.put("module", "tools");
+    return map;
+  }
+
+  protected Map<String, Object> dataModelWithContextDescription() {
+    Map<String, Object> map = new HashMap<>();
+    map.put("module", "tools");
+    map.put("contextDescription", contextDescription());
     return map;
   }
 }

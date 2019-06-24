@@ -20,7 +20,7 @@
 
 package com.oregor.trinity.scaffolder.java.core.project;
 
-import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
+import com.oregor.trinity.scaffolder.java.core.AbstractProjectScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
 import com.oregor.trinity.scaffolder.java.path.PathService;
@@ -33,7 +33,7 @@ import java.util.Map;
  *
  * @author Christos Tsakostas
  */
-public class MavenSettingsScaffolder extends AbstractScaffolder {
+public class MavenSettingsScaffolder extends AbstractProjectScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)

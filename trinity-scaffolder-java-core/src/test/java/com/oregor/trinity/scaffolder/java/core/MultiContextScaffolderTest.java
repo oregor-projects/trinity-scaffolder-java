@@ -34,7 +34,7 @@ import org.junit.Test;
  *
  * @author Christos Tsakostas
  */
-public class MultiContextTrinityDemoJavaScaffolderTest {
+public class MultiContextScaffolderTest {
 
   private static final String EXPORT_PATH = "tmp";
 
@@ -52,11 +52,11 @@ public class MultiContextTrinityDemoJavaScaffolderTest {
     return new ProjectDescriptionBuilder()
         .setProjectFolder("multi-context")
         .setContext("demo")
-        .setGroupId("com.oregor.trinity.demo.java")
-        .setArtifactId("trinity-demo-java")
+        .setGroupId("com.oregor.some")
+        .setArtifactId("multi-context")
         .setVersion("0.0.1")
-        .setModulePrefix("demo")
-        .setName("trinity-demo-java")
+        .setModulePrefix("myproject")
+        .setName("multi-context")
         .setDescription("trinity-demo-java")
         .setUrl("https://www.oregor.com")
         .setInceptionYear("2019")
@@ -77,11 +77,10 @@ public class MultiContextTrinityDemoJavaScaffolderTest {
 
     contextDescriptions.add(
         new ContextDescription(
-            "contextFolder1", "contextName", "groupId", "artifactId", "modulePrefix"));
+            "access", "AccessContext", "com.oregor.some.access", "access", "access"));
 
     contextDescriptions.add(
-        new ContextDescription(
-            "contextFolder2", "contextName", "groupId", "artifactId", "modulePrefix"));
+        new ContextDescription("venue", "VenueContext", "com.oregor.some.venue", "venue", "venue"));
 
     return contextDescriptions;
   }
