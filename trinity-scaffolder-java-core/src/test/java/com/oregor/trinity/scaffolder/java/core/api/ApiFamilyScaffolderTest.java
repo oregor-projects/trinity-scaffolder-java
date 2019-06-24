@@ -40,6 +40,7 @@ public class ApiFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
   private ApiClientRestScaffolder apiClientRestScaffolder;
   private ApiClientSubscriberScaffolder apiClientSubscriberScaffolder;
   private ApiFamilyScaffolder apiFamilyScaffolder;
+  private ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder;
 
   /** Sets up. */
   @Before
@@ -49,6 +50,7 @@ public class ApiFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
     apiClientsScaffolder = mock(ApiClientsScaffolder.class);
     apiClientRestScaffolder = mock(ApiClientRestScaffolder.class);
     apiClientSubscriberScaffolder = mock(ApiClientSubscriberScaffolder.class);
+    apiClientSubscriberActiveMqScaffolder = mock(ApiClientSubscriberActiveMqScaffolder.class);
 
     apiFamilyScaffolder =
         new ApiFamilyScaffolder(
@@ -57,7 +59,8 @@ public class ApiFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
             apiDetailScaffolder,
             apiClientsScaffolder,
             apiClientRestScaffolder,
-            apiClientSubscriberScaffolder);
+            apiClientSubscriberScaffolder,
+            apiClientSubscriberActiveMqScaffolder);
   }
 
   /** Should scaffold successfully. */

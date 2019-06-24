@@ -42,6 +42,7 @@ public class ApiFamilyScaffolder extends AbstractScaffolder {
   private final ApiClientsScaffolder apiClientsScaffolder;
   private final ApiClientRestScaffolder apiClientRestScaffolder;
   private final ApiClientSubscriberScaffolder apiClientSubscriberScaffolder;
+  private final ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -56,6 +57,7 @@ public class ApiFamilyScaffolder extends AbstractScaffolder {
    * @param apiClientsScaffolder the api clients scaffolder
    * @param apiClientRestScaffolder the api client rest scaffolder
    * @param apiClientSubscriberScaffolder the api client subscriber scaffolder
+   * @param apiClientSubscriberActiveMqScaffolder the api client subscriber active mq scaffolder
    */
   public ApiFamilyScaffolder(
       FreemarkerService freemarkerService,
@@ -63,13 +65,15 @@ public class ApiFamilyScaffolder extends AbstractScaffolder {
       ApiDetailScaffolder apiDetailScaffolder,
       ApiClientsScaffolder apiClientsScaffolder,
       ApiClientRestScaffolder apiClientRestScaffolder,
-      ApiClientSubscriberScaffolder apiClientSubscriberScaffolder) {
+      ApiClientSubscriberScaffolder apiClientSubscriberScaffolder,
+      ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder) {
     super(freemarkerService);
     this.apiScaffolder = apiScaffolder;
     this.apiDetailScaffolder = apiDetailScaffolder;
     this.apiClientsScaffolder = apiClientsScaffolder;
     this.apiClientRestScaffolder = apiClientRestScaffolder;
     this.apiClientSubscriberScaffolder = apiClientSubscriberScaffolder;
+    this.apiClientSubscriberActiveMqScaffolder = apiClientSubscriberActiveMqScaffolder;
   }
 
   // ===============================================================================================
@@ -85,5 +89,6 @@ public class ApiFamilyScaffolder extends AbstractScaffolder {
     apiClientsScaffolder.scaffold(generationPath, projectDescription, dataModel);
     apiClientRestScaffolder.scaffold(generationPath, projectDescription, dataModel);
     apiClientSubscriberScaffolder.scaffold(generationPath, projectDescription, dataModel);
+    apiClientSubscriberActiveMqScaffolder.scaffold(generationPath, projectDescription, dataModel);
   }
 }

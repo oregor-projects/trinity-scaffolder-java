@@ -28,7 +28,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Api impl scaffolder.
+ * The type Api detail scaffolder.
  *
  * @author Christos Tsakostas
  */
@@ -39,7 +39,7 @@ public class ApiDetailScaffolder extends AbstractScaffolder {
   // ===============================================================================================
 
   /**
-   * Instantiates a new Api impl scaffolder.
+   * Instantiates a new Api detail scaffolder.
    *
    * @param freemarkerService the freemarker service
    */

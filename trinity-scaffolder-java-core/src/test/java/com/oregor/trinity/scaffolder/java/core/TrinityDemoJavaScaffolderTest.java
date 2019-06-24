@@ -36,7 +36,7 @@ import org.junit.Test;
  *
  * @author Christos Tsakostas
  */
-public class TrinityDemoJavaScaffolderJavaTest {
+public class TrinityDemoJavaScaffolderTest {
 
   private static final String EXPORT_PATH = "tmp";
 
@@ -52,7 +52,7 @@ public class TrinityDemoJavaScaffolderJavaTest {
 
     trinityScaffolderJava.scaffold(Paths.get(EXPORT_PATH), trinityDemoProjectDescription());
 
-    String pathProject = EXPORT_PATH + "/" + trinityDemoProjectDescription().getArtifactId();
+    String pathProject = EXPORT_PATH + "/" + trinityDemoProjectDescription().getProjectFolder();
 
     assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-api/pom.xml")))
         .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-api/pom.xml")));

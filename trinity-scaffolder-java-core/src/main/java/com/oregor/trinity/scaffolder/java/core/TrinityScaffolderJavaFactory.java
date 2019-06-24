@@ -21,6 +21,7 @@
 package com.oregor.trinity.scaffolder.java.core;
 
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientRestScaffolder;
+import com.oregor.trinity.scaffolder.java.core.api.ApiClientSubscriberActiveMqScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientSubscriberScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiDetailScaffolder;
@@ -83,7 +84,8 @@ public class TrinityScaffolderJavaFactory {
             new ApiDetailScaffolder(freemarkerService),
             new ApiClientsScaffolder(freemarkerService),
             new ApiClientRestScaffolder(freemarkerService),
-            new ApiClientSubscriberScaffolder(freemarkerService));
+            new ApiClientSubscriberScaffolder(freemarkerService),
+            new ApiClientSubscriberActiveMqScaffolder(freemarkerService));
 
     auxFamilyScaffolder =
         new AuxFamilyScaffolder(

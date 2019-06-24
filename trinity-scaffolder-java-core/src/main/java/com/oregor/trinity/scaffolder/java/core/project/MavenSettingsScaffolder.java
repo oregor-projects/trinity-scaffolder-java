@@ -57,7 +57,7 @@ public class MavenSettingsScaffolder extends AbstractScaffolder {
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
     PathService.ensurePath(generationPath);
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/.m2/settings.xml.ftl",
         Paths.get(generationPath.toString(), ".m2/settings.xml"));

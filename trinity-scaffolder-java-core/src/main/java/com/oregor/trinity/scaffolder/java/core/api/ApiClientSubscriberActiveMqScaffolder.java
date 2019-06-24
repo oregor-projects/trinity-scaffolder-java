@@ -18,33 +18,32 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java.core.project;
+package com.oregor.trinity.scaffolder.java.core.api;
 
 import com.oregor.trinity.scaffolder.java.core.AbstractScaffolder;
 import com.oregor.trinity.scaffolder.java.core.ProjectDescription;
 import com.oregor.trinity.scaffolder.java.freemarker.FreemarkerService;
-import com.oregor.trinity.scaffolder.java.path.PathService;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Maven parent pom scaffolder.
+ * The type Api client subscriber active mq scaffolder.
  *
  * @author Christos Tsakostas
  */
-public class MavenParentPomScaffolder extends AbstractScaffolder {
+public class ApiClientSubscriberActiveMqScaffolder extends AbstractScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
   /**
-   * Instantiates a new Maven parent pom scaffolder.
+   * Instantiates a new Api client subscriber active mq scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
-  public MavenParentPomScaffolder(FreemarkerService freemarkerService) {
+  public ApiClientSubscriberActiveMqScaffolder(FreemarkerService freemarkerService) {
     super(freemarkerService);
   }
 
@@ -55,11 +54,17 @@ public class MavenParentPomScaffolder extends AbstractScaffolder {
   @Override
   public void scaffold(
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
-    PathService.ensurePath(generationPath);
 
-    freemarkerService.exportIfNotExists(
+    Path modulePath =
+        Paths.get(
+            generationPath.toString(),
+            projectDescription.getModulePrefix() + "api-clients",
+            projectDescription.getModulePrefix() + "api-client-subscriber-activemq");
+    ensureSources(modulePath, projectDescription);
+
+    freemarkerService.export(
         dataModel,
-        "trinity-scaffolder-java/pom.xml.ftl",
-        Paths.get(generationPath.toString(), "pom.xml"));
+        "trinity-scaffolder-java/api-clients/api-client-subscriber-activemq/pom.xml.ftl",
+        Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

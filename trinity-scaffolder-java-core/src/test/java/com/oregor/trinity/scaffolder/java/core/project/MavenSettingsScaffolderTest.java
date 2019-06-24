@@ -48,7 +48,7 @@ public class MavenSettingsScaffolderTest extends AbstractTrinityScaffolderJavaTe
     mavenSettingsScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/.m2/settings.xml.ftl",
             Paths.get(generationPath().toString(), ".m2/settings.xml"));
