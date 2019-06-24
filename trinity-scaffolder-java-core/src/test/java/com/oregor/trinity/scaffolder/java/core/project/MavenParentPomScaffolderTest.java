@@ -48,7 +48,7 @@ public class MavenParentPomScaffolderTest extends AbstractTrinityScaffolderJavaT
     mavenParentPomScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/pom.xml.ftl",
             Paths.get(generationPath().toString(), "pom.xml"));

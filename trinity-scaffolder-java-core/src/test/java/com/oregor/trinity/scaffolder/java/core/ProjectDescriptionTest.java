@@ -58,6 +58,7 @@ public class ProjectDescriptionTest extends AbstractEqualityTest<ProjectDescript
   @Override
   public ProjectDescription createObject1() {
     return new ProjectDescription(
+        "project",
         "context",
         "com.company.project",
         "artifactId",
@@ -75,12 +76,14 @@ public class ProjectDescriptionTest extends AbstractEqualityTest<ProjectDescript
         "",
         "",
         "",
+        new LinkedHashSet<>(),
         new LinkedHashSet<>());
   }
 
   @Override
   public ProjectDescription createObject2() {
     return new ProjectDescription(
+        "someOtherProject",
         "someOtherContext",
         "com.company.project",
         "artifactId",
@@ -98,6 +101,7 @@ public class ProjectDescriptionTest extends AbstractEqualityTest<ProjectDescript
         "",
         "",
         "",
+        new LinkedHashSet<>(),
         new LinkedHashSet<>());
   }
 }

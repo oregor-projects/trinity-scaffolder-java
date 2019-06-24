@@ -29,7 +29,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Primary adapters scaffolder.
+ * The type Api clients scaffolder.
  *
  * @author Christos Tsakostas
  */

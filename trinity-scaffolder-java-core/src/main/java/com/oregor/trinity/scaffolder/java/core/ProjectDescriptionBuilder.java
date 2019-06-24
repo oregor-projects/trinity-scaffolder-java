@@ -32,6 +32,7 @@ import java.util.Set;
  */
 public class ProjectDescriptionBuilder {
 
+  private String projectFolder;
   private String context;
   private String groupId;
   private String artifactId;
@@ -50,6 +51,7 @@ public class ProjectDescriptionBuilder {
   private String scmUrl;
   private String distributionProfile;
   private Set<String> extraModules = new LinkedHashSet<>();
+  private Set<ContextDescription> contextDescriptions;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -63,6 +65,17 @@ public class ProjectDescriptionBuilder {
   // ===============================================================================================
   // SETTERS
   // ===============================================================================================
+
+  /**
+   * Sets project folder.
+   *
+   * @param projectFolder the project folder
+   * @return the project folder
+   */
+  public ProjectDescriptionBuilder setProjectFolder(String projectFolder) {
+    this.projectFolder = projectFolder;
+    return this;
+  }
 
   /**
    * Sets context.
@@ -263,11 +276,24 @@ public class ProjectDescriptionBuilder {
   }
 
   /**
+   * Sets context descriptions.
+   *
+   * @param contextDescriptions the context descriptions
+   * @return the context descriptions
+   */
+  public ProjectDescriptionBuilder setContextDescriptions(
+      Set<ContextDescription> contextDescriptions) {
+    this.contextDescriptions = contextDescriptions;
+    return this;
+  }
+
+  /**
    * Create project description project description.
    *
    * @return the project description
    */
   public ProjectDescription createProjectDescription() {
+    Assertion.isNotNull(projectFolder, "projectFolder is required");
     Assertion.isNotNull(context, "context is required");
     Assertion.isNotNull(groupId, "groupId is required");
     Assertion.isNotNull(artifactId, "artifactId is required");
@@ -286,6 +312,7 @@ public class ProjectDescriptionBuilder {
     Assertion.isNotNull(distributionProfile, "distributionProfile is required");
 
     return new ProjectDescription(
+        projectFolder,
         context,
         groupId,
         artifactId,
@@ -303,7 +330,8 @@ public class ProjectDescriptionBuilder {
         scmDeveloperConnection,
         scmUrl,
         distributionProfile,
-        extraModules);
+        extraModules,
+        contextDescriptions);
   }
 
   // ===============================================================================================
@@ -312,6 +340,7 @@ public class ProjectDescriptionBuilder {
 
   /** Initialize with default values. */
   private void initializeWithDefaultValues() {
+    setProjectFolder("projectFolder");
     setContext("context");
     setGroupId("com.company.project");
     setArtifactId("project");
@@ -330,5 +359,6 @@ public class ProjectDescriptionBuilder {
     setScmUrl("");
     setDistributionProfile("");
     setExtraModules(new LinkedHashSet<>());
+    setContextDescriptions(new LinkedHashSet<>());
   }
 }

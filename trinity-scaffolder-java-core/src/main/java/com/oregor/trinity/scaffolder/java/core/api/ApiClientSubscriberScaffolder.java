@@ -28,7 +28,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Primary adapter subscriber scaffolder.
+ * The type Api client subscriber scaffolder.
  *
  * @author Christos Tsakostas
  */
@@ -39,7 +39,7 @@ public class ApiClientSubscriberScaffolder extends AbstractScaffolder {
   // ===============================================================================================
 
   /**
-   * Instantiates a new Primary adapter subscriber scaffolder.
+   * Instantiates a new Api client subscriber scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
@@ -59,12 +59,12 @@ public class ApiClientSubscriberScaffolder extends AbstractScaffolder {
         Paths.get(
             generationPath.toString(),
             projectDescription.getModulePrefix() + "api-clients",
-            projectDescription.getModulePrefix() + "api-client-subscriber-activemq");
+            projectDescription.getModulePrefix() + "api-client-subscriber");
     ensureSources(modulePath, projectDescription);
 
     freemarkerService.export(
         dataModel,
-        "trinity-scaffolder-java/api-clients/api-client-subscriber-activemq/pom.xml.ftl",
+        "trinity-scaffolder-java/api-clients/api-client-subscriber/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

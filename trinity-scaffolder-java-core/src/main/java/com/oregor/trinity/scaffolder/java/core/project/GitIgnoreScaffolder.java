@@ -57,7 +57,7 @@ public class GitIgnoreScaffolder extends AbstractScaffolder {
       Path generationPath, ProjectDescription projectDescription, Map<String, Object> dataModel) {
     PathService.ensurePath(generationPath);
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/.gitignore.ftl",
         Paths.get(generationPath.toString(), ".gitignore"));

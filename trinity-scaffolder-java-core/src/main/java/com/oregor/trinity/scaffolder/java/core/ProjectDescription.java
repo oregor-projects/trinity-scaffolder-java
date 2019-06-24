@@ -34,6 +34,7 @@ public class ProjectDescription {
   // STATE
   // ===============================================================================================
 
+  private String projectFolder;
   private String context;
   private String groupId;
   private String artifactId;
@@ -52,6 +53,7 @@ public class ProjectDescription {
   private String scmUrl;
   private String distributionProfile;
   private Set<String> extraModules;
+  private Set<ContextDescription> contextDescriptions;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -60,6 +62,7 @@ public class ProjectDescription {
   /**
    * Instantiates a new Project description.
    *
+   * @param projectFolder the project folder
    * @param context the context
    * @param groupId the group id
    * @param artifactId the artifact id
@@ -78,8 +81,10 @@ public class ProjectDescription {
    * @param scmUrl the scm url
    * @param distributionProfile the distribution profile
    * @param extraModules the extra modules
+   * @param contextDescriptions the context descriptions
    */
-  ProjectDescription(
+  public ProjectDescription(
+      String projectFolder,
       String context,
       String groupId,
       String artifactId,
@@ -97,7 +102,9 @@ public class ProjectDescription {
       String scmDeveloperConnection,
       String scmUrl,
       String distributionProfile,
-      Set<String> extraModules) {
+      Set<String> extraModules,
+      Set<ContextDescription> contextDescriptions) {
+    setProjectFolder(projectFolder);
     setContext(context);
     setGroupId(groupId);
     setArtifactId(artifactId);
@@ -116,11 +123,21 @@ public class ProjectDescription {
     setScmUrl(scmUrl);
     setDistributionProfile(distributionProfile);
     setExtraModules(extraModules);
+    setContextDescriptions(contextDescriptions);
   }
 
   // ===============================================================================================
   // GETTERS
   // ===============================================================================================
+
+  /**
+   * Gets project folder.
+   *
+   * @return the project folder
+   */
+  public String getProjectFolder() {
+    return projectFolder;
+  }
 
   /**
    * Gets context.
@@ -284,9 +301,27 @@ public class ProjectDescription {
     return extraModules;
   }
 
+  /**
+   * Gets context descriptions.
+   *
+   * @return the context descriptions
+   */
+  public Set<ContextDescription> getContextDescriptions() {
+    return contextDescriptions;
+  }
+
   // ===============================================================================================
   // SETTERS
   // ===============================================================================================
+
+  /**
+   * Sets project folder.
+   *
+   * @param projectFolder the project folder
+   */
+  private void setProjectFolder(String projectFolder) {
+    this.projectFolder = projectFolder;
+  }
 
   /**
    * Sets context.
@@ -454,6 +489,15 @@ public class ProjectDescription {
     this.extraModules = extraModules;
   }
 
+  /**
+   * Sets context descriptions.
+   *
+   * @param contextDescriptions the context descriptions
+   */
+  private void setContextDescriptions(Set<ContextDescription> contextDescriptions) {
+    this.contextDescriptions = contextDescriptions;
+  }
+
   // ===============================================================================================
   // OVERRIDES
   // ===============================================================================================
@@ -467,7 +511,8 @@ public class ProjectDescription {
       return false;
     }
     ProjectDescription that = (ProjectDescription) o;
-    return Objects.equals(context, that.context)
+    return Objects.equals(projectFolder, that.projectFolder)
+        && Objects.equals(context, that.context)
         && Objects.equals(groupId, that.groupId)
         && Objects.equals(artifactId, that.artifactId)
         && Objects.equals(modulePrefix, that.modulePrefix)
@@ -484,12 +529,14 @@ public class ProjectDescription {
         && Objects.equals(scmDeveloperConnection, that.scmDeveloperConnection)
         && Objects.equals(scmUrl, that.scmUrl)
         && Objects.equals(distributionProfile, that.distributionProfile)
-        && Objects.equals(extraModules, that.extraModules);
+        && Objects.equals(extraModules, that.extraModules)
+        && Objects.equals(contextDescriptions, that.contextDescriptions);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
+        projectFolder,
         context,
         groupId,
         artifactId,
@@ -507,6 +554,7 @@ public class ProjectDescription {
         scmDeveloperConnection,
         scmUrl,
         distributionProfile,
-        extraModules);
+        extraModules,
+        contextDescriptions);
   }
 }

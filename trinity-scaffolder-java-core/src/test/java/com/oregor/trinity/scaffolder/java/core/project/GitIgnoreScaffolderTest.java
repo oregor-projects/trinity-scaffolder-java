@@ -48,7 +48,7 @@ public class GitIgnoreScaffolderTest extends AbstractTrinityScaffolderJavaTest {
     gitIgnoreScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/.gitignore.ftl",
             Paths.get(generationPath().toString(), ".gitignore"));

@@ -28,7 +28,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Primary adapter rest scaffolder.
+ * The type Api client rest scaffolder.
  *
  * @author Christos Tsakostas
  */
@@ -39,7 +39,7 @@ public class ApiClientRestScaffolder extends AbstractScaffolder {
   // ===============================================================================================
 
   /**
-   * Instantiates a new Primary adapter rest scaffolder.
+   * Instantiates a new Api client rest scaffolder.
    *
    * @param freemarkerService the freemarker service
    */

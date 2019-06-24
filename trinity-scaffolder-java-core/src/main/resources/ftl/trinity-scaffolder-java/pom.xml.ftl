@@ -117,20 +117,14 @@
     <commons-io-version>2.4</commons-io-version>
     <commons-validator.version>1.5.1</commons-validator.version>
 
-    <!--GUAVA-->
-    <guava.version>26.0-jre</guava.version>
+    <!--CAMEL-->
+    <camel.version>2.22.1</camel.version>
 
-    <!--FREEMARKER-->
-    <freemarker.version>2.3.28</freemarker.version>
-
-    <!--REFLECTIONS-->
-    <reflections.version>0.9.11</reflections.version>
-
-    <!--INFLECTOR-->
-    <evo-inflector.version>1.2.2</evo-inflector.version>
+    <!--JUNIT-->
+    <junit-jupiter.version>5.4.2</junit-jupiter.version>
 
     <!--TRINITY4J-->
-    <trinity4j.version>0.0.2</trinity4j.version>
+    <trinity4j.version>0.0.4</trinity4j.version>
   </properties>
 
   <dependencies>
@@ -138,6 +132,17 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- Camel BOM -->
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-spring-boot-dependencies</artifactId>
+        <#noparse>
+        <version>${camel.version}</version>
+        </#noparse>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       <!--APACHE-->
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -205,6 +210,15 @@
       <dependency>
         <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
         <artifactId>${ projectDescription.modulePrefix }api-client-rest-spring</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--SUBSCRIBER-->
+      <dependency>
+        <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ projectDescription.modulePrefix }api-client-subscriber</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>

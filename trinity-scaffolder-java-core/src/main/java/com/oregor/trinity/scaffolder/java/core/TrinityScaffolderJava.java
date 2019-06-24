@@ -92,7 +92,7 @@ public class TrinityScaffolderJava {
     dataModel.put("projectDescription", projectDescription);
 
     Path generationPathProject =
-        Paths.get(generationPath.toString(), projectDescription.getArtifactId());
+        Paths.get(generationPath.toString(), projectDescription.getProjectFolder());
 
     projectFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
     appScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
