@@ -1,3 +1,10 @@
+# ==================================================================================================
+# SPRING BOOT CONFIGURATION
+# ==================================================================================================
+
+server-config:
+  port: 8080
+
 spring-config:
   activemq:
     broker-url: vm://localhost
@@ -16,3 +23,36 @@ spring-config:
     properties:
       hibernate:
         dialect: com.oregor.trinity4j.domain.hibernate.CustomH2Dialect
+
+# ==================================================================================================
+# CONTEXT CONFIGURATION
+# ==================================================================================================
+
+context-config:
+<#if projectDescription.contextDescriptions?size gt 1>
+    <#list projectDescription.contextDescriptions as contextDescription>
+  ${ contextDescription.contextName }:
+    api-client:
+      batch-process:
+        subscriber: activemq:queue:${ contextDescription.contextName }.api-client.batch-process.subscriber
+        publisher: activemq:topic:${ contextDescription.contextName }.api-client.batch-process.publisher
+      domain-message:
+        subscriber: activemq:queue:${ contextDescription.contextName }.api-client.domain-message.subscriber
+        publisher: activemq:topic:${ contextDescription.contextName }.api-client.domain-message.publisher
+    domain-detail:
+      domain-message:
+        publisher: activemq:topic:${ contextDescription.contextName }.domain-detail.domain-message.publisher
+    </#list>
+<#else>
+  ${ projectDescription.context }:
+    api-client:
+      batch-process:
+        subscriber: activemq:queue:${ projectDescription.context }.api-client.batch-process.subscriber
+        publisher: activemq:topic:${ projectDescription.context }.api-client.batch-process.publisher
+      domain-message:
+        subscriber: activemq:queue:${ projectDescription.context }.api-client.domain-message.subscriber
+        publisher: activemq:topic:${ projectDescription.context }.api-client.domain-message.publisher
+    domain-detail:
+      domain-message:
+        publisher: activemq:topic:${ projectDescription.context }.domain-detail.domain-message.publisher
+</#if>

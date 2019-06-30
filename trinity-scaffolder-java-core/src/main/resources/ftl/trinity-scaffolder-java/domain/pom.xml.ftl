@@ -19,17 +19,6 @@
       <artifactId>javax.persistence-api</artifactId>
     </dependency>
 
-    <!--QUERY DSL-->
-    <dependency>
-      <groupId>com.querydsl</groupId>
-      <artifactId>querydsl-apt</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.querydsl</groupId>
-      <artifactId>querydsl-jpa</artifactId>
-    </dependency>
-
     <!--TRINITY4J-->
     <dependency>
       <groupId>com.oregor.trinity4j</groupId>

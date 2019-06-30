@@ -60,7 +60,7 @@ public class DomainDetailScheduledPublisherScaffolder extends AbstractContextSca
             generationPath.toString(),
             contextDescription.getModulePrefix() + "domain-details",
             contextDescription.getModulePrefix()
-                + "domain-detail-scheduled-publisher-camel-activemq");
+                + "domain-detail-domain-message-publisher-activemq");
 
     ensureSources(modulePath, contextDescription);
 
@@ -72,7 +72,7 @@ public class DomainDetailScheduledPublisherScaffolder extends AbstractContextSca
     freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/domain-details/"
-            + "domain-detail-scheduled-publisher-camel-activemq/pom.xml.ftl",
+            + "domain-detail-domain-message-publisher-activemq/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

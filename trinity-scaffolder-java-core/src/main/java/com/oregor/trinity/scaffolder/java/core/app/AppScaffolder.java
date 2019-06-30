@@ -62,8 +62,10 @@ public class AppScaffolder extends AbstractProjectScaffolder {
     ensureSources(modulePath, projectDescription);
 
     exportApplicationYml(modulePath, dataModel);
+
     exportConfigApplicationDevYml(
         projectDescription.getAppConfigLocationType(), modulePath, dataModel);
+
     exportConfigApplicationCiYml(
         projectDescription.getAppConfigLocationType(), modulePath, dataModel);
 
@@ -105,6 +107,11 @@ public class AppScaffolder extends AbstractProjectScaffolder {
           dataModel,
           "trinity-scaffolder-java/app/resources/config/application-dev.yml.ftl",
           Paths.get(modulePath.toString(), "src/main/resources/config", "application-dev.yml"));
+    } else if (appConfigLocationType.equals(AppConfigLocationType.OUTSIDE)) {
+      freemarkerService.exportIfNotExists(
+          dataModel,
+          "trinity-scaffolder-java/app/resources/config/application-dev.yml.ftl",
+          Paths.get(modulePath.toString(), "config", "application.yml"));
     }
   }
 
@@ -115,6 +122,11 @@ public class AppScaffolder extends AbstractProjectScaffolder {
           dataModel,
           "trinity-scaffolder-java/app/resources/config/application-ci.yml.ftl",
           Paths.get(modulePath.toString(), "src/main/resources/config", "application-ci.yml"));
+    } else if (appConfigLocationType.equals(AppConfigLocationType.OUTSIDE)) {
+      freemarkerService.exportIfNotExists(
+          dataModel,
+          "trinity-scaffolder-java/app/resources/config/application-ci.yml.ftl",
+          Paths.get(modulePath.toString(), "config", "application-ci.yml"));
     }
   }
 }

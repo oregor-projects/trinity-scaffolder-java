@@ -10,25 +10,37 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-  <artifactId>${ contextDescription.modulePrefix }api-client-subscriber</artifactId>
+  <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber-activemq</artifactId>
 
   <dependencies>
-    <!--SPRING STEREOTYPE & TRANSACTION ANNOTATIONS-->
+    <!-- SPRING BOOT ACTIVEMQ -->
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-activemq</artifactId>
     </dependency>
 
-    <!--TRINITY4J-->
+    <!-- SPRING BOOT CAMEL -->
     <dependency>
-      <groupId>com.oregor.trinity4j.trinity4j-api-clients</groupId>
-      <artifactId>trinity4j-api-client-subscriber</artifactId>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring-boot-starter</artifactId>
     </dependency>
 
-    <!--API-->
+    <!-- ACTIVEMQ -->
     <dependency>
-      <groupId>${ contextDescription.groupId }</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api</artifactId>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-camel</artifactId>
+    </dependency>
+
+    <!-- ACTIVEMQ POOLING -->
+    <dependency>
+      <groupId>org.messaginghub</groupId>
+      <artifactId>pooled-jms</artifactId>
+    </dependency>
+
+    <!--API CLIENT DOMAIN MESSAGE-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber</artifactId>
     </dependency>
 
     <!--TEST-->

@@ -36,7 +36,6 @@ public class AuxFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
   private AuxScaffolder auxScaffolder;
   private AuxDetailsScaffolder auxDetailsScaffolder;
-  private AuxDetailPublisherScaffolder auxDetailPublisherScaffolder;
   private AuxFamilyScaffolder auxFamilyScaffolder;
 
   /** Sets up. */
@@ -44,11 +43,9 @@ public class AuxFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
   public void setUp() {
     auxScaffolder = mock(AuxScaffolder.class);
     auxDetailsScaffolder = mock(AuxDetailsScaffolder.class);
-    auxDetailPublisherScaffolder = mock(AuxDetailPublisherScaffolder.class);
 
     auxFamilyScaffolder =
-        new AuxFamilyScaffolder(
-            freemarkerService, auxScaffolder, auxDetailsScaffolder, auxDetailPublisherScaffolder);
+        new AuxFamilyScaffolder(freemarkerService, auxScaffolder, auxDetailsScaffolder);
   }
 
   /** Should scaffold successfully. */
@@ -59,8 +56,6 @@ public class AuxFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
     verify(auxScaffolder)
         .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
     verify(auxDetailsScaffolder)
-        .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
-    verify(auxDetailPublisherScaffolder)
         .scaffold(generationPath(), contextDescription(), dataModelWithContextDescription());
   }
 }

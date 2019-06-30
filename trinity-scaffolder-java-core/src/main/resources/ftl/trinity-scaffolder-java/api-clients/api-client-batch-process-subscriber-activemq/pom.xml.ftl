@@ -10,37 +10,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-  <artifactId>${ contextDescription.modulePrefix }api-client-subscriber-activemq</artifactId>
+  <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber-activemq</artifactId>
 
   <dependencies>
-    <!-- SPRING BOOT ACTIVEMQ -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-activemq</artifactId>
-    </dependency>
-
-    <!-- SPRING BOOT CAMEL -->
+    <!--SPRING BOOT CAMEL-->
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-spring-boot-starter</artifactId>
     </dependency>
 
-    <!-- ACTIVEMQ -->
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-camel</artifactId>
-    </dependency>
-
-    <!-- ACTIVEMQ POOLING -->
-    <dependency>
-      <groupId>org.messaginghub</groupId>
-      <artifactId>pooled-jms</artifactId>
-    </dependency>
-
-    <!--API CLIENT SUBSCRIBER-->
+    <!--API CLIENT BATCH PROCESS SUBSCRIBER-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api-client-subscriber</artifactId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber</artifactId>
     </dependency>
 
     <!--TEST-->

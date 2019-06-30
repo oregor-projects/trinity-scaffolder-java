@@ -40,29 +40,18 @@ public class AuxFamilyScaffolder extends AbstractProjectScaffolder {
 
   private final AuxScaffolder auxScaffolder;
   private final AuxDetailsScaffolder auxDetailsScaffolder;
-  private final AuxDetailPublisherScaffolder auxDetailPublisherScaffolder;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
-  /**
-   * Instantiates a new Aux family scaffolder.
-   *
-   * @param freemarkerService the freemarker service
-   * @param auxScaffolder the aux scaffolder
-   * @param auxDetailsScaffolder the aux details scaffolder
-   * @param auxDetailPublisherScaffolder the aux detail publisher scaffolder
-   */
   public AuxFamilyScaffolder(
       FreemarkerService freemarkerService,
       AuxScaffolder auxScaffolder,
-      AuxDetailsScaffolder auxDetailsScaffolder,
-      AuxDetailPublisherScaffolder auxDetailPublisherScaffolder) {
+      AuxDetailsScaffolder auxDetailsScaffolder) {
     super(freemarkerService);
     this.auxScaffolder = auxScaffolder;
     this.auxDetailsScaffolder = auxDetailsScaffolder;
-    this.auxDetailPublisherScaffolder = auxDetailPublisherScaffolder;
   }
 
   // ===============================================================================================
@@ -84,8 +73,6 @@ public class AuxFamilyScaffolder extends AbstractProjectScaffolder {
 
               auxScaffolder.scaffold(generationPathWithContext, contextDescription, dataModel);
               auxDetailsScaffolder.scaffold(
-                  generationPathWithContext, contextDescription, dataModel);
-              auxDetailPublisherScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
             });
   }

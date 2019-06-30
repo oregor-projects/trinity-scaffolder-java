@@ -18,7 +18,7 @@
  * ===========================LICENSE_END==================================
  */
 
-package com.oregor.trinity.scaffolder.java.core.aux;
+package com.oregor.trinity.scaffolder.java.core.api;
 
 import static org.mockito.Mockito.verify;
 
@@ -28,33 +28,33 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The type Aux detail publisher scaffolder test.
+ * The type Api client subscriber scaffolder test.
  *
  * @author Christos Tsakostas
  */
-public class AuxDetailPublisherScaffolderTest extends AbstractTrinityScaffolderJavaTest {
+public class ApiClientDomainMessageScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
-  private AuxDetailPublisherScaffolder auxDetailPublisherScaffolder;
+  private ApiClientDomainMessageScaffolder apiClientDomainMessageScaffolder;
 
   /** Sets up. */
   @Before
   public void setUp() {
-    auxDetailPublisherScaffolder = new AuxDetailPublisherScaffolder(freemarkerService);
+    apiClientDomainMessageScaffolder = new ApiClientDomainMessageScaffolder(freemarkerService);
   }
 
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    auxDetailPublisherScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
+    apiClientDomainMessageScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
         .exportIfNotExists(
             dataModel(),
-            "trinity-scaffolder-java/aux-details/aux-detail-publisher-activemq/pom.xml.ftl",
+            "trinity-scaffolder-java/api-clients/api-client-domain-message-subscriber/pom.xml.ftl",
             Paths.get(
                 generationPath().toString(),
-                "prefix-aux-details",
-                "prefix-aux-detail-publisher-activemq",
+                "prefix-api-clients",
+                "prefix-api-client-domain-message-subscriber",
                 "pom.xml"));
   }
 }

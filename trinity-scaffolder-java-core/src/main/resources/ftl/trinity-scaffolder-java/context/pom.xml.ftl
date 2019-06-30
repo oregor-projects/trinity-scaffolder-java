@@ -17,11 +17,11 @@
     <module>${ contextDescription.modulePrefix }api</module>
     <module>${ contextDescription.modulePrefix }api-clients</module>
     <module>${ contextDescription.modulePrefix }api-detail</module>
+    <module>${ contextDescription.modulePrefix }aux</module>
+    <module>${ contextDescription.modulePrefix }aux-details</module>
     <module>${ contextDescription.modulePrefix }bom</module>
     <module>${ contextDescription.modulePrefix }domain</module>
     <module>${ contextDescription.modulePrefix }domain-details</module>
-    <module>${ contextDescription.modulePrefix }aux</module>
-    <module>${ contextDescription.modulePrefix }aux-details</module>
   </modules>
 
 </project>

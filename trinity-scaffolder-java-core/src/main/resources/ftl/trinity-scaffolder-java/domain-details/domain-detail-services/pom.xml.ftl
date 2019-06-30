@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ contextDescription.groupId }</groupId>
+  <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
   <artifactId>${ contextDescription.modulePrefix }domain-detail-services</artifactId>
 
   <dependencies>

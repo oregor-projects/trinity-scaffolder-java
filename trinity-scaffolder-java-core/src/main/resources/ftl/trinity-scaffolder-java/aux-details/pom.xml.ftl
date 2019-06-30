@@ -14,7 +14,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>${ contextDescription.modulePrefix }aux-detail-publisher-activemq</module>
   </modules>
 
 </project>

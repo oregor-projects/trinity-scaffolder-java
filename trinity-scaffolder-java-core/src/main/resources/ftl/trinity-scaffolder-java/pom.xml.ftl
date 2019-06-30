@@ -11,14 +11,15 @@
     <module>${ contextDescription.contextFolder }</module>
 </#list>
 <#else>
-    <module>${ projectDescription.modulePrefix }app</module>
     <module>${ projectDescription.modulePrefix }api</module>
     <module>${ projectDescription.modulePrefix }api-clients</module>
     <module>${ projectDescription.modulePrefix }api-detail</module>
-    <module>${ projectDescription.modulePrefix }domain</module>
-    <module>${ projectDescription.modulePrefix }domain-details</module>
+    <module>${ projectDescription.modulePrefix }app</module>
     <module>${ projectDescription.modulePrefix }aux</module>
     <module>${ projectDescription.modulePrefix }aux-details</module>
+    <module>${ projectDescription.modulePrefix }bom</module>
+    <module>${ projectDescription.modulePrefix }domain</module>
+    <module>${ projectDescription.modulePrefix }domain-details</module>
 </#if>
 <#list projectDescription.extraModules as extraModule>
     <module>${ projectDescription.modulePrefix }${ extraModule }</module>
@@ -27,7 +28,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.3.RELEASE</version>
+    <version>2.2.1.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>${ projectDescription.groupId }</groupId>
@@ -50,15 +51,6 @@
       <url>${ projectDescription.url }</url>
     </license>
   </licenses>
-
-  <developers>
-    <developer>
-      <name>Christos Tsakostas</name>
-      <email>c.tsakostas@gmail.com</email>
-      <organization>OREGOR LTD</organization>
-      <organizationUrl>https://www.oregor.com</organizationUrl>
-    </developer>
-  </developers>
 
   <scm>
     <connection>
@@ -87,10 +79,10 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
+    <java.version>11</java.version>
 
     <!--BUILD-->
-    <oregor-build-tools-java.version>0.0.4</oregor-build-tools-java.version>
+    <oregor-build-tools-java.version>0.0.3</oregor-build-tools-java.version>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
     <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
@@ -102,8 +94,8 @@
     <sonar-maven-plugin.version>3.5.0.1254</sonar-maven-plugin.version>
     <license-maven-plugin.version>1.14</license-maven-plugin.version>
     <fmt-maven-plugin.version>2.6.0</fmt-maven-plugin.version>
-    <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>8.15</checkstyle.version>
+    <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
+    <checkstyle.version>8.22</checkstyle.version>
     <findbugs-maven-plugin.version>3.0.0</findbugs-maven-plugin.version>
     <maven-pmd-plugin.version>3.11.0</maven-pmd-plugin.version>
     <maven-jxr-plugin.version>2.4</maven-jxr-plugin.version>
@@ -113,7 +105,6 @@
     <maven-dependency-plugin.version>2.9</maven-dependency-plugin.version>
     <cobertura-maven-plugin.version>2.6</cobertura-maven-plugin.version>
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
-    <querydsl-apt-maven-plugin.version>1.1.3</querydsl-apt-maven-plugin.version>
 
     <!--SPRING SECURITY OAUTH2-->
     <spring-security-oauth2.version>2.3.5.RELEASE</spring-security-oauth2.version>
@@ -131,7 +122,7 @@
     <junit-jupiter.version>5.4.2</junit-jupiter.version>
 
     <!--TRINITY4J-->
-    <trinity4j.version>0.0.5-SNAPSHOT</trinity4j.version>
+    <trinity4j.version>0.0.9-SNAPSHOT</trinity4j.version>
   </properties>
 
   <dependencies>
@@ -218,19 +209,37 @@
       <!-- API CLIENTS                                                                           -->
       <!-- ===================================================================================== -->
 
-      <!--PERIODIC PROCESS-->
+      <!--BATCH PROCESS SUBSCRIBER-->
       <dependency>
         <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-        <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process</artifactId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
       </dependency>
 
-      <!--PERIODIC PROCESS TRIGGER ACTIVEMQ-->
+      <!--BATCH PROCESS SUBSCRIBER ACTIVEMQ-->
       <dependency>
         <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-        <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process-trigger-activemq</artifactId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber-activemq</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--DOMAIN MESSAGE SUBSCRIBER-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--DOMAIN MESSAGE SUBSCRIBER ACTIVEMQ-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+        <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber-activemq</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -245,50 +254,23 @@
         </#noparse>
       </dependency>
 
-      <!--SCHEDULER CAMEL-->
-      <dependency>
-        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-        <artifactId>${ contextDescription.modulePrefix }api-client-scheduler-camel</artifactId>
-        <#noparse>
-        <version>${project.version}</version>
-        </#noparse>
-      </dependency>
-
-      <!--SUBSCRIBER-->
-      <dependency>
-        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-        <artifactId>${ contextDescription.modulePrefix }api-client-subscriber</artifactId>
-        <#noparse>
-        <version>${project.version}</version>
-        </#noparse>
-      </dependency>
-
-      <!--SUBSCRIBER ACTIVEMQ-->
-      <dependency>
-        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-        <artifactId>${ contextDescription.modulePrefix }api-client-subscriber-activemq</artifactId>
-        <#noparse>
-        <version>${project.version}</version>
-        </#noparse>
-      </dependency>
-
       <!-- ===================================================================================== -->
       <!-- DOMAIN DETAILS                                                                        -->
       <!-- ===================================================================================== -->
 
-      <!--REPOSITORY SPRING DATA JPA-->
+      <!--DOMAIN MESSAGE PUBLISHER ACTIVEMQ-->
       <dependency>
         <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
-        <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
+        <artifactId>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
       </dependency>
 
-      <!--SCHEDULED PUBLISHER CAMEL ACTIVEMQ-->
+      <!--DOMAIN REPOSITORY SPRING DATA JPA-->
       <dependency>
         <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
-        <artifactId>${ contextDescription.modulePrefix }domain-detail-scheduled-publisher-camel-activemq</artifactId>
+        <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
         <#noparse>
         <version>${project.version}</version>
         </#noparse>
@@ -307,15 +289,6 @@
       <!-- ===================================================================================== -->
       <!-- AUXILIARY DETAILS                                                                     -->
       <!-- ===================================================================================== -->
-
-      <!--PUBLISHER ACTIVEMQ-->
-      <dependency>
-        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
-        <artifactId>${ contextDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
-        <#noparse>
-        <version>${project.version}</version>
-        </#noparse>
-      </dependency>
 
 </#list>
       <!-- ===================================================================================== -->
@@ -356,7 +329,7 @@
             <showWarnings>true</showWarnings>
             <compilerArgs>
               <arg>-Xlint:all</arg>
-              <arg>-Werror</arg>
+              <!--<arg>-Werror</arg>-->
             </compilerArgs>
           </configuration>
         </plugin>
@@ -640,26 +613,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-      </plugin>
-
-      <!-- ===================================================================== -->
-      <!--QUERY DSL-->
-      <!-- ===================================================================== -->
-      <plugin>
-        <groupId>com.mysema.maven</groupId>
-        <artifactId>apt-maven-plugin</artifactId>
-        <version>${querydsl-apt-maven-plugin.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>process</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>target/generated-sources/java</outputDirectory>
-              <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
 
     </plugins>

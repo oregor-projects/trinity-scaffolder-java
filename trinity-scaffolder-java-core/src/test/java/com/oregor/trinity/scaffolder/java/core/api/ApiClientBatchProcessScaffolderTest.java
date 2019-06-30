@@ -27,34 +27,30 @@ import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * The type Api client subscriber scaffolder test.
- *
- * @author Christos Tsakostas
- */
-public class ApiClientSubscriberScaffolderTest extends AbstractTrinityScaffolderJavaTest {
+/** @author Christos Tsakostas */
+public class ApiClientBatchProcessScaffolderTest extends AbstractTrinityScaffolderJavaTest {
 
-  private ApiClientSubscriberScaffolder apiClientSubscriberScaffolder;
+  private ApiClientBatchProcessScaffolder apiClientBatchProcessScaffolder;
 
   /** Sets up. */
   @Before
   public void setUp() {
-    apiClientSubscriberScaffolder = new ApiClientSubscriberScaffolder(freemarkerService);
+    apiClientBatchProcessScaffolder = new ApiClientBatchProcessScaffolder(freemarkerService);
   }
 
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    apiClientSubscriberScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
+    apiClientBatchProcessScaffolder.scaffold(generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
         .exportIfNotExists(
             dataModel(),
-            "trinity-scaffolder-java/api-clients/api-client-subscriber/pom.xml.ftl",
+            "trinity-scaffolder-java/api-clients/api-client-batch-process-subscriber/pom.xml.ftl",
             Paths.get(
                 generationPath().toString(),
                 "prefix-api-clients",
-                "prefix-api-client-subscriber",
+                "prefix-api-client-batch-process-subscriber",
                 "pom.xml"));
   }
 }

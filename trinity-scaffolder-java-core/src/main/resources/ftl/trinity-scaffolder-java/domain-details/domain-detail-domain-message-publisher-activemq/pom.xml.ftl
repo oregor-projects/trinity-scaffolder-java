@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>${ contextDescription.groupId }</groupId>
-    <artifactId>${ contextDescription.modulePrefix }api-clients</artifactId>
+    <artifactId>${ contextDescription.modulePrefix }domain-details</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-  <artifactId>${ contextDescription.modulePrefix }api-client-scheduler-camel</artifactId>
+  <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+  <artifactId>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</artifactId>
 
   <dependencies>
     <!-- SPRING BOOT CAMEL -->
@@ -19,10 +19,16 @@
       <artifactId>camel-spring-boot-starter</artifactId>
     </dependency>
 
-    <!--PERIODIC PROCESS-->
+    <!--TRINITY-->
     <dependency>
-      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process</artifactId>
+      <groupId>com.oregor.trinity4j.trinity4j-domain-details</groupId>
+      <artifactId>trinity4j-domain-detail-domain-message-publisher</artifactId>
+    </dependency>
+
+    <!--DOMAIN-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }</groupId>
+      <artifactId>${ contextDescription.modulePrefix }domain</artifactId>
     </dependency>
 
     <!--TEST-->

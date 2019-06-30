@@ -1,6 +1,13 @@
+# ==================================================================================================
+# SPRING BOOT CONFIGURATION
+# ==================================================================================================
+
 # CREATE SCHEMA `demo-dev`;
 # CREATE USER 'demo-dev'@'%' IDENTIFIED BY 'demo-dev';
 # GRANT ALL ON *.* TO 'demo-dev'@'%';
+
+server-config:
+  port: 8080
 
 spring-config:
   activemq:
@@ -23,3 +30,17 @@ spring-config:
         dialect: org.hibernate.dialect.MySQLDialect
         jdbc:
           time_zone: UTC
+
+# ==================================================================================================
+# CONTEXT CONFIGURATION
+# ==================================================================================================
+
+context-config:
+  demo:
+    api-client:
+      batch-process:
+        subscriber: activemq:queue:demo.api-client.batch-process.subscriber
+        publisher: activemq:topic:demo.api-client.batch-process.publisher
+      domain-message:
+        subscriber: activemq:queue:demo.api-client.domain-message.subscriber
+        publisher: activemq:topic:demo.api-client.domain-message.publisher

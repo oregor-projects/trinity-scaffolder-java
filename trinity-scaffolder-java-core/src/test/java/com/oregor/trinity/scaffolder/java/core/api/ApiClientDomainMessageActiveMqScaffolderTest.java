@@ -28,30 +28,32 @@ import org.junit.Before;
 import org.junit.Test;
 
 /** @author Christos Tsakostas */
-public class ApiClientPeriodicProcessScaffolderTest extends AbstractTrinityScaffolderJavaTest {
+public class ApiClientDomainMessageActiveMqScaffolderTest
+    extends AbstractTrinityScaffolderJavaTest {
 
-  private ApiClientPeriodicProcessScaffolder apiClientPeriodicProcessScaffolder;
+  private ApiClientDomainMessageActiveMqScaffolder apiClientDomainMessageActiveMqScaffolder;
 
   /** Sets up. */
   @Before
   public void setUp() {
-    apiClientPeriodicProcessScaffolder = new ApiClientPeriodicProcessScaffolder(freemarkerService);
+    apiClientDomainMessageActiveMqScaffolder =
+        new ApiClientDomainMessageActiveMqScaffolder(freemarkerService);
   }
 
   /** Should scaffold successfully. */
   @Test
   public void shouldScaffoldSuccessfully() {
-    apiClientPeriodicProcessScaffolder.scaffold(
+    apiClientDomainMessageActiveMqScaffolder.scaffold(
         generationPath(), contextDescription(), dataModel());
 
     verify(freemarkerService)
         .exportIfNotExists(
             dataModel(),
-            "trinity-scaffolder-java/api-clients/api-client-periodic-process/pom.xml.ftl",
+            "trinity-scaffolder-java/api-clients/api-client-domain-message-subscriber-activemq/pom.xml.ftl",
             Paths.get(
                 generationPath().toString(),
                 "prefix-api-clients",
-                "prefix-api-client-periodic-process",
+                "prefix-api-client-domain-message-subscriber-activemq",
                 "pom.xml"));
   }
 }
