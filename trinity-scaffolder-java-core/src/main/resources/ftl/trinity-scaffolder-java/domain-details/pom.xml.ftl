@@ -14,8 +14,8 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</module>
     <module>${ contextDescription.modulePrefix }domain-detail-repository-springdatajpa</module>
-    <module>${ contextDescription.modulePrefix }domain-detail-scheduled-publisher-camel-activemq</module>
     <module>${ contextDescription.modulePrefix }domain-detail-services</module>
   </modules>
 

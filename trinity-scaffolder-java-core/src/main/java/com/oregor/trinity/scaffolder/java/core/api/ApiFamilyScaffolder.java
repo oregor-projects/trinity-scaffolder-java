@@ -39,15 +39,18 @@ public class ApiFamilyScaffolder extends AbstractProjectScaffolder {
   // ===============================================================================================
 
   private final ApiScaffolder apiScaffolder;
+
   private final ApiDetailScaffolder apiDetailScaffolder;
+
   private final ApiClientsScaffolder apiClientsScaffolder;
+
   private final ApiClientRestScaffolder apiClientRestScaffolder;
-  private final ApiClientSchedulerScaffolder apiClientSchedulerScaffolder;
-  private final ApiClientSubscriberScaffolder apiClientSubscriberScaffolder;
-  private final ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder;
-  private final ApiClientPeriodicProcessScaffolder apiClientPeriodicProcessScaffolder;
-  private final ApiClientPeriodicProcessTriggerActiveMqScaffolder
-      apiClientPeriodicProcessTriggerActiveMqScaffolder;
+
+  private final ApiClientDomainMessageScaffolder apiClientDomainMessageScaffolder;
+  private final ApiClientDomainMessageActiveMqScaffolder apiClientDomainMessageActiveMqScaffolder;
+
+  private final ApiClientBatchProcessScaffolder apiClientBatchProcessScaffolder;
+  private final ApiClientBatchProcessActiveMqScaffolder apiClientBatchProcessActiveMqScaffolder;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -61,12 +64,12 @@ public class ApiFamilyScaffolder extends AbstractProjectScaffolder {
    * @param apiDetailScaffolder the api detail scaffolder
    * @param apiClientsScaffolder the api clients scaffolder
    * @param apiClientRestScaffolder the api client rest scaffolder
-   * @param apiClientSchedulerScaffolder the api client scheduler scaffolder
-   * @param apiClientSubscriberScaffolder the api client subscriber scaffolder
-   * @param apiClientSubscriberActiveMqScaffolder the api client subscriber active mq scaffolder
-   * @param apiClientPeriodicProcessScaffolder the api client periodic process scaffolder
-   * @param apiClientPeriodicProcessTriggerActiveMqScaffolder the api client periodic process
-   *     trigger active mq scaffolder
+   * @param apiClientDomainMessageScaffolder the api client domain message scaffolder
+   * @param apiClientDomainMessageActiveMqScaffolder the api client domain message active mq
+   *     scaffolder
+   * @param apiClientBatchProcessScaffolder the api client batch process scaffolder
+   * @param apiClientBatchProcessActiveMqScaffolder the api client batch process active mq
+   *     scaffolder
    */
   public ApiFamilyScaffolder(
       FreemarkerService freemarkerService,
@@ -74,23 +77,19 @@ public class ApiFamilyScaffolder extends AbstractProjectScaffolder {
       ApiDetailScaffolder apiDetailScaffolder,
       ApiClientsScaffolder apiClientsScaffolder,
       ApiClientRestScaffolder apiClientRestScaffolder,
-      ApiClientSchedulerScaffolder apiClientSchedulerScaffolder,
-      ApiClientSubscriberScaffolder apiClientSubscriberScaffolder,
-      ApiClientSubscriberActiveMqScaffolder apiClientSubscriberActiveMqScaffolder,
-      ApiClientPeriodicProcessScaffolder apiClientPeriodicProcessScaffolder,
-      ApiClientPeriodicProcessTriggerActiveMqScaffolder
-          apiClientPeriodicProcessTriggerActiveMqScaffolder) {
+      ApiClientDomainMessageScaffolder apiClientDomainMessageScaffolder,
+      ApiClientDomainMessageActiveMqScaffolder apiClientDomainMessageActiveMqScaffolder,
+      ApiClientBatchProcessScaffolder apiClientBatchProcessScaffolder,
+      ApiClientBatchProcessActiveMqScaffolder apiClientBatchProcessActiveMqScaffolder) {
     super(freemarkerService);
     this.apiScaffolder = apiScaffolder;
     this.apiDetailScaffolder = apiDetailScaffolder;
     this.apiClientsScaffolder = apiClientsScaffolder;
     this.apiClientRestScaffolder = apiClientRestScaffolder;
-    this.apiClientSchedulerScaffolder = apiClientSchedulerScaffolder;
-    this.apiClientSubscriberScaffolder = apiClientSubscriberScaffolder;
-    this.apiClientSubscriberActiveMqScaffolder = apiClientSubscriberActiveMqScaffolder;
-    this.apiClientPeriodicProcessScaffolder = apiClientPeriodicProcessScaffolder;
-    this.apiClientPeriodicProcessTriggerActiveMqScaffolder =
-        apiClientPeriodicProcessTriggerActiveMqScaffolder;
+    this.apiClientDomainMessageScaffolder = apiClientDomainMessageScaffolder;
+    this.apiClientDomainMessageActiveMqScaffolder = apiClientDomainMessageActiveMqScaffolder;
+    this.apiClientBatchProcessScaffolder = apiClientBatchProcessScaffolder;
+    this.apiClientBatchProcessActiveMqScaffolder = apiClientBatchProcessActiveMqScaffolder;
   }
 
   // ===============================================================================================
@@ -117,15 +116,17 @@ public class ApiFamilyScaffolder extends AbstractProjectScaffolder {
                   generationPathWithContext, contextDescription, dataModel);
               apiClientRestScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
-              apiClientSchedulerScaffolder.scaffold(
+
+              // Domain Message
+              apiClientDomainMessageScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
-              apiClientSubscriberScaffolder.scaffold(
+              apiClientDomainMessageActiveMqScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
-              apiClientSubscriberActiveMqScaffolder.scaffold(
+
+              // Batch Process
+              apiClientBatchProcessScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
-              apiClientPeriodicProcessScaffolder.scaffold(
-                  generationPathWithContext, contextDescription, dataModel);
-              apiClientPeriodicProcessTriggerActiveMqScaffolder.scaffold(
+              apiClientBatchProcessActiveMqScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
             });
   }

@@ -10,10 +10,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-  <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process-trigger-activemq</artifactId>
+  <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber</artifactId>
 
   <dependencies>
-    <!--SPRING STEREOTYPE-->
+    <!--SPRING STEREOTYPE & TRANSACTION ANNOTATIONS-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
@@ -22,7 +22,11 @@
     <!--TRINITY4J-->
     <dependency>
       <groupId>com.oregor.trinity4j.trinity4j-api-clients</groupId>
-      <artifactId>trinity4j-api-client-periodic-process-trigger-activemq</artifactId>
+      <artifactId>trinity4j-api-client-subscriber</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.oregor.trinity4j.trinity4j-api-clients</groupId>
+      <artifactId>trinity4j-api-client-domain-message</artifactId>
     </dependency>
 
     <!--API-->

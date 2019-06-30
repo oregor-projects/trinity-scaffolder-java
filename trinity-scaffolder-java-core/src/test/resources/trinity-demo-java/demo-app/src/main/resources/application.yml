@@ -1,3 +1,11 @@
+# ==================================================================================================
+# SPRING BOOT CONFIGURATION
+# ==================================================================================================
+
+server:
+  port: ${server-config.port}
+  servlet:
+    context-path: /api
 
 spring:
   datasource:
@@ -6,6 +14,7 @@ spring:
     username: ${spring-config.datasource.username}
     password: ${spring-config.datasource.password}
   flyway:
+    baseline-on-migrate: true
     check-location: false
     out-of-order: true
   jpa:
@@ -25,3 +34,20 @@ management:
     web:
       exposure:
         include: health,info,metrics
+
+# ==================================================================================================
+# CONTEXT CONFIGURATION
+# ==================================================================================================
+
+context:
+  demo:
+    api-client:
+      batch-process:
+        subscriber: ${context-config.demo.api-client.batch-process.subscriber}
+        publisher: ${context-config.demo.api-client.batch-process.publisher}
+      domain-message:
+        subscriber: ${context-config.demo.api-client.domain-message.subscriber}
+        publisher: ${context-config.demo.api-client.domain-message.publisher}
+    domain-detail:
+      domain-message:
+        publisher: ${context-config.demo.domain-detail.domain-message.publisher}

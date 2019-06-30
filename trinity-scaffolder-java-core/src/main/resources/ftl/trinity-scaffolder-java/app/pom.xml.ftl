@@ -24,9 +24,68 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
-
 <#if projectDescription.contextDescriptions?size gt 1>
+  <#list projectDescription.contextDescriptions as contextDescription>
+
+    <!-- ======================================================================================= -->
+    <!-- ${ contextDescription.contextName } -->
+    <!-- ======================================================================================= -->
+    <!--API DETAIL-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }</groupId>
+      <artifactId>${ contextDescription.modulePrefix }api-detail</artifactId>
+    </dependency>
+
+    <!-- ======================================================================================= -->
+    <!-- API CLIENTS                                                                             -->
+    <!-- ======================================================================================= -->
+
+    <!--BATCH PROCESS SUBSCRIBER ACTIVEMQ-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber-activemq</artifactId>
+    </dependency>
+
+    <!--DOMAIN MESSAGE SUBSCRIBER ACTIVEMQ-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber-activemq</artifactId>
+    </dependency>
+
+    <!--REST SPRING-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-rest-spring</artifactId>
+    </dependency>
+
+    <!-- ======================================================================================= -->
+    <!-- DOMAIN DETAILS                                                                          -->
+    <!-- ======================================================================================= -->
+
+    <!--DOMAIN MESSAGE PUBLISHER ACTIVEMQ-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</artifactId>
+    </dependency>
+
+    <!--DOMAIN REPOSITORY SPRING DATA JPA-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
+    </dependency>
+
+    <!--DOMAIN SERVICES-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }domain-detail-services</artifactId>
+    </dependency>
+
+    <!-- ======================================================================================= -->
+    <!-- AUXILIARY DETAILS                                                                       -->
+    <!-- ======================================================================================= -->
+  </#list>
 <#else>
+
     <!--API DETAIL-->
     <dependency>
       <groupId>${ projectDescription.groupId }</groupId>
@@ -37,37 +96,49 @@
     <!-- API CLIENTS                                                                             -->
     <!-- ======================================================================================= -->
 
-    <!-- REST SPRING -->
+    <!--BATCH PROCESS SUBSCRIBER ACTIVEMQ-->
+    <dependency>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ projectDescription.modulePrefix }api-client-batch-process-subscriber-activemq</artifactId>
+    </dependency>
+
+    <!--DOMAIN MESSAGE SUBSCRIBER ACTIVEMQ-->
+    <dependency>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ projectDescription.modulePrefix }api-client-domain-message-subscriber-activemq</artifactId>
+    </dependency>
+
+    <!--REST SPRING-->
     <dependency>
       <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
       <artifactId>${ projectDescription.modulePrefix }api-client-rest-spring</artifactId>
-    </dependency>
-
-    <!-- SUBSCRIBER ACTIVEMQ -->
-    <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }api-clients</groupId>
-      <artifactId>${ projectDescription.modulePrefix }api-client-subscriber-activemq</artifactId>
     </dependency>
 
     <!-- ======================================================================================= -->
     <!-- DOMAIN DETAILS                                                                          -->
     <!-- ======================================================================================= -->
 
-    <!-- PERSISTENCE RDBMS -->
+    <!--DOMAIN MESSAGE PUBLISHER ACTIVEMQ-->
+    <dependency>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }domain-details</groupId>
+      <artifactId>${ projectDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</artifactId>
+    </dependency>
+
+    <!--DOMAIN REPOSITORY SPRING DATA JPA-->
     <dependency>
       <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }domain-details</groupId>
       <artifactId>${ projectDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
     </dependency>
 
+    <!--DOMAIN SERVICES-->
+    <dependency>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }domain-details</groupId>
+      <artifactId>${ projectDescription.modulePrefix }domain-detail-services</artifactId>
+    </dependency>
+
     <!-- ======================================================================================= -->
     <!-- AUXILIARY DETAILS                                                                       -->
     <!-- ======================================================================================= -->
-
-    <!-- PUBLISHER ACTIVEMQ -->
-    <dependency>
-      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }aux-details</groupId>
-      <artifactId>${ projectDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
-    </dependency>
 </#if>
 
     <!-- ======================================================================================= -->

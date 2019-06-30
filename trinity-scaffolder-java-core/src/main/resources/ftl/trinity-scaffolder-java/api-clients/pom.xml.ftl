@@ -14,12 +14,11 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>${ contextDescription.modulePrefix }api-client-periodic-process</module>
-    <module>${ contextDescription.modulePrefix }api-client-periodic-process-trigger-activemq</module>
+    <module>${ contextDescription.modulePrefix }api-client-batch-process-subscriber</module>
+    <module>${ contextDescription.modulePrefix }api-client-batch-process-subscriber-activemq</module>
+    <module>${ contextDescription.modulePrefix }api-client-domain-message-subscriber</module>
+    <module>${ contextDescription.modulePrefix }api-client-domain-message-subscriber-activemq</module>
     <module>${ contextDescription.modulePrefix }api-client-rest-spring</module>
-    <module>${ contextDescription.modulePrefix }api-client-scheduler-camel</module>
-    <module>${ contextDescription.modulePrefix }api-client-subscriber</module>
-    <module>${ contextDescription.modulePrefix }api-client-subscriber-activemq</module>
   </modules>
 
 </project>

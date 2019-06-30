@@ -1,3 +1,10 @@
+# ==================================================================================================
+# SPRING BOOT CONFIGURATION
+# ==================================================================================================
+
+server-config:
+  port: 8080
+
 spring-config:
   activemq:
     broker-url: vm://localhost
@@ -16,3 +23,17 @@ spring-config:
     properties:
       hibernate:
         dialect: com.oregor.trinity4j.domain.hibernate.CustomH2Dialect
+
+# ==================================================================================================
+# CONTEXT CONFIGURATION
+# ==================================================================================================
+
+context-config:
+  demo:
+    api-client:
+      batch-process:
+        subscriber: activemq:queue:demo.api-client.batch-process.subscriber
+        publisher: activemq:topic:demo.api-client.batch-process.publisher
+      domain-message:
+        subscriber: activemq:queue:demo.api-client.domain-message.subscriber
+        publisher: activemq:topic:demo.api-client.domain-message.publisher

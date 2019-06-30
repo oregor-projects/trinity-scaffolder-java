@@ -28,22 +28,22 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Api client subscriber scaffolder.
+ * The type Api client periodic process trigger active mq scaffolder.
  *
  * @author Christos Tsakostas
  */
-public class ApiClientSubscriberScaffolder extends AbstractContextScaffolder {
+public class ApiClientBatchProcessActiveMqScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
   /**
-   * Instantiates a new Api client subscriber scaffolder.
+   * Instantiates a new Api client periodic process trigger active mq scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
-  public ApiClientSubscriberScaffolder(FreemarkerService freemarkerService) {
+  public ApiClientBatchProcessActiveMqScaffolder(FreemarkerService freemarkerService) {
     super(freemarkerService);
   }
 
@@ -59,13 +59,14 @@ public class ApiClientSubscriberScaffolder extends AbstractContextScaffolder {
         Paths.get(
             generationPath.toString(),
             contextDescription.getModulePrefix() + "api-clients",
-            contextDescription.getModulePrefix() + "api-client-subscriber");
+            contextDescription.getModulePrefix() + "api-client-batch-process-subscriber-activemq");
 
     ensureSources(modulePath, contextDescription);
 
     freemarkerService.exportIfNotExists(
         dataModel,
-        "trinity-scaffolder-java/api-clients/api-client-subscriber/pom.xml.ftl",
+        "trinity-scaffolder-java/api-clients/"
+            + "api-client-batch-process-subscriber-activemq/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

@@ -20,18 +20,16 @@
 
 package com.oregor.trinity.scaffolder.java.core;
 
-import com.oregor.trinity.scaffolder.java.core.api.ApiClientPeriodicProcessScaffolder;
-import com.oregor.trinity.scaffolder.java.core.api.ApiClientPeriodicProcessTriggerActiveMqScaffolder;
+import com.oregor.trinity.scaffolder.java.core.api.ApiClientBatchProcessActiveMqScaffolder;
+import com.oregor.trinity.scaffolder.java.core.api.ApiClientBatchProcessScaffolder;
+import com.oregor.trinity.scaffolder.java.core.api.ApiClientDomainMessageActiveMqScaffolder;
+import com.oregor.trinity.scaffolder.java.core.api.ApiClientDomainMessageScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientRestScaffolder;
-import com.oregor.trinity.scaffolder.java.core.api.ApiClientSchedulerScaffolder;
-import com.oregor.trinity.scaffolder.java.core.api.ApiClientSubscriberActiveMqScaffolder;
-import com.oregor.trinity.scaffolder.java.core.api.ApiClientSubscriberScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiClientsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiDetailScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiScaffolder;
 import com.oregor.trinity.scaffolder.java.core.app.AppScaffolder;
-import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailPublisherScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxScaffolder;
@@ -96,18 +94,16 @@ public class TrinityScaffolderJavaFactory {
             new ApiDetailScaffolder(freemarkerService),
             new ApiClientsScaffolder(freemarkerService),
             new ApiClientRestScaffolder(freemarkerService),
-            new ApiClientSchedulerScaffolder(freemarkerService),
-            new ApiClientSubscriberScaffolder(freemarkerService),
-            new ApiClientSubscriberActiveMqScaffolder(freemarkerService),
-            new ApiClientPeriodicProcessScaffolder(freemarkerService),
-            new ApiClientPeriodicProcessTriggerActiveMqScaffolder(freemarkerService));
+            new ApiClientDomainMessageScaffolder(freemarkerService),
+            new ApiClientDomainMessageActiveMqScaffolder(freemarkerService),
+            new ApiClientBatchProcessScaffolder(freemarkerService),
+            new ApiClientBatchProcessActiveMqScaffolder(freemarkerService));
 
     auxFamilyScaffolder =
         new AuxFamilyScaffolder(
             freemarkerService,
             new AuxScaffolder(freemarkerService),
-            new AuxDetailsScaffolder(freemarkerService),
-            new AuxDetailPublisherScaffolder(freemarkerService));
+            new AuxDetailsScaffolder(freemarkerService));
 
     domainFamilyScaffolder =
         new DomainFamilyScaffolder(

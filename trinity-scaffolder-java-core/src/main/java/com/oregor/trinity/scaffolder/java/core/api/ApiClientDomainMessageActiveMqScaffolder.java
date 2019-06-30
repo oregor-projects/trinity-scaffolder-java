@@ -28,22 +28,22 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Api client periodic process trigger active mq scaffolder.
+ * The type Api client domain message active mq scaffolder.
  *
  * @author Christos Tsakostas
  */
-public class ApiClientPeriodicProcessTriggerActiveMqScaffolder extends AbstractContextScaffolder {
+public class ApiClientDomainMessageActiveMqScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
   /**
-   * Instantiates a new Api client periodic process trigger active mq scaffolder.
+   * Instantiates a new Api client domain message active mq scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
-  public ApiClientPeriodicProcessTriggerActiveMqScaffolder(FreemarkerService freemarkerService) {
+  public ApiClientDomainMessageActiveMqScaffolder(FreemarkerService freemarkerService) {
     super(freemarkerService);
   }
 
@@ -59,14 +59,14 @@ public class ApiClientPeriodicProcessTriggerActiveMqScaffolder extends AbstractC
         Paths.get(
             generationPath.toString(),
             contextDescription.getModulePrefix() + "api-clients",
-            contextDescription.getModulePrefix() + "api-client-periodic-process-trigger-activemq");
+            contextDescription.getModulePrefix() + "api-client-domain-message-subscriber-activemq");
 
     ensureSources(modulePath, contextDescription);
 
     freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/api-clients/"
-            + "api-client-periodic-process-trigger-activemq/pom.xml.ftl",
+            + "api-client-domain-message-subscriber-activemq/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }

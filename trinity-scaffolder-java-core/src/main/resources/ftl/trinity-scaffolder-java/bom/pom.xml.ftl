@@ -23,16 +23,28 @@
     <!-- API CLIENTS                                                                             -->
     <!-- ======================================================================================= -->
 
-    <!--PERIODIC PROCESS-->
+    <!--BATCH PROCESS SUBSCRIBER-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process</artifactId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber</artifactId>
     </dependency>
 
-    <!--PERIODIC PROCESS TRIGGER ACTIVEMQ-->
+    <!--BATCH PROCESS SUBSCRIBER ACTIVEMQ-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process-trigger-activemq</artifactId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber-activemq</artifactId>
+    </dependency>
+
+    <!--DOMAIN MESSAGE SUBSCRIBER-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber</artifactId>
+    </dependency>
+
+    <!--DOMAIN MESSAGE SUBSCRIBER ACTIVEMQ-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
+      <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber-activemq</artifactId>
     </dependency>
 
     <!--REST SPRING-->
@@ -41,38 +53,20 @@
       <artifactId>${ contextDescription.modulePrefix }api-client-rest-spring</artifactId>
     </dependency>
 
-    <!--SCHEDULER CAMEL-->
-    <dependency>
-      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api-client-scheduler-camel</artifactId>
-    </dependency>
-
-    <!--SUBSCRIBER-->
-    <dependency>
-      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api-client-subscriber</artifactId>
-    </dependency>
-
-    <!--SUBSCRIBER ACTIVEMQ-->
-    <dependency>
-      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api-client-subscriber-activemq</artifactId>
-    </dependency>
-
     <!-- ======================================================================================= -->
     <!-- DOMAIN DETAILS                                                                          -->
     <!-- ======================================================================================= -->
 
-    <!--REPOSITORY SPRING DATA JPA-->
+    <!--DOMAIN MESSAGE PUBLISHER ACTIVEMQ-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</artifactId>
+    </dependency>
+
+    <!--DOMAIN REPOSITORY SPRING DATA JPA-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
       <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-springdatajpa</artifactId>
-    </dependency>
-
-    <!--SCHEDULED PUBLISHER CAMEL ACTIVEMQ-->
-    <dependency>
-      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
-      <artifactId>${ contextDescription.modulePrefix }domain-detail-scheduled-publisher-camel-activemq</artifactId>
     </dependency>
 
     <!--DOMAIN SERVICES-->
@@ -85,11 +79,6 @@
     <!-- AUXILIARY DETAILS                                                                       -->
     <!-- ======================================================================================= -->
 
-    <!--PUBLISHER ACTIVEMQ-->
-    <dependency>
-      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
-      <artifactId>${ contextDescription.modulePrefix }aux-detail-publisher-activemq</artifactId>
-    </dependency>
   </dependencies>
 
 </project>

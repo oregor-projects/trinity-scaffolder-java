@@ -10,7 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
-  <artifactId>${ contextDescription.modulePrefix }api-client-periodic-process</artifactId>
+  <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber</artifactId>
 
   <dependencies>
     <!--SPRING STEREOTYPE-->
@@ -22,7 +22,11 @@
     <!--TRINITY4J-->
     <dependency>
       <groupId>com.oregor.trinity4j.trinity4j-api-clients</groupId>
-      <artifactId>trinity4j-api-client-periodic-process</artifactId>
+      <artifactId>trinity4j-api-client-batch-process</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.oregor.trinity4j.trinity4j-api-clients</groupId>
+      <artifactId>trinity4j-api-client-subscriber</artifactId>
     </dependency>
 
     <!--API-->

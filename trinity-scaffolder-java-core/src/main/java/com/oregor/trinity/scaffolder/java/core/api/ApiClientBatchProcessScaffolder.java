@@ -28,22 +28,22 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Api client batch processor scaffolder.
+ * The type Api client batch process scaffolder.
  *
  * @author Christos Tsakostas
  */
-public class ApiClientPeriodicProcessScaffolder extends AbstractContextScaffolder {
+public class ApiClientBatchProcessScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
   /**
-   * Instantiates a new Api client batch processor scaffolder.
+   * Instantiates a new Api client batch process scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
-  public ApiClientPeriodicProcessScaffolder(FreemarkerService freemarkerService) {
+  public ApiClientBatchProcessScaffolder(FreemarkerService freemarkerService) {
     super(freemarkerService);
   }
 
@@ -59,13 +59,13 @@ public class ApiClientPeriodicProcessScaffolder extends AbstractContextScaffolde
         Paths.get(
             generationPath.toString(),
             contextDescription.getModulePrefix() + "api-clients",
-            contextDescription.getModulePrefix() + "api-client-periodic-process");
+            contextDescription.getModulePrefix() + "api-client-batch-process-subscriber");
 
     ensureSources(modulePath, contextDescription);
 
     freemarkerService.exportIfNotExists(
         dataModel,
-        "trinity-scaffolder-java/api-clients/api-client-periodic-process/pom.xml.ftl",
+        "trinity-scaffolder-java/api-clients/api-client-batch-process-subscriber/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }
