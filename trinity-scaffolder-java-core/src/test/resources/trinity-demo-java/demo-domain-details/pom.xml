@@ -15,6 +15,7 @@
 
   <modules>
     <module>demo-domain-detail-domain-message-publisher-activemq</module>
+    <module>demo-domain-detail-repository-inmemory</module>
     <module>demo-domain-detail-repository-springdatajpa</module>
     <module>demo-domain-detail-services</module>
   </modules>

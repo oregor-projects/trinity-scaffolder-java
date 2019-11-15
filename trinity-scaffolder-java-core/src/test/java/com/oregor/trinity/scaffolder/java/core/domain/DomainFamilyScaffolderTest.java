@@ -37,6 +37,7 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
   private DomainModelScaffolder domainModelScaffolder;
   private DomainDetailsScaffolder domainDetailsScaffolder;
   private DomainDetailServicesScaffolder domainDetailServicesScaffolder;
+  private DomainDetailRepositoryInMemoryScaffolder domainDetailRepositoryInMemoryScaffolder;
   private DomainDetailRepositorySpringDataJpaScaffolder
       domainDetailRepositorySpringDataJpaScaffolder;
   private DomainDetailScheduledPublisherScaffolder domainDetailScheduledPublisherScaffolder;
@@ -48,6 +49,7 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
     domainModelScaffolder = mock(DomainModelScaffolder.class);
     domainDetailsScaffolder = mock(DomainDetailsScaffolder.class);
     domainDetailServicesScaffolder = mock(DomainDetailServicesScaffolder.class);
+    domainDetailRepositoryInMemoryScaffolder = mock(DomainDetailRepositoryInMemoryScaffolder.class);
     domainDetailRepositorySpringDataJpaScaffolder =
         mock(DomainDetailRepositorySpringDataJpaScaffolder.class);
     domainDetailScheduledPublisherScaffolder = mock(DomainDetailScheduledPublisherScaffolder.class);
@@ -58,6 +60,7 @@ public class DomainFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTes
             domainModelScaffolder,
             domainDetailsScaffolder,
             domainDetailServicesScaffolder,
+            domainDetailRepositoryInMemoryScaffolder,
             domainDetailRepositorySpringDataJpaScaffolder,
             domainDetailScheduledPublisherScaffolder);
   }
