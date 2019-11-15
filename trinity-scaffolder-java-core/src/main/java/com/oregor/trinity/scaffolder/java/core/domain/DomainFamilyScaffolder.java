@@ -41,6 +41,7 @@ public class DomainFamilyScaffolder extends AbstractProjectScaffolder {
   private final DomainModelScaffolder domainModelScaffolder;
   private final DomainDetailsScaffolder domainDetailsScaffolder;
   private final DomainDetailServicesScaffolder domainDetailServicesScaffolder;
+  private final DomainDetailRepositoryInMemoryScaffolder domainDetailRepositoryInMemoryScaffolder;
   private final DomainDetailRepositorySpringDataJpaScaffolder
       domainDetailRepositorySpringDataJpaScaffolder;
   private final DomainDetailScheduledPublisherScaffolder domainDetailScheduledPublisherScaffolder;
@@ -56,6 +57,8 @@ public class DomainFamilyScaffolder extends AbstractProjectScaffolder {
    * @param domainModelScaffolder the domain model scaffolder
    * @param domainDetailsScaffolder the domain details scaffolder
    * @param domainDetailServicesScaffolder the domain detail services scaffolder
+   * @param domainDetailRepositoryInMemoryScaffolder the domain detail repository in memory
+   *     scaffolder
    * @param domainDetailRepositorySpringDataJpaScaffolder the domain detail repository spring data
    *     jpa scaffolder
    * @param domainDetailScheduledPublisherScaffolder the domain detail scheduled publisher
@@ -66,12 +69,14 @@ public class DomainFamilyScaffolder extends AbstractProjectScaffolder {
       DomainModelScaffolder domainModelScaffolder,
       DomainDetailsScaffolder domainDetailsScaffolder,
       DomainDetailServicesScaffolder domainDetailServicesScaffolder,
+      DomainDetailRepositoryInMemoryScaffolder domainDetailRepositoryInMemoryScaffolder,
       DomainDetailRepositorySpringDataJpaScaffolder domainDetailRepositorySpringDataJpaScaffolder,
       DomainDetailScheduledPublisherScaffolder domainDetailScheduledPublisherScaffolder) {
     super(freemarkerService);
     this.domainModelScaffolder = domainModelScaffolder;
     this.domainDetailsScaffolder = domainDetailsScaffolder;
     this.domainDetailServicesScaffolder = domainDetailServicesScaffolder;
+    this.domainDetailRepositoryInMemoryScaffolder = domainDetailRepositoryInMemoryScaffolder;
     this.domainDetailRepositorySpringDataJpaScaffolder =
         domainDetailRepositorySpringDataJpaScaffolder;
     this.domainDetailScheduledPublisherScaffolder = domainDetailScheduledPublisherScaffolder;
@@ -99,6 +104,8 @@ public class DomainFamilyScaffolder extends AbstractProjectScaffolder {
               domainDetailsScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
               domainDetailServicesScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+              domainDetailRepositoryInMemoryScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
               domainDetailRepositorySpringDataJpaScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);

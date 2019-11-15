@@ -267,6 +267,15 @@
         </#noparse>
       </dependency>
 
+      <!--DOMAIN REPOSITORY IN MEMORY-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+        <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-inmemory</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
       <!--DOMAIN REPOSITORY SPRING DATA JPA-->
       <dependency>
         <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>

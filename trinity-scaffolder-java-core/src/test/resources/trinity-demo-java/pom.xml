@@ -229,6 +229,13 @@
         <version>${project.version}</version>
       </dependency>
 
+      <!--DOMAIN REPOSITORY IN MEMORY-->
+      <dependency>
+        <groupId>com.oregor.trinity.demo.java.demo-domain-details</groupId>
+        <artifactId>demo-domain-detail-repository-inmemory</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
       <!--DOMAIN REPOSITORY SPRING DATA JPA-->
       <dependency>
         <groupId>com.oregor.trinity.demo.java.demo-domain-details</groupId>

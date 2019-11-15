@@ -28,22 +28,22 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 /**
- * The type Domain detail repository spring data jpa scaffolder.
+ * The type Domain detail repository in memory scaffolder.
  *
  * @author Christos Tsakostas
  */
-public class DomainDetailRepositorySpringDataJpaScaffolder extends AbstractContextScaffolder {
+public class DomainDetailRepositoryInMemoryScaffolder extends AbstractContextScaffolder {
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
   /**
-   * Instantiates a new Domain details repository spring data jpa scaffolder.
+   * Instantiates a new Domain detail repository in memory scaffolder.
    *
    * @param freemarkerService the freemarker service
    */
-  public DomainDetailRepositorySpringDataJpaScaffolder(FreemarkerService freemarkerService) {
+  public DomainDetailRepositoryInMemoryScaffolder(FreemarkerService freemarkerService) {
     super(freemarkerService);
   }
 
@@ -59,13 +59,13 @@ public class DomainDetailRepositorySpringDataJpaScaffolder extends AbstractConte
         Paths.get(
             generationPath.toString(),
             contextDescription.getModulePrefix() + "domain-details",
-            contextDescription.getModulePrefix() + "domain-detail-repository-springdatajpa");
+            contextDescription.getModulePrefix() + "domain-detail-repository-inmemory");
 
     ensureSources(modulePath, contextDescription);
 
     freemarkerService.exportIfNotExists(
         dataModel,
-        "trinity-scaffolder-java/domain-details/domain-detail-repository-springdatajpa/pom.xml.ftl",
+        "trinity-scaffolder-java/domain-details/domain-detail-repository-inmemory/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));
   }
 }
