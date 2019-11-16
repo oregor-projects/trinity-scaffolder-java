@@ -121,6 +121,12 @@
     <!--JUNIT-->
     <junit-jupiter.version>5.4.2</junit-jupiter.version>
 
+    <!--JAVA EE-->
+    <jaxb-api.version>2.2.11</jaxb-api.version>
+    <jaxb-core.version>2.2.11</jaxb-core.version>
+    <jaxb-impl.version>2.2.11</jaxb-impl.version>
+    <activation.version>1.1.1</activation.version>
+
     <!--TRINITY4J-->
     <trinity4j.version>0.0.9-SNAPSHOT</trinity4j.version>
   </properties>
@@ -161,6 +167,36 @@
         <artifactId>commons-validator</artifactId>
         <#noparse>
         <version>${commons-validator.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--JAVA EE-->
+      <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <#noparse>
+        <version>${jaxb-api.version}</version>
+        </#noparse>
+      </dependency>
+      <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-core</artifactId>
+        <#noparse>
+        <version>${jaxb-core.version}</version>
+        </#noparse>
+      </dependency>
+      <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-impl</artifactId>
+        <#noparse>
+        <version>${jaxb-impl.version}</version>
+        </#noparse>
+      </dependency>
+      <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <#noparse>
+        <version>${activation.version}</version>
         </#noparse>
       </dependency>
 
@@ -338,7 +374,7 @@
             <showWarnings>true</showWarnings>
             <compilerArgs>
               <arg>-Xlint:all</arg>
-              <!--<arg>-Werror</arg>-->
+              <arg>-Werror</arg>
             </compilerArgs>
           </configuration>
         </plugin>

@@ -19,6 +19,12 @@
       <artifactId>camel-spring-boot-starter</artifactId>
     </dependency>
 
+    <!--JAVA EE-->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+    </dependency>
+
     <!--API CLIENT BATCH PROCESS SUBSCRIBER-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
