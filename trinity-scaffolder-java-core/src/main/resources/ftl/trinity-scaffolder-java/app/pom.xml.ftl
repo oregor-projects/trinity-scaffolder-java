@@ -68,6 +68,12 @@
       <artifactId>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</artifactId>
     </dependency>
 
+    <!--DOMAIN REPOSITORY IN MEMORY-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-inmemory</artifactId>
+    </dependency>
+
     <!--DOMAIN REPOSITORY SPRING DATA JPA-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
