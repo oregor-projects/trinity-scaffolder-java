@@ -19,6 +19,12 @@
       <artifactId>camel-spring-boot-starter</artifactId>
     </dependency>
 
+    <!--JAVA EE-->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+    </dependency>
+
     <!--TRINITY-->
     <dependency>
       <groupId>com.oregor.trinity4j.trinity4j-domain-details</groupId>

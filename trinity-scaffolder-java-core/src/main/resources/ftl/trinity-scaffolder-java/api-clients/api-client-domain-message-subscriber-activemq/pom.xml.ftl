@@ -37,6 +37,12 @@
       <artifactId>pooled-jms</artifactId>
     </dependency>
 
+    <!--JAVA EE-->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+    </dependency>
+
     <!--API CLIENT DOMAIN MESSAGE-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
