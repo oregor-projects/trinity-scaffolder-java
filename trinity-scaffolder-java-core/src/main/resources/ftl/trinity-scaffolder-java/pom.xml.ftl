@@ -116,7 +116,7 @@
     <commons-validator.version>1.5.1</commons-validator.version>
 
     <!--CAMEL-->
-    <camel.version>2.22.1</camel.version>
+    <camel.version>3.0.0-RC3</camel.version>
 
     <!--JUNIT-->
     <junit-jupiter.version>5.4.2</junit-jupiter.version>
@@ -139,7 +139,7 @@
       <!-- Camel BOM -->
       <dependency>
         <groupId>org.apache.camel</groupId>
-        <artifactId>camel-spring-boot-dependencies</artifactId>
+        <artifactId>camel-bom</artifactId>
         <#noparse>
         <version>${camel.version}</version>
         </#noparse>

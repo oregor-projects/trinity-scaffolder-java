@@ -13,28 +13,10 @@
   <artifactId>${ contextDescription.modulePrefix }api-client-domain-message-subscriber-activemq</artifactId>
 
   <dependencies>
-    <!-- SPRING BOOT ACTIVEMQ -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-activemq</artifactId>
-    </dependency>
-
-    <!-- SPRING BOOT CAMEL -->
+    <!--CAMEL ACTIVEMQ STARTER-->
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-spring-boot-starter</artifactId>
-    </dependency>
-
-    <!-- ACTIVEMQ -->
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-camel</artifactId>
-    </dependency>
-
-    <!-- ACTIVEMQ POOLING -->
-    <dependency>
-      <groupId>org.messaginghub</groupId>
-      <artifactId>pooled-jms</artifactId>
+      <artifactId>camel-activemq-starter</artifactId>
     </dependency>
 
     <!--JAVA EE-->
