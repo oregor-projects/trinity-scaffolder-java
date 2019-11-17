@@ -10,14 +10,6 @@ server-config:
   port: 8080
 
 spring-config:
-  activemq:
-    broker-url: tcp://localhost:61616
-    user: admin
-    password: admin
-    in-memory: false
-    pool:
-      enabled: true
-      max-connections: 10
   datasource:
     url: jdbc:mysql://localhost:3306/${ projectDescription.context }-dev?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -30,6 +22,13 @@ spring-config:
         dialect: org.hibernate.dialect.MySQLDialect
         jdbc:
           time_zone: UTC
+
+camel-config:
+  component:
+    activemq:
+      broker-u-r-l: tcp://localhost:61616
+      username: admin
+      password: admin
 
 # ==================================================================================================
 # CONTEXT CONFIGURATION

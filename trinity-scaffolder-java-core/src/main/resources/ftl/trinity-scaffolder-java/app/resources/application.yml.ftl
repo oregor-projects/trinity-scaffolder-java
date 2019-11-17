@@ -35,6 +35,15 @@ management:
     web:
       exposure:
         include: health,info,metrics
+
+camel:
+  component:
+    activemq:
+      broker-u-r-l: ${camel-config.component.activemq.broker-u-r-l}
+      username: ${camel-config.component.activemq.username}
+      password: ${camel-config.component.activemq.password}
+      transacted: true
+      use-pooled-connection: true
 </#noparse>
 
 # ==================================================================================================

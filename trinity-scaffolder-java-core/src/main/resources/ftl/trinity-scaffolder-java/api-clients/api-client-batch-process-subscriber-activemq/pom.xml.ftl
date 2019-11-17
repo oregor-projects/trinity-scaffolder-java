@@ -13,10 +13,10 @@
   <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber-activemq</artifactId>
 
   <dependencies>
-    <!--SPRING BOOT CAMEL-->
+    <!--CAMEL ACTIVEMQ STARTER-->
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-spring-boot-starter</artifactId>
+      <artifactId>camel-activemq-starter</artifactId>
     </dependency>
 
     <!--JAVA EE-->

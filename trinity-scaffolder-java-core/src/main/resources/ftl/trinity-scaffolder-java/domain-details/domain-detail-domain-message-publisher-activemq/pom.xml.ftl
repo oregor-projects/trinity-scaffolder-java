@@ -13,10 +13,10 @@
   <artifactId>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</artifactId>
 
   <dependencies>
-    <!-- SPRING BOOT CAMEL -->
+    <!--CAMEL ACTIVEMQ STARTER-->
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-spring-boot-starter</artifactId>
+      <artifactId>camel-activemq-starter</artifactId>
     </dependency>
 
     <!--JAVA EE-->
