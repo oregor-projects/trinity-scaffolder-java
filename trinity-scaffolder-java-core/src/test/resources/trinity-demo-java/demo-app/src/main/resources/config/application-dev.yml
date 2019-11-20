@@ -10,19 +10,16 @@ server-config:
   port: 8080
 
 spring-config:
-  activemq:
-    broker-url: tcp://localhost:61616
-    user: admin
-    password: admin
-    in-memory: false
-    pool:
-      enabled: true
-      max-connections: 10
   datasource:
     url: jdbc:mysql://localhost:3306/demo-dev?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: demo-dev
     password: demo-dev
+  flyway:
+    placeholders:
+      sql-safe-updates-off: SET SQL_SAFE_UPDATES=0;
+      sql-safe-updates-on: SET SQL_SAFE_UPDATES=1;
+      max-statement-time: SET STATEMENT max_statement_time=0 FOR
   jpa:
     hibernate.ddl-auto: validate
     properties:
@@ -30,6 +27,13 @@ spring-config:
         dialect: org.hibernate.dialect.MySQLDialect
         jdbc:
           time_zone: UTC
+
+camel-config:
+  component:
+    activemq:
+      broker-u-r-l: tcp://localhost:61616
+      username: admin
+      password: admin
 
 # ==================================================================================================
 # CONTEXT CONFIGURATION
@@ -44,3 +48,6 @@ context-config:
       domain-message:
         subscriber: activemq:queue:demo.api-client.domain-message.subscriber
         publisher: activemq:topic:demo.api-client.domain-message.publisher
+    domain-detail:
+      domain-message:
+        publisher: activemq:topic:demo.domain-detail.domain-message.publisher

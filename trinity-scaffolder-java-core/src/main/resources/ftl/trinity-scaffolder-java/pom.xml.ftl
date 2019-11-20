@@ -118,8 +118,8 @@
     <!--CAMEL-->
     <camel.version>3.0.0-RC3</camel.version>
 
-    <!--JUNIT-->
-    <junit-jupiter.version>5.4.2</junit-jupiter.version>
+    <!--CUCUMBER-->
+    <cucumber-version>4.5.4</cucumber-version>
 
     <!--JAVA EE-->
     <jaxb-api.version>2.2.11</jaxb-api.version>
@@ -132,11 +132,29 @@
   </properties>
 
   <dependencies>
+    <!--SPRING BOOT TEST-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!--CUCUMBER-->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <dependencyManagement>
     <dependencies>
-      <!-- Camel BOM -->
+      <!--Camel BOM-->
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-bom</artifactId>
@@ -198,6 +216,26 @@
         <#noparse>
         <version>${activation.version}</version>
         </#noparse>
+      </dependency>
+
+      <!-- ===================================================================================== -->
+      <!-- CUCUMBER -->
+      <!-- ===================================================================================== -->
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <#noparse>
+        <version>${cucumber-version}</version>
+        </#noparse>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <#noparse>
+        <version>${cucumber-version}</version>
+        </#noparse>
+        <scope>test</scope>
       </dependency>
 
 <#list projectDescription.contextDescriptions as contextDescription>
