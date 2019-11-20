@@ -66,6 +66,7 @@ context:
       domain-message:
         subscriber: <#noparse>${</#noparse>context-config.${ contextDescription.contextName }.api-client.domain-message.subscriber}
         publisher: <#noparse>${</#noparse>context-config.${ contextDescription.contextName }.api-client.domain-message.publisher}
+        forwarder: <#noparse>${</#noparse>context-config.${ contextDescription.contextName }.api-client.domain-message.forwarder}
     domain-detail:
       domain-message:
         publisher: <#noparse>${</#noparse>context-config.${ contextDescription.contextName }.domain-detail.domain-message.publisher}
@@ -79,6 +80,7 @@ context:
       domain-message:
         subscriber: <#noparse>${</#noparse>context-config.${ projectDescription.context }.api-client.domain-message.subscriber}
         publisher: <#noparse>${</#noparse>context-config.${ projectDescription.context }.api-client.domain-message.publisher}
+        forwarder: <#noparse>${</#noparse>context-config.${ projectDescription.context }.api-client.domain-message.forwarder}
     domain-detail:
       domain-message:
         publisher: <#noparse>${</#noparse>context-config.${ projectDescription.context }.domain-detail.domain-message.publisher}
