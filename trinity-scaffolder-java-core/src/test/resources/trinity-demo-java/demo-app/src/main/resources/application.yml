@@ -62,6 +62,7 @@ context:
       domain-message:
         subscriber: ${context-config.demo.api-client.domain-message.subscriber}
         publisher: ${context-config.demo.api-client.domain-message.publisher}
+        forwarder: ${context-config.demo.api-client.domain-message.forwarder}
     domain-detail:
       domain-message:
         publisher: ${context-config.demo.domain-detail.domain-message.publisher}

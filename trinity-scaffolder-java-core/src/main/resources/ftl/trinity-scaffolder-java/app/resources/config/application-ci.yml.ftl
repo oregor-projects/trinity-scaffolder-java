@@ -43,6 +43,7 @@ context-config:
       domain-message:
         subscriber: activemq:queue:${ contextDescription.contextName }.api-client.domain-message.subscriber
         publisher: activemq:topic:${ contextDescription.contextName }.api-client.domain-message.publisher
+        forwarder: activemq:topic:${ contextDescription.contextName }.api-client.domain-message.forwarder
     domain-detail:
       domain-message:
         publisher: activemq:topic:${ contextDescription.contextName }.domain-detail.domain-message.publisher
@@ -56,6 +57,7 @@ context-config:
       domain-message:
         subscriber: activemq:queue:${ projectDescription.context }.api-client.domain-message.subscriber
         publisher: activemq:topic:${ projectDescription.context }.api-client.domain-message.publisher
+        forwarder: activemq:topic:${ projectDescription.context }.api-client.domain-message.forwarder
     domain-detail:
       domain-message:
         publisher: activemq:topic:${ projectDescription.context }.domain-detail.domain-message.publisher
