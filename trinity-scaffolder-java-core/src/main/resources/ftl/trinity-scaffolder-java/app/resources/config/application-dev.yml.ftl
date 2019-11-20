@@ -15,6 +15,11 @@ spring-config:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${ projectDescription.context }-dev
     password: ${ projectDescription.context }-dev
+  flyway:
+    placeholders:
+      sql-safe-updates-off: SET SQL_SAFE_UPDATES=0;
+      sql-safe-updates-on: SET SQL_SAFE_UPDATES=1;
+      max-statement-time: SET STATEMENT max_statement_time=0 FOR
   jpa:
     hibernate.ddl-auto: validate
     properties:

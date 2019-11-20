@@ -11,6 +11,11 @@ spring-config:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+  flyway:
+    placeholders:
+      sql-safe-updates-off: ''
+      sql-safe-updates-on: ''
+      max-statement-time: ''
   jpa:
     properties:
       hibernate:

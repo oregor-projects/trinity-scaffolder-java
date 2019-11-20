@@ -18,6 +18,11 @@ spring:
     baseline-on-migrate: true
     check-location: false
     out-of-order: true
+    validate-on-migrate: true
+    placeholders:
+      sql-safe-updates-off: ${spring-config.flyway.placeholders.sql-safe-updates-off}
+      sql-safe-updates-on: ${spring-config.flyway.placeholders.sql-safe-updates-on}
+      max-statement-time: ${spring-config.flyway.placeholders.max-statement-time}
   jpa:
     hibernate.ddl-auto: validate
     properties:
