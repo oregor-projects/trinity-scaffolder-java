@@ -13,23 +13,16 @@
   <artifactId>${ contextDescription.modulePrefix }domain-detail-services</artifactId>
 
   <dependencies>
-    <!--SPRING STEREOTYPE-->
+    <!--SPRING BOOT STARTER DATA JPA-->
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
 
     <!--DOMAIN-->
     <dependency>
       <groupId>${ contextDescription.groupId }</groupId>
       <artifactId>${ contextDescription.modulePrefix }domain</artifactId>
-    </dependency>
-
-    <!--TEST-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
