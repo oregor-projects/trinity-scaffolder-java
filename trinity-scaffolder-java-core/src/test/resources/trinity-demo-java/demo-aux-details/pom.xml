@@ -14,6 +14,8 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>demo-aux-detail-alert-slack</module>
+    <module>demo-aux-detail-property-file</module>
   </modules>
 
 </project>

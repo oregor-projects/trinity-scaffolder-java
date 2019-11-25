@@ -16,23 +16,34 @@
     <!-- ======================================================================================= -->
     <!-- SPRING BOOT                                                                             -->
     <!-- ======================================================================================= -->
+    <!--SPRING BOOT STARTER WEB-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+
+    <!--SPRING BOOT STARTER JPA-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <!--SPRING BOOT STARTER SECURITY-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <!--SPRING SECURITY OAUTH2 AUTOCONFIGURE-->
+    <dependency>
+      <groupId>org.springframework.security.oauth.boot</groupId>
+      <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+    </dependency>
+
+    <!--SPRING BOOT STARTER ACTUATOR-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-
-    <!--ACTIVEMQ CONNECTION POOLING-->
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-pool</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.messaginghub</groupId>
-      <artifactId>pooled-jms</artifactId>
     </dependency>
 
     <!--METRICS-->
@@ -43,6 +54,20 @@
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
+    </dependency>
+
+    <!-- ======================================================================================= -->
+    <!-- ACTIVEMQ                                                                                -->
+    <!-- ======================================================================================= -->
+
+    <!--ACTIVEMQ CONNECTION POOLING-->
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-pool</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.messaginghub</groupId>
+      <artifactId>pooled-jms</artifactId>
     </dependency>
 <#if projectDescription.contextDescriptions?size gt 1>
   <#list projectDescription.contextDescriptions as contextDescription>
@@ -109,6 +134,18 @@
     <!-- ======================================================================================= -->
     <!-- AUXILIARY DETAILS                                                                       -->
     <!-- ======================================================================================= -->
+
+    <!--ALERT SLACK-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }aux-detail-alert-slack</artifactId>
+    </dependency>
+
+    <!--PROPERTY FILE-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }aux-detail-property-file</artifactId>
+    </dependency>
   </#list>
 <#else>
 
@@ -165,6 +202,19 @@
     <!-- ======================================================================================= -->
     <!-- AUXILIARY DETAILS                                                                       -->
     <!-- ======================================================================================= -->
+
+    <!--ALERT SLACK-->
+    <dependency>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }aux-details</groupId>
+      <artifactId>${ projectDescription.modulePrefix }aux-detail-alert-slack</artifactId>
+    </dependency>
+
+    <!--PROPERTY FILE-->
+    <dependency>
+      <groupId>${ projectDescription.groupId }.${ projectDescription.modulePrefix }aux-details</groupId>
+      <artifactId>${ projectDescription.modulePrefix }aux-detail-property-file</artifactId>
+    </dependency>
+
 </#if>
 
     <!-- ======================================================================================= -->

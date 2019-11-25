@@ -145,6 +145,13 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- SPRING BOOT OAUTH2-->
+      <dependency>
+        <groupId>org.springframework.security.oauth.boot</groupId>
+        <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+        <version>${spring-security-oauth2-autoconfigure.version}</version>
+      </dependency>
+
       <!--Camel BOM-->
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -312,10 +319,23 @@
         <version>${project.version}</version>
       </dependency>
 
-
       <!-- ===================================================================================== -->
       <!-- AUXILIARY DETAILS                                                                     -->
       <!-- ===================================================================================== -->
+
+      <!--ALERT SLACK-->
+      <dependency>
+        <groupId>com.oregor.trinity.demo.java.demo-aux-details</groupId>
+        <artifactId>demo-aux-detail-alert-slack</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!--PROPERTY FILE-->
+      <dependency>
+        <groupId>com.oregor.trinity.demo.java.demo-aux-details</groupId>
+        <artifactId>demo-aux-detail-property-file</artifactId>
+        <version>${project.version}</version>
+      </dependency>
 
       <!-- ===================================================================================== -->
       <!-- OREGOR                                                                                -->

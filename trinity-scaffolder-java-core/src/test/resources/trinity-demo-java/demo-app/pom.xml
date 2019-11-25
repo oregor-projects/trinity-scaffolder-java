@@ -16,23 +16,34 @@
     <!-- ======================================================================================= -->
     <!-- SPRING BOOT                                                                             -->
     <!-- ======================================================================================= -->
+    <!--SPRING BOOT STARTER WEB-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+
+    <!--SPRING BOOT STARTER JPA-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <!--SPRING BOOT STARTER SECURITY-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <!--SPRING SECURITY OAUTH2 AUTOCONFIGURE-->
+    <dependency>
+      <groupId>org.springframework.security.oauth.boot</groupId>
+      <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+    </dependency>
+
+    <!--SPRING BOOT STARTER ACTUATOR-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-
-    <!--ACTIVEMQ CONNECTION POOLING-->
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-pool</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.messaginghub</groupId>
-      <artifactId>pooled-jms</artifactId>
     </dependency>
 
     <!--METRICS-->
@@ -43,6 +54,20 @@
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
+    </dependency>
+
+    <!-- ======================================================================================= -->
+    <!-- ACTIVEMQ                                                                                -->
+    <!-- ======================================================================================= -->
+
+    <!--ACTIVEMQ CONNECTION POOLING-->
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-pool</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.messaginghub</groupId>
+      <artifactId>pooled-jms</artifactId>
     </dependency>
 
     <!--API DETAIL-->
@@ -98,6 +123,19 @@
     <!-- ======================================================================================= -->
     <!-- AUXILIARY DETAILS                                                                       -->
     <!-- ======================================================================================= -->
+
+    <!--ALERT SLACK-->
+    <dependency>
+      <groupId>com.oregor.trinity.demo.java.demo-aux-details</groupId>
+      <artifactId>demo-aux-detail-alert-slack</artifactId>
+    </dependency>
+
+    <!--PROPERTY FILE-->
+    <dependency>
+      <groupId>com.oregor.trinity.demo.java.demo-aux-details</groupId>
+      <artifactId>demo-aux-detail-property-file</artifactId>
+    </dependency>
+
 
     <!-- ======================================================================================= -->
     <!-- DATABASE -->

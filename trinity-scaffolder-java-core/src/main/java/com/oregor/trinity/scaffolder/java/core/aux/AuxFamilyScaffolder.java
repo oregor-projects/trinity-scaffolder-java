@@ -41,17 +41,33 @@ public class AuxFamilyScaffolder extends AbstractProjectScaffolder {
   private final AuxScaffolder auxScaffolder;
   private final AuxDetailsScaffolder auxDetailsScaffolder;
 
+  private final AuxDetailPropertyFileScaffolder auxDetailPropertyFileScaffolder;
+  private final AuxDetailAlertSlackScaffolder auxDetailAlertSlackScaffolder;
+
   // ===============================================================================================
   // CONSTRUCTOR(S)
   // ===============================================================================================
 
+  /**
+   * Instantiates a new Aux family scaffolder.
+   *
+   * @param freemarkerService the freemarker service
+   * @param auxScaffolder the aux scaffolder
+   * @param auxDetailsScaffolder the aux details scaffolder
+   * @param auxDetailPropertyFileScaffolder the aux detail property file scaffolder
+   * @param auxDetailAlertSlackScaffolder the aux detail alert slack scaffolder
+   */
   public AuxFamilyScaffolder(
       FreemarkerService freemarkerService,
       AuxScaffolder auxScaffolder,
-      AuxDetailsScaffolder auxDetailsScaffolder) {
+      AuxDetailsScaffolder auxDetailsScaffolder,
+      AuxDetailPropertyFileScaffolder auxDetailPropertyFileScaffolder,
+      AuxDetailAlertSlackScaffolder auxDetailAlertSlackScaffolder) {
     super(freemarkerService);
     this.auxScaffolder = auxScaffolder;
     this.auxDetailsScaffolder = auxDetailsScaffolder;
+    this.auxDetailPropertyFileScaffolder = auxDetailPropertyFileScaffolder;
+    this.auxDetailAlertSlackScaffolder = auxDetailAlertSlackScaffolder;
   }
 
   // ===============================================================================================
@@ -72,7 +88,14 @@ public class AuxFamilyScaffolder extends AbstractProjectScaffolder {
               dataModel.put("contextDescription", contextDescription);
 
               auxScaffolder.scaffold(generationPathWithContext, contextDescription, dataModel);
+
               auxDetailsScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+
+              auxDetailPropertyFileScaffolder.scaffold(
+                  generationPathWithContext, contextDescription, dataModel);
+
+              auxDetailAlertSlackScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
             });
   }

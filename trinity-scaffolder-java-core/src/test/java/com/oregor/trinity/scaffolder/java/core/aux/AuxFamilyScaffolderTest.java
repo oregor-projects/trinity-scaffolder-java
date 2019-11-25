@@ -37,15 +37,24 @@ public class AuxFamilyScaffolderTest extends AbstractTrinityScaffolderJavaTest {
   private AuxScaffolder auxScaffolder;
   private AuxDetailsScaffolder auxDetailsScaffolder;
   private AuxFamilyScaffolder auxFamilyScaffolder;
+  private AuxDetailPropertyFileScaffolder auxDetailPropertyFileScaffolder;
+  private AuxDetailAlertSlackScaffolder auxDetailAlertSlackScaffolder;
 
   /** Sets up. */
   @Before
   public void setUp() {
     auxScaffolder = mock(AuxScaffolder.class);
     auxDetailsScaffolder = mock(AuxDetailsScaffolder.class);
+    auxDetailPropertyFileScaffolder = mock(AuxDetailPropertyFileScaffolder.class);
+    auxDetailAlertSlackScaffolder = mock(AuxDetailAlertSlackScaffolder.class);
 
     auxFamilyScaffolder =
-        new AuxFamilyScaffolder(freemarkerService, auxScaffolder, auxDetailsScaffolder);
+        new AuxFamilyScaffolder(
+            freemarkerService,
+            auxScaffolder,
+            auxDetailsScaffolder,
+            auxDetailPropertyFileScaffolder,
+            auxDetailAlertSlackScaffolder);
   }
 
   /** Should scaffold successfully. */

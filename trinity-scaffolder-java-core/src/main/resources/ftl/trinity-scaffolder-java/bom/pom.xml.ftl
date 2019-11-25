@@ -85,6 +85,18 @@
     <!-- AUXILIARY DETAILS                                                                       -->
     <!-- ======================================================================================= -->
 
+    <!--ALERT SLACK-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }aux-detail-alert-slack</artifactId>
+    </dependency>
+
+    <!--PROPERTY FILE-->
+    <dependency>
+      <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+      <artifactId>${ contextDescription.modulePrefix }aux-detail-property-file</artifactId>
+    </dependency>
+
   </dependencies>
 
 </project>
