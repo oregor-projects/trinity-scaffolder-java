@@ -44,9 +44,12 @@ context-config:
         subscriber: activemq:queue:${ contextDescription.contextName }.api-client.domain-message.subscriber
         publisher: activemq:topic:${ contextDescription.contextName }.api-client.domain-message.publisher
         forwarder: activemq:topic:${ contextDescription.contextName }.api-client.domain-message.forwarder
+    <#list projectDescription.contextDescriptions as otherContextDescription>
+        subscriber-${contextDescription.contextName}-${otherContextDescription.contextName}: activemq:queue:Consumer.${ otherContextDescription.contextName }.VirtualTopic.api-client.domain-message.subscriber
+    </#list>
     domain-detail:
       domain-message:
-        publisher: activemq:topic:${ contextDescription.contextName }.domain-detail.domain-message.publisher
+        publisher: activemq:topic:VirtualTopic.${ contextDescription.contextName }.domain-detail.domain-message.publisher
     </#list>
 <#else>
   ${ projectDescription.context }:
