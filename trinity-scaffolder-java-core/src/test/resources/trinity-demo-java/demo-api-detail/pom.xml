@@ -23,6 +23,12 @@
       <artifactId>spring-tx</artifactId>
     </dependency>
 
+    <!--SPRING BOOT STARTER AOP-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+
     <!--API-->
     <dependency>
       <groupId>com.oregor.trinity.demo.java</groupId>

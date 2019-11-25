@@ -4,35 +4,25 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>${ contextDescription.groupId }</groupId>
-    <artifactId>${ contextDescription.artifactId }</artifactId>
+    <artifactId>${ contextDescription.modulePrefix }aux-details</artifactId>
     <version>${ projectDescription.version }</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${ contextDescription.groupId }</groupId>
-  <artifactId>${ contextDescription.modulePrefix }api-detail</artifactId>
+  <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+  <artifactId>${ contextDescription.modulePrefix }aux-detail-property-file</artifactId>
 
   <dependencies>
-    <!--SPRING STEREOTYPE & TRANSACTION ANNOTATIONS-->
+    <!--SPRING CONTEXT-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-tx</artifactId>
-    </dependency>
 
-    <!--SPRING BOOT STARTER AOP-->
+    <!--TRINITY4J-->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-aop</artifactId>
-    </dependency>
-
-    <!--API-->
-    <dependency>
-      <groupId>${ contextDescription.groupId }</groupId>
-      <artifactId>${ contextDescription.modulePrefix }api</artifactId>
+      <groupId>com.oregor.trinity4j.trinity4j-aux-details</groupId>
+      <artifactId>trinity4j-aux-detail-property-file</artifactId>
     </dependency>
 
     <!--AUX-->
@@ -41,10 +31,12 @@
       <artifactId>${ contextDescription.modulePrefix }aux</artifactId>
     </dependency>
 
-    <!--DOMAIN-->
+    <!--TEST-->
     <dependency>
-      <groupId>${ contextDescription.groupId }</groupId>
-      <artifactId>${ contextDescription.modulePrefix }domain</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
+
 </project>

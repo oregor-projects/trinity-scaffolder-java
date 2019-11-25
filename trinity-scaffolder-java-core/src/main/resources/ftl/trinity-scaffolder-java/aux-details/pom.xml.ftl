@@ -14,6 +14,8 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>${ contextDescription.modulePrefix }aux-detail-alert-slack</module>
+    <module>${ contextDescription.modulePrefix }aux-detail-property-file</module>
   </modules>
 
 </project>

@@ -30,6 +30,8 @@ import com.oregor.trinity.scaffolder.java.core.api.ApiDetailScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.api.ApiScaffolder;
 import com.oregor.trinity.scaffolder.java.core.app.AppScaffolder;
+import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailAlertSlackScaffolder;
+import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailPropertyFileScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxScaffolder;
@@ -104,7 +106,9 @@ public class TrinityScaffolderJavaFactory {
         new AuxFamilyScaffolder(
             freemarkerService,
             new AuxScaffolder(freemarkerService),
-            new AuxDetailsScaffolder(freemarkerService));
+            new AuxDetailsScaffolder(freemarkerService),
+            new AuxDetailPropertyFileScaffolder(freemarkerService),
+            new AuxDetailAlertSlackScaffolder(freemarkerService));
 
     domainFamilyScaffolder =
         new DomainFamilyScaffolder(

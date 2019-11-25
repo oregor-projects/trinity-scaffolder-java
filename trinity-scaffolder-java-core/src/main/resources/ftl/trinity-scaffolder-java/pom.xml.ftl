@@ -154,6 +154,15 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- SPRING BOOT OAUTH2-->
+      <dependency>
+        <groupId>org.springframework.security.oauth.boot</groupId>
+        <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+        <#noparse>
+        <version>${spring-security-oauth2-autoconfigure.version}</version>
+        </#noparse>
+      </dependency>
+
       <!--Camel BOM-->
       <dependency>
         <groupId>org.apache.camel</groupId>
@@ -368,10 +377,27 @@
         </#noparse>
       </dependency>
 
-
       <!-- ===================================================================================== -->
       <!-- AUXILIARY DETAILS                                                                     -->
       <!-- ===================================================================================== -->
+
+      <!--ALERT SLACK-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+        <artifactId>${ contextDescription.modulePrefix }aux-detail-alert-slack</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--PROPERTY FILE-->
+      <dependency>
+        <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
+        <artifactId>${ contextDescription.modulePrefix }aux-detail-property-file</artifactId>
+        <#noparse>
+        <version>${project.version}</version>
+        </#noparse>
+      </dependency>
 
 </#list>
       <!-- ===================================================================================== -->
