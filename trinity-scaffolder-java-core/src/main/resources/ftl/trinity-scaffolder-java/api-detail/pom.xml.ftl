@@ -29,6 +29,12 @@
       <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
 
+    <!--TRINITY4J API DETAIL-->
+    <dependency>
+      <groupId>com.oregor.trinity4j</groupId>
+      <artifactId>trinity4j-api-detail</artifactId>
+    </dependency>
+
     <!--API-->
     <dependency>
       <groupId>${ contextDescription.groupId }</groupId>
