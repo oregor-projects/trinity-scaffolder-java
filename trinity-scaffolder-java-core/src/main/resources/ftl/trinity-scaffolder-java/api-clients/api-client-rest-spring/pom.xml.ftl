@@ -18,14 +18,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-    <#--<!--SPRING SECURITY OAUTH2&ndash;&gt;-->
-    <#--<dependency>-->
-    <#--<groupId>org.springframework.security.oauth.boot</groupId>-->
-    <#--<artifactId>spring-security-oauth2-autoconfigure</artifactId>-->
-    <#--<#noparse>-->
-    <#--<version>${spring-security-oauth2-autoconfigure.version}</version>-->
-    <#--</#noparse>-->
-    <#--</dependency>-->
+
+    <!--SPRING BOOT STARTER AOP-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
 
     <!--APACHE-->
     <dependency>

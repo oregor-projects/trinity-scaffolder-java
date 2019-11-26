@@ -25,6 +25,12 @@
       <artifactId>jaxb-api</artifactId>
     </dependency>
 
+    <!--TRINITY4J SHARED CAMEL-->
+    <dependency>
+      <groupId>com.oregor.trinity4j.trinity4j-shared</groupId>
+      <artifactId>trinity4j-shared-camel</artifactId>
+    </dependency>
+
     <!--API CLIENT BATCH PROCESS SUBSCRIBER-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>

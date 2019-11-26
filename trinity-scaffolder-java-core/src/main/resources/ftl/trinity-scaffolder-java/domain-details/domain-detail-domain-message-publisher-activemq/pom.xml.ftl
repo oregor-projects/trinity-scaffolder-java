@@ -25,6 +25,12 @@
       <artifactId>jaxb-api</artifactId>
     </dependency>
 
+    <!--TRINITY4J SHARED CAMEL-->
+    <dependency>
+      <groupId>com.oregor.trinity4j.trinity4j-shared</groupId>
+      <artifactId>trinity4j-shared-camel</artifactId>
+    </dependency>
+
     <!--TRINITY-->
     <dependency>
       <groupId>com.oregor.trinity4j.trinity4j-domain-details</groupId>
