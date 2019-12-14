@@ -128,7 +128,7 @@
     <activation.version>1.1.1</activation.version>
 
     <!--TRINITY4J-->
-    <trinity4j.version>0.0.9-SNAPSHOT</trinity4j.version>
+    <trinity4j.version>0.0.11</trinity4j.version>
   </properties>
 
   <dependencies>
@@ -592,7 +592,8 @@
           <version>${maven-javadoc-plugin.version}</version>
           <configuration>
             <additionalparam>-Xdoclint:none</additionalparam>
-            <failOnError>false</failOnError>
+            <failOnError>true</failOnError>
+            <source>8</source>
           </configuration>
         </plugin>
         <!-- ===================================================================== -->
