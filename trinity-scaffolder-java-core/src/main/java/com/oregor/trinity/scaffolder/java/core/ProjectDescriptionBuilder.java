@@ -301,7 +301,6 @@ public class ProjectDescriptionBuilder {
    */
   public ProjectDescription createProjectDescription() {
     Assertion.isNotNull(projectFolder, "projectFolder is required");
-    Assertion.isNotNull(context, "context is required");
     Assertion.isNotNull(groupId, "groupId is required");
     Assertion.isNotNull(artifactId, "artifactId is required");
     Assertion.isNotNull(version, "version is required");
@@ -319,7 +318,7 @@ public class ProjectDescriptionBuilder {
     Assertion.isNotNull(distributionProfile, "distributionProfile is required");
     Assertion.isNotNull(appConfigLocationType, "appConfigLocationType is required");
 
-    if (contextDescriptions.isEmpty()) {
+    if (contextDescriptions.isEmpty() && this.context != null && !this.context.trim().equals("")) {
       contextDescriptions.add(makeProjectContextDescription());
     }
 
@@ -353,11 +352,6 @@ public class ProjectDescriptionBuilder {
 
   /** Initialize with default values. */
   private void initializeWithDefaultValues() {
-    setProjectFolder("projectFolder");
-    setContext("context");
-    setGroupId("com.company.project");
-    setArtifactId("project");
-    setModulePrefix("project-");
     setVersion("0.0.1-SNAPSHOT");
     setName("Project Name");
     setDescription("Project Description");

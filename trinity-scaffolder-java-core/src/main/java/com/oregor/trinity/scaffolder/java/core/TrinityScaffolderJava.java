@@ -105,11 +105,14 @@ public class TrinityScaffolderJava {
         Paths.get(generationPath.toString(), projectDescription.getProjectFolder());
 
     projectFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
-    appScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
-    apiFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
-    auxFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
-    domainFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
     extraModuleScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
+
+    if (!projectDescription.getContextDescriptions().isEmpty()) {
+      appScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
+      apiFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
+      auxFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
+      domainFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
+    }
 
     projectDescription
         .getContextDescriptions()
