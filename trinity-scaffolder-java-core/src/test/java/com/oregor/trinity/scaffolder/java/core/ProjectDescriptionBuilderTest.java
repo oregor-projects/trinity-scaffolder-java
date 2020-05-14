@@ -32,7 +32,14 @@ public class ProjectDescriptionBuilderTest {
   public void shouldCreateProjectDescription() {
     ProjectDescriptionBuilder projectDescriptionBuilder = new ProjectDescriptionBuilder();
 
-    ProjectDescription projectDescription = projectDescriptionBuilder.createProjectDescription();
+    ProjectDescription projectDescription =
+        projectDescriptionBuilder
+            .setProjectFolder("/")
+            .setContext("context")
+            .setGroupId("com.company.project")
+            .setArtifactId("project")
+            .setModulePrefix("project-")
+            .createProjectDescription();
 
     assertThat(projectDescription.getContext()).isEqualTo("context");
     assertThat(projectDescription.getGroupId()).isEqualTo("com.company.project");

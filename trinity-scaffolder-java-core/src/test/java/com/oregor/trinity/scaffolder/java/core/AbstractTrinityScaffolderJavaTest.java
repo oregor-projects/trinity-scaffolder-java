@@ -78,6 +78,7 @@ public abstract class AbstractTrinityScaffolderJavaTest {
         .setScmUrl("")
         .setDistributionProfile("oss")
         .setExtraModules(new LinkedHashSet<>(Arrays.asList("tools")))
+        .setProjectFolder("/")
         .createProjectDescription();
   }
 

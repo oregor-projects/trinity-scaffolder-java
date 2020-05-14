@@ -33,6 +33,27 @@ spring:
           time_zone: UTC
   profiles:
     active: native
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: ${spring-config.security.oauth2.client.registration.keycloak.client-id}
+            client-secret: ${spring-config.security.oauth2.client.registration.keycloak.client-secret}
+            clientName: ${spring-config.security.oauth2.client.registration.keycloak.clientName}
+            authorization-grant-type: authorization_code
+            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          keycloak:
+            authorization-uri: ${spring-config.security.oauth2.client.provider.keycloak.authorization-uri}
+            token-uri: ${spring-config.security.oauth2.client.provider.keycloak.token-uri}
+            user-info-uri: ${spring-config.security.oauth2.client.provider.keycloak.user-info-uri}
+            jwk-set-uri: ${spring-config.security.oauth2.client.provider.keycloak.jwk-set-uri}
+            user-name-attribute: preferred_username
 
 management:
   endpoints:

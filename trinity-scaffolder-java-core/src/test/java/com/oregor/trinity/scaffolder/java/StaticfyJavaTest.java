@@ -33,9 +33,7 @@ import java.util.Set;
 import org.junit.Ignore;
 import org.junit.Test;
 
-/**
- * @author Christos Tsakostas
- */
+/** @author Christos Tsakostas */
 @Ignore
 public class StaticfyJavaTest {
 
@@ -50,12 +48,10 @@ public class StaticfyJavaTest {
     TrinityScaffolderJava trinityScaffolderJava = TrinityScaffolderJavaFactory.newInstance();
 
     assertThatCode(
-        () ->
-            trinityScaffolderJava.scaffold(
-                Paths.get(JAVA_EXPORT_PATH), projectDescription()))
+            () -> trinityScaffolderJava.scaffold(Paths.get(JAVA_EXPORT_PATH), projectDescription()))
         .doesNotThrowAnyException();
 
-//    assertThatCode(() -> generate()).doesNotThrowAnyException();
+    //    assertThatCode(() -> generate()).doesNotThrowAnyException();
   }
 
   // ===============================================================================================

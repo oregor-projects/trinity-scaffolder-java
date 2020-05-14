@@ -25,8 +25,20 @@ spring-config:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-        jdbc:
-          time_zone: UTC
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: SOME_CLIENT_ID
+            client-secret: SOME_CLIENT_SECRET
+            clientName: SOME_CLIENT_NAME
+      provider:
+        keycloak:
+          authorization-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/auth
+          token-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/token
+          user-info-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/userinfo
+          jwk-set-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/certs
 
 camel-config:
   component:

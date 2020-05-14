@@ -27,6 +27,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 import java.util.Scanner;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /** @author Christos Tsakostas */
@@ -47,6 +48,7 @@ public class TrinityScaffolderJavaLauncherTest {
     assertThat(scannerSecondLine).isEqualTo(secondLine);
   }
 
+  @Ignore
   @Test
   public void shouldRunSuccessfully() throws FileNotFoundException {
     FileInputStream fileInputStream = new FileInputStream("src/test/resources/correct-input.txt");
