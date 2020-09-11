@@ -40,7 +40,7 @@
       <artifactId>spring-security-oauth2-autoconfigure</artifactId>
     </dependency>
 
-    <!--SPRING BOOT STARTER ACTUATOR & METRICS-->
+    <!--SPRING BOOT STARTER ACTUATOR-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>

@@ -9,7 +9,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.1.RELEASE</version>
+    <version>2.3.3.RELEASE</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.oregor.trinity.scaffolder.java</groupId>
@@ -22,7 +22,7 @@
   <inceptionYear>2019</inceptionYear>
 
   <organization>
-    <name>Christos Tsakostas, OREGOR LTD</name>
+    <name>Christos Tsakostas, OREGOR LP</name>
     <url>https://www.oregor.com</url>
   </organization>
 
@@ -37,7 +37,7 @@
     <developer>
       <name>Christos Tsakostas</name>
       <email>c.tsakostas@gmail.com</email>
-      <organization>OREGOR LTD</organization>
+      <organization>OREGOR LP</organization>
       <organizationUrl>https://www.oregor.com</organizationUrl>
     </developer>
   </developers>
@@ -72,7 +72,7 @@
     <java.version>11</java.version>
 
     <!--BUILD-->
-    <oregor-build-tools-java.version>0.0.3</oregor-build-tools-java.version>
+    <oregor-build-tools-java.version>0.0.5</oregor-build-tools-java.version>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
     <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
@@ -83,9 +83,9 @@
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
     <sonar-maven-plugin.version>3.5.0.1254</sonar-maven-plugin.version>
     <license-maven-plugin.version>1.14</license-maven-plugin.version>
-    <fmt-maven-plugin.version>2.9</fmt-maven-plugin.version>
-    <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>8.22</checkstyle.version>
+    <fmt-maven-plugin.version>2.10</fmt-maven-plugin.version>
+    <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+    <checkstyle.version>8.36</checkstyle.version>
     <findbugs-maven-plugin.version>3.0.0</findbugs-maven-plugin.version>
     <maven-pmd-plugin.version>3.11.0</maven-pmd-plugin.version>
     <maven-jxr-plugin.version>2.4</maven-jxr-plugin.version>

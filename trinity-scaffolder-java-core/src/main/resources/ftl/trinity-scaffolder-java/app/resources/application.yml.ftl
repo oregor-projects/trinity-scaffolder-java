@@ -57,10 +57,17 @@ spring:
             user-name-attribute: preferred_username
 
 management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics
+  endpoint:
+    prometheus:
+      enabled: false
+    metrics:
+      enabled: true
+    health:
+      show-details: always
+    endpoints:
+      web:
+        exposure:
+          include: health,info,metrics,openapi
 
 camel:
   component:

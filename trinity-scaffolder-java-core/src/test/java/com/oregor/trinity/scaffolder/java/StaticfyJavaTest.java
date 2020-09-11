@@ -2,7 +2,7 @@
  * ==========================LICENSE_START=================================
  * PolyGenesis Platform
  * ========================================================================
- * Copyright (C) 2015 - 2019 Christos Tsakostas, OREGOR LTD
+ * Copyright (C) 2015 - 2019 Christos Tsakostas, OREGOR LP
  * ========================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ public class StaticfyJavaTest {
         .setDescription("staticfy")
         .setUrl("https://www.oregor.com")
         .setInceptionYear("2020")
-        .setOrganizationName("Christos Tsakostas, OREGOR LTD")
+        .setOrganizationName("Christos Tsakostas, OREGOR LP")
         .setOrganizationUrl("https://www.oregor.com")
         .setLicenseName("The Apache License, Version 2.0")
         .setScmConnection("scm:git:git://github.com/oregor-projects/staticfy.git")

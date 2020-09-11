@@ -1,7 +1,7 @@
 :icons: font
 
 = Trinity Scaffolder for Java
-Christos Tsakostas, OREGOR LTD
+Christos Tsakostas, OREGOR LP
 
 [abstract]
 Scaffolder for Java applications based on the Trinity Architecture.

@@ -28,7 +28,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.1.RELEASE</version>
+    <version>2.3.3.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>${ projectDescription.groupId }</groupId>
@@ -82,7 +82,7 @@
     <java.version>11</java.version>
 
     <!--BUILD-->
-    <oregor-build-tools-java.version>0.0.3</oregor-build-tools-java.version>
+    <oregor-build-tools-java.version>0.0.5</oregor-build-tools-java.version>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
     <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
@@ -93,9 +93,9 @@
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
     <sonar-maven-plugin.version>3.5.0.1254</sonar-maven-plugin.version>
     <license-maven-plugin.version>1.14</license-maven-plugin.version>
-    <fmt-maven-plugin.version>2.6.0</fmt-maven-plugin.version>
-    <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>8.22</checkstyle.version>
+    <fmt-maven-plugin.version>2.10</fmt-maven-plugin.version>
+    <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+    <checkstyle.version>8.36</checkstyle.version>
     <findbugs-maven-plugin.version>3.0.0</findbugs-maven-plugin.version>
     <maven-pmd-plugin.version>3.11.0</maven-pmd-plugin.version>
     <maven-jxr-plugin.version>2.4</maven-jxr-plugin.version>
@@ -127,8 +127,23 @@
     <jaxb-impl.version>2.2.11</jaxb-impl.version>
     <activation.version>1.1.1</activation.version>
 
+    <!--LOMBOK-->
+    <lombok.version>1.18.12</lombok.version>
+
+    <!--MAPSTRUCT-->
+    <mapstruct.version>1.4.0.CR1</mapstruct.version>
+
+    <!--OPENAPI PARSER-->
+    <openapi-parser.version>4.0.4</openapi-parser.version>
+
+    <!--SWAGGER-REQUEST-VALIDATOR-->
+    <swagger-request-validator.version>2.11.0</swagger-request-validator.version>
+
+    <!--SWAGGER-UI-->
+    <swagger-ui.version>3.32.5</swagger-ui.version>
+
     <!--TRINITY4J-->
-    <trinity4j.version>0.0.11</trinity4j.version>
+    <trinity4j.version>0.0.12</trinity4j.version>
   </properties>
 
   <dependencies>
@@ -197,6 +212,24 @@
         </#noparse>
       </dependency>
 
+      <!--CUCUMBER-->
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <#noparse>
+        <version>${cucumber-version}</version>
+        </#noparse>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <#noparse>
+        <version>${cucumber-version}</version>
+        </#noparse>
+        <scope>test</scope>
+      </dependency>
+
       <!--JAVA EE-->
       <dependency>
         <groupId>javax.xml.bind</groupId>
@@ -227,24 +260,50 @@
         </#noparse>
       </dependency>
 
-      <!-- ===================================================================================== -->
-      <!-- CUCUMBER -->
-      <!-- ===================================================================================== -->
+      <!--LOMBOK-->
       <dependency>
-        <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-junit</artifactId>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
         <#noparse>
-        <version>${cucumber-version}</version>
+        <version>${lombok.version}</version>
         </#noparse>
-        <scope>test</scope>
+        <scope>provided</scope>
       </dependency>
+
+      <!--MAPSTRUCT-->
       <dependency>
-        <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-java</artifactId>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
         <#noparse>
-        <version>${cucumber-version}</version>
+        <version>${mapstruct.version}</version>
         </#noparse>
-        <scope>test</scope>
+      </dependency>
+
+      <!--OPENAPI PARSER-->
+      <dependency>
+        <groupId>com.reprezen.kaizen</groupId>
+        <artifactId>openapi-parser</artifactId>
+        <#noparse>
+        <version>${openapi-parser.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--SWAGGER-REQUEST-VALIDATOR-->
+      <dependency>
+        <groupId>com.atlassian.oai</groupId>
+        <artifactId>swagger-request-validator-mockmvc</artifactId>
+        <#noparse>
+        <version>${swagger-request-validator.version}</version>
+        </#noparse>
+      </dependency>
+
+      <!--SWAGGER-UI-->
+      <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>swagger-ui</artifactId>
+        <#noparse>
+        <version>${swagger-ui.version}</version>
+        </#noparse>
       </dependency>
 
 <#list projectDescription.contextDescriptions as contextDescription>
@@ -419,9 +478,29 @@
 <#noparse>
 
   <build>
-    <!-- ===================================================================== -->
-    <!-- Build Plugin Management                                               -->
-    <!-- ===================================================================== -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${mapstruct.version}</version>
+            </path>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+    </plugins>
+
     <pluginManagement>
       <plugins>
         <!-- ===================================================================== -->
@@ -438,6 +517,7 @@
             <showWarnings>true</showWarnings>
             <compilerArgs>
               <arg>-Xlint:all</arg>
+              <arg>-Xlint:-processing</arg>
               <arg>-Werror</arg>
             </compilerArgs>
           </configuration>
@@ -710,22 +790,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
-
-    <!-- ===================================================================== -->
-    <!-- ===================================================================== -->
-    <!-- BUILD PLUGINS                                                         -->
-    <!-- ===================================================================== -->
-    <!-- ===================================================================== -->
-    <plugins>
-      <!-- ===================================================================== -->
-      <!-- Java Compiler                                                         -->
-      <!-- ===================================================================== -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-      </plugin>
-
-    </plugins>
   </build>
 
   <!-- ===================================================================== -->

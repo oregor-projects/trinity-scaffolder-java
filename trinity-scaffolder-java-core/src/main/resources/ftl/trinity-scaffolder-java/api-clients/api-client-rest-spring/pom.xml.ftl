@@ -35,6 +35,18 @@
       <artifactId>commons-io</artifactId>
     </dependency>
 
+    <!--OPENAPI PARSER-->
+    <dependency>
+      <groupId>com.reprezen.kaizen</groupId>
+      <artifactId>openapi-parser</artifactId>
+    </dependency>
+
+    <!--SWAGGER-UI-->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>swagger-ui</artifactId>
+    </dependency>
+
     <!--TRINITY4J-->
     <dependency>
       <groupId>com.oregor.trinity4j</groupId>
@@ -55,6 +67,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.atlassian.oai</groupId>
+      <artifactId>swagger-request-validator-mockmvc</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

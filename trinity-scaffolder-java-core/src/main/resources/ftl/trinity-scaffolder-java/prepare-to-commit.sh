@@ -20,7 +20,7 @@ set -e
 # Uncomment the line below if you want to include license information in your source files.
 #./mvnw license:update-file-header
 
-./mvnw fmt:format
+./mvnw com.coveo:fmt-maven-plugin:format
 
 # Add profile "validate-license" in the line below to validate license information.
 ./mvnw clean install -P validate-code-format,validate-code-style,validate-code-bugs,validate-code \

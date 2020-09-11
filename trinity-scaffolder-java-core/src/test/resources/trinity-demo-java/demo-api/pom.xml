@@ -13,6 +13,13 @@
   <artifactId>demo-api</artifactId>
 
   <dependencies>
+    <!--LOMBOK-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
     <!--TRINITY4J-->
     <dependency>
       <groupId>com.oregor.trinity4j</groupId>
