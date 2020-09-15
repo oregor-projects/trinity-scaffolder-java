@@ -55,6 +55,7 @@ public class ProjectDescription {
   private Set<String> extraModules;
   private Set<ContextDescription> contextDescriptions;
   private AppConfigLocationType appConfigLocationType;
+  private Enablement enablement;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -106,7 +107,8 @@ public class ProjectDescription {
       String distributionProfile,
       Set<String> extraModules,
       Set<ContextDescription> contextDescriptions,
-      AppConfigLocationType appConfigLocationType) {
+      AppConfigLocationType appConfigLocationType,
+      Enablement enablement) {
     setProjectFolder(projectFolder);
     setContext(context);
     setGroupId(groupId);
@@ -128,6 +130,7 @@ public class ProjectDescription {
     setExtraModules(extraModules);
     setContextDescriptions(contextDescriptions);
     setAppConfigLocationType(appConfigLocationType);
+    setEnablement(enablement);
   }
 
   // ===============================================================================================
@@ -321,6 +324,10 @@ public class ProjectDescription {
    */
   public AppConfigLocationType getAppConfigLocationType() {
     return appConfigLocationType;
+  }
+
+  public Enablement getEnablement() {
+    return enablement;
   }
 
   // ===============================================================================================
@@ -520,6 +527,10 @@ public class ProjectDescription {
     this.appConfigLocationType = appConfigLocationType;
   }
 
+  public void setEnablement(Enablement enablement) {
+    this.enablement = enablement;
+  }
+
   // ===============================================================================================
   // OVERRIDES
   // ===============================================================================================
@@ -553,7 +564,8 @@ public class ProjectDescription {
         && Objects.equals(distributionProfile, that.distributionProfile)
         && Objects.equals(extraModules, that.extraModules)
         && Objects.equals(contextDescriptions, that.contextDescriptions)
-        && appConfigLocationType == that.appConfigLocationType;
+        && appConfigLocationType == that.appConfigLocationType
+        && Objects.equals(enablement, that.enablement);
   }
 
   @Override
@@ -579,6 +591,7 @@ public class ProjectDescription {
         distributionProfile,
         extraModules,
         contextDescriptions,
-        appConfigLocationType);
+        appConfigLocationType,
+        enablement);
   }
 }

@@ -25,6 +25,12 @@
       <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
 
+    <!--SPRING BOOT STARTER ACTUATOR-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
     <!--APACHE-->
     <dependency>
       <groupId>org.apache.commons</groupId>

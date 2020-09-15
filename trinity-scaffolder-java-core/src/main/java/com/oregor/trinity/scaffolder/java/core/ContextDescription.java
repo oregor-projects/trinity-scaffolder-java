@@ -38,6 +38,7 @@ public class ContextDescription {
   private String groupId;
   private String artifactId;
   private String modulePrefix;
+  private Enablement enablement;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -51,18 +52,21 @@ public class ContextDescription {
    * @param groupId the group id
    * @param artifactId the artifact id
    * @param modulePrefix the module prefix
+   * @param enablement the enablement
    */
   public ContextDescription(
       String contextFolder,
       String contextName,
       String groupId,
       String artifactId,
-      String modulePrefix) {
+      String modulePrefix,
+      Enablement enablement) {
     setContextFolder(contextFolder);
     setContextName(contextName);
     setGroupId(groupId);
     setArtifactId(artifactId);
     setModulePrefix(modulePrefix);
+    setEnablement(enablement);
   }
 
   // ===============================================================================================
@@ -112,6 +116,15 @@ public class ContextDescription {
    */
   public String getModulePrefix() {
     return modulePrefix;
+  }
+
+  /**
+   * Gets enablement.
+   *
+   * @return the enablement
+   */
+  public Enablement getEnablement() {
+    return enablement;
   }
 
   // ===============================================================================================
@@ -167,6 +180,10 @@ public class ContextDescription {
     }
   }
 
+  private void setEnablement(Enablement enablement) {
+    this.enablement = enablement;
+  }
+
   // ===============================================================================================
   // OVERRIDES
   // ===============================================================================================
@@ -184,11 +201,12 @@ public class ContextDescription {
         && Objects.equals(contextName, that.contextName)
         && Objects.equals(groupId, that.groupId)
         && Objects.equals(artifactId, that.artifactId)
-        && Objects.equals(modulePrefix, that.modulePrefix);
+        && Objects.equals(modulePrefix, that.modulePrefix)
+        && Objects.equals(enablement, that.enablement);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contextFolder, contextName, groupId, artifactId, modulePrefix);
+    return Objects.hash(contextFolder, contextName, groupId, artifactId, modulePrefix, enablement);
   }
 }

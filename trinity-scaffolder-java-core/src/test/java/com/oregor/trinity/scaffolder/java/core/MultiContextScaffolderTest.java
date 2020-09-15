@@ -69,6 +69,7 @@ public class MultiContextScaffolderTest {
         .setDistributionProfile("ossrh-oregor")
         .setExtraModules(new LinkedHashSet<>(Arrays.asList("tools")))
         .setContextDescriptions(contextDescriptions())
+        .setEnablement(new Enablement())
         .createProjectDescription();
   }
 
@@ -77,10 +78,16 @@ public class MultiContextScaffolderTest {
 
     contextDescriptions.add(
         new ContextDescription(
-            "access", "AccessContext", "com.oregor.some.access", "access", "access"));
+            "access",
+            "AccessContext",
+            "com.oregor.some.access",
+            "access",
+            "access",
+            new Enablement()));
 
     contextDescriptions.add(
-        new ContextDescription("venue", "VenueContext", "com.oregor.some.venue", "venue", "venue"));
+        new ContextDescription(
+            "venue", "VenueContext", "com.oregor.some.venue", "venue", "venue", new Enablement()));
 
     return contextDescriptions;
   }

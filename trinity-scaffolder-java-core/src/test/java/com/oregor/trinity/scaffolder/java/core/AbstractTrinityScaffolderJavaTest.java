@@ -79,11 +79,13 @@ public abstract class AbstractTrinityScaffolderJavaTest {
         .setDistributionProfile("oss")
         .setExtraModules(new LinkedHashSet<>(Arrays.asList("tools")))
         .setProjectFolder("/")
+        .setEnablement(new Enablement())
         .createProjectDescription();
   }
 
   protected ContextDescription contextDescription() {
-    return new ContextDescription("", "context", "com.oregor", "test-project", "prefix");
+    return new ContextDescription(
+        "", "context", "com.oregor", "test-project", "prefix", new Enablement());
   }
 
   /**

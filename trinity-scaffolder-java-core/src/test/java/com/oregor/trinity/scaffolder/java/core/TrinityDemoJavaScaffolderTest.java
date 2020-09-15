@@ -110,6 +110,7 @@ public class TrinityDemoJavaScaffolderTest {
         .setScmUrl("http://github.com/oregor-projects/trinity-demo-java/tree/master")
         .setDistributionProfile("ossrh-oregor")
         .setExtraModules(new LinkedHashSet<>(Arrays.asList("tools")))
+        .setEnablement(new Enablement())
         .createProjectDescription();
   }
 }

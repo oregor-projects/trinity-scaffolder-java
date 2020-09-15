@@ -78,7 +78,8 @@ public class ProjectDescriptionTest extends AbstractEqualityTest<ProjectDescript
         "",
         new LinkedHashSet<>(),
         new LinkedHashSet<>(),
-        AppConfigLocationType.INSIDE);
+        AppConfigLocationType.INSIDE,
+        new Enablement());
   }
 
   @Override
@@ -104,6 +105,7 @@ public class ProjectDescriptionTest extends AbstractEqualityTest<ProjectDescript
         "",
         new LinkedHashSet<>(),
         new LinkedHashSet<>(),
-        AppConfigLocationType.INSIDE);
+        AppConfigLocationType.INSIDE,
+        new Enablement());
   }
 }

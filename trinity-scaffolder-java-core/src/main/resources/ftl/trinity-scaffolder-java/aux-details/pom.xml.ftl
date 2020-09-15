@@ -14,8 +14,12 @@
   <packaging>pom</packaging>
 
   <modules>
+    <#if contextDescription.enablement.auxDetailAlertSlackScaffolder>
     <module>${ contextDescription.modulePrefix }aux-detail-alert-slack</module>
+    </#if>
+    <#if contextDescription.enablement.auxDetailPropertyFileScaffolder>
     <module>${ contextDescription.modulePrefix }aux-detail-property-file</module>
+    </#if>
   </modules>
 
 </project>

@@ -92,11 +92,15 @@ public class AuxFamilyScaffolder extends AbstractProjectScaffolder {
               auxDetailsScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
 
-              auxDetailPropertyFileScaffolder.scaffold(
-                  generationPathWithContext, contextDescription, dataModel);
+              if (contextDescription.getEnablement().isAuxDetailPropertyFileScaffolder()) {
+                auxDetailPropertyFileScaffolder.scaffold(
+                    generationPathWithContext, contextDescription, dataModel);
+              }
 
-              auxDetailAlertSlackScaffolder.scaffold(
-                  generationPathWithContext, contextDescription, dataModel);
+              if (contextDescription.getEnablement().isAuxDetailAlertSlackScaffolder()) {
+                auxDetailAlertSlackScaffolder.scaffold(
+                    generationPathWithContext, contextDescription, dataModel);
+              }
             });
   }
 }

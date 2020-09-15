@@ -17,7 +17,6 @@
  limitations under the License.
  ===========================LICENSE_END==================================
 -->
-
 !.mvn/wrapper/maven-wrapper.jar
 
 /target/
@@ -47,3 +46,7 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### APP
+.dev/activemq/data
+.dev/mariadb/data

@@ -22,7 +22,7 @@
   <inceptionYear>2019</inceptionYear>
 
   <organization>
-    <name>Christos Tsakostas, OREGOR LP</name>
+    <name>Christos Tsakostas, OREGOR</name>
     <url>https://www.oregor.com</url>
   </organization>
 
@@ -37,7 +37,7 @@
     <developer>
       <name>Christos Tsakostas</name>
       <email>c.tsakostas@gmail.com</email>
-      <organization>OREGOR LP</organization>
+      <organization>OREGOR</organization>
       <organizationUrl>https://www.oregor.com</organizationUrl>
     </developer>
   </developers>

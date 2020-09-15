@@ -53,6 +53,7 @@ public class ProjectDescriptionBuilder {
   private Set<String> extraModules = new LinkedHashSet<>();
   private Set<ContextDescription> contextDescriptions;
   private AppConfigLocationType appConfigLocationType;
+  private Enablement enablement;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -294,6 +295,11 @@ public class ProjectDescriptionBuilder {
     return this;
   }
 
+  public ProjectDescriptionBuilder setEnablement(Enablement enablement) {
+    this.enablement = enablement;
+    return this;
+  }
+
   /**
    * Create project description project description.
    *
@@ -317,6 +323,7 @@ public class ProjectDescriptionBuilder {
     Assertion.isNotNull(scmUrl, "scmUrl is required");
     Assertion.isNotNull(distributionProfile, "distributionProfile is required");
     Assertion.isNotNull(appConfigLocationType, "appConfigLocationType is required");
+    Assertion.isNotNull(enablement, "enablement is required");
 
     if (contextDescriptions.isEmpty() && this.context != null && !this.context.trim().equals("")) {
       contextDescriptions.add(makeProjectContextDescription());
@@ -343,7 +350,8 @@ public class ProjectDescriptionBuilder {
         distributionProfile,
         extraModules,
         contextDescriptions,
-        appConfigLocationType);
+        appConfigLocationType,
+        enablement);
   }
 
   // ===============================================================================================
@@ -372,6 +380,6 @@ public class ProjectDescriptionBuilder {
 
   private ContextDescription makeProjectContextDescription() {
     return new ContextDescription(
-        "", this.context, this.groupId, this.artifactId, this.modulePrefix);
+        "", this.context, this.groupId, this.artifactId, this.modulePrefix, this.enablement);
   }
 }

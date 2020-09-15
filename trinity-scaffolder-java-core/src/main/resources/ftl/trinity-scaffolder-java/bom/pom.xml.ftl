@@ -22,19 +22,22 @@
     <!-- ======================================================================================= -->
     <!-- API CLIENTS                                                                             -->
     <!-- ======================================================================================= -->
-
+    <#if contextDescription.enablement.apiClientBatchProcessScaffolder>
     <!--BATCH PROCESS SUBSCRIBER-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
       <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber</artifactId>
     </dependency>
 
+    </#if>
+    <#if contextDescription.enablement.apiClientBatchProcessActiveMqScaffolder>
     <!--BATCH PROCESS SUBSCRIBER ACTIVEMQ-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
       <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber-activemq</artifactId>
     </dependency>
 
+    </#if>
     <!--DOMAIN MESSAGE SUBSCRIBER-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
@@ -63,12 +66,14 @@
       <artifactId>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</artifactId>
     </dependency>
 
+    <#if contextDescription.enablement.domainDetailRepositoryInMemoryScaffolder>
     <!--DOMAIN REPOSITORY IN MEMORY-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
       <artifactId>${ contextDescription.modulePrefix }domain-detail-repository-inmemory</artifactId>
     </dependency>
 
+    </#if>
     <!--DOMAIN REPOSITORY SPRING DATA JPA-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }domain-details</groupId>
@@ -85,18 +90,21 @@
     <!-- AUXILIARY DETAILS                                                                       -->
     <!-- ======================================================================================= -->
 
+    <#if contextDescription.enablement.auxDetailAlertSlackScaffolder>
     <!--ALERT SLACK-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
       <artifactId>${ contextDescription.modulePrefix }aux-detail-alert-slack</artifactId>
     </dependency>
 
+    </#if>
+    <#if contextDescription.enablement.auxDetailPropertyFileScaffolder>
     <!--PROPERTY FILE-->
     <dependency>
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }aux-details</groupId>
       <artifactId>${ contextDescription.modulePrefix }aux-detail-property-file</artifactId>
     </dependency>
-
+    </#if>
   </dependencies>
 
 </project>

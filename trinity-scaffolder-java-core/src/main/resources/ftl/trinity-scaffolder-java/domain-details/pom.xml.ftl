@@ -15,7 +15,9 @@
 
   <modules>
     <module>${ contextDescription.modulePrefix }domain-detail-domain-message-publisher-activemq</module>
+    <#if contextDescription.enablement.domainDetailRepositoryInMemoryScaffolder>
     <module>${ contextDescription.modulePrefix }domain-detail-repository-inmemory</module>
+    </#if>
     <module>${ contextDescription.modulePrefix }domain-detail-repository-springdatajpa</module>
     <module>${ contextDescription.modulePrefix }domain-detail-services</module>
   </modules>

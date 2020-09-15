@@ -39,6 +39,7 @@ public class ProjectDescriptionBuilderTest {
             .setGroupId("com.company.project")
             .setArtifactId("project")
             .setModulePrefix("project-")
+            .setEnablement(new Enablement())
             .createProjectDescription();
 
     assertThat(projectDescription.getContext()).isEqualTo("context");

@@ -124,10 +124,15 @@ public class ApiFamilyScaffolder extends AbstractProjectScaffolder {
                   generationPathWithContext, contextDescription, dataModel);
 
               // Batch Process
-              apiClientBatchProcessScaffolder.scaffold(
-                  generationPathWithContext, contextDescription, dataModel);
-              apiClientBatchProcessActiveMqScaffolder.scaffold(
-                  generationPathWithContext, contextDescription, dataModel);
+              if (projectDescription.getEnablement().isApiClientBatchProcessScaffolder()) {
+                apiClientBatchProcessScaffolder.scaffold(
+                    generationPathWithContext, contextDescription, dataModel);
+              }
+
+              if (projectDescription.getEnablement().isApiClientBatchProcessActiveMqScaffolder()) {
+                apiClientBatchProcessActiveMqScaffolder.scaffold(
+                    generationPathWithContext, contextDescription, dataModel);
+              }
             });
   }
 }

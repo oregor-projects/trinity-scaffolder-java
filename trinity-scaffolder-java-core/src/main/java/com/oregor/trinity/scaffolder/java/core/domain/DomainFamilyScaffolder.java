@@ -105,8 +105,12 @@ public class DomainFamilyScaffolder extends AbstractProjectScaffolder {
                   generationPathWithContext, contextDescription, dataModel);
               domainDetailServicesScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
-              domainDetailRepositoryInMemoryScaffolder.scaffold(
-                  generationPathWithContext, contextDescription, dataModel);
+
+              if (contextDescription.getEnablement().isDomainDetailRepositoryInMemoryScaffolder()) {
+                domainDetailRepositoryInMemoryScaffolder.scaffold(
+                    generationPathWithContext, contextDescription, dataModel);
+              }
+
               domainDetailRepositorySpringDataJpaScaffolder.scaffold(
                   generationPathWithContext, contextDescription, dataModel);
               domainDetailScheduledPublisherScaffolder.scaffold(

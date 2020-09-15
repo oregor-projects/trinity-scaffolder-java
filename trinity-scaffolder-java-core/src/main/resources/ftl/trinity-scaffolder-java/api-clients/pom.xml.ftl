@@ -14,8 +14,12 @@
   <packaging>pom</packaging>
 
   <modules>
+    <#if contextDescription.enablement.apiClientBatchProcessScaffolder>
     <module>${ contextDescription.modulePrefix }api-client-batch-process-subscriber</module>
+    </#if>
+    <#if contextDescription.enablement.apiClientBatchProcessActiveMqScaffolder>
     <module>${ contextDescription.modulePrefix }api-client-batch-process-subscriber-activemq</module>
+    </#if>
     <module>${ contextDescription.modulePrefix }api-client-domain-message-subscriber</module>
     <module>${ contextDescription.modulePrefix }api-client-domain-message-subscriber-activemq</module>
     <module>${ contextDescription.modulePrefix }api-client-rest-spring</module>
