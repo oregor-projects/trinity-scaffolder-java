@@ -19,6 +19,12 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
+    <!--SPRING BOOT STARTER SECURITY-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
     <!--SPRING BOOT STARTER AOP-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -39,12 +45,6 @@
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-    </dependency>
-
-    <!--OPENAPI PARSER-->
-    <dependency>
-      <groupId>com.reprezen.kaizen</groupId>
-      <artifactId>openapi-parser</artifactId>
     </dependency>
 
     <!--SWAGGER-UI-->
@@ -70,11 +70,6 @@
     </dependency>
 
     <!--TEST-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>com.atlassian.oai</groupId>
       <artifactId>swagger-request-validator-mockmvc</artifactId>

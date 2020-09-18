@@ -36,12 +36,5 @@
       <groupId>${ contextDescription.groupId }.${ contextDescription.modulePrefix }api-clients</groupId>
       <artifactId>${ contextDescription.modulePrefix }api-client-batch-process-subscriber</artifactId>
     </dependency>
-
-    <!--TEST-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 </project>

@@ -110,7 +110,7 @@
     <camel.version>3.0.0-RC3</camel.version>
 
     <!--CUCUMBER-->
-    <cucumber-version>4.5.4</cucumber-version>
+    <cucumber.version>6.7.0</cucumber.version>
 
     <!--JAVA EE-->
     <jaxb-api.version>2.2.11</jaxb-api.version>
@@ -206,13 +206,13 @@
       <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-junit</artifactId>
-        <version>${cucumber-version}</version>
+        <version>${cucumber.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-java</artifactId>
-        <version>${cucumber-version}</version>
+        <version>${cucumber.version}</version>
         <scope>test</scope>
       </dependency>
 

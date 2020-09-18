@@ -67,7 +67,7 @@ management:
     endpoints:
       web:
         exposure:
-          include: health,info,metrics,openapi
+          include: health,info,metrics,openapi-user,openapi-admin,openapi-system
 
 camel:
   component:

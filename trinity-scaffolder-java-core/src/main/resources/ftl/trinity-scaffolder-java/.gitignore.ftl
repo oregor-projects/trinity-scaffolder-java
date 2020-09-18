@@ -50,3 +50,4 @@
 ### APP
 .dev/activemq/data
 .dev/mariadb/data
+.dev/sonarqube/data

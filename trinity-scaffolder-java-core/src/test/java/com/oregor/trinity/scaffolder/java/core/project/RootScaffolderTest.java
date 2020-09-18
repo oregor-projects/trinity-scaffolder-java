@@ -20,7 +20,7 @@
 
 package com.oregor.trinity.scaffolder.java.core.project;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.oregor.trinity.scaffolder.java.core.AbstractTrinityScaffolderJavaTest;
 import java.io.File;
@@ -49,8 +49,8 @@ public class RootScaffolderTest extends AbstractTrinityScaffolderJavaTest {
   public void shouldScaffoldSuccessfully() throws IOException {
     FileUtils.deleteDirectory(new File(generationPath().toString()));
 
-    assertThatCode(
+    assertThatThrownBy(
             () -> rootScaffolder.scaffold(generationPath(), projectDescription(), dataModel()))
-        .doesNotThrowAnyException();
+        .isInstanceOf(IllegalStateException.class);
   }
 }

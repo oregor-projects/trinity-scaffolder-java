@@ -29,6 +29,19 @@
       <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
 
+    <!--LOMBOK-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--MAPSTRUCT-->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+    </dependency>
+
     <!--TRINITY4J API DETAIL-->
     <dependency>
       <groupId>com.oregor.trinity4j</groupId>

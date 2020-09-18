@@ -34,12 +34,5 @@
       <groupId>${ contextDescription.groupId }</groupId>
       <artifactId>${ contextDescription.modulePrefix }api</artifactId>
     </dependency>
-
-    <!--TEST-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 </project>

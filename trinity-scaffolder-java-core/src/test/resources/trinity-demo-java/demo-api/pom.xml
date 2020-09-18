@@ -25,12 +25,5 @@
       <groupId>com.oregor.trinity4j</groupId>
       <artifactId>trinity4j-api</artifactId>
     </dependency>
-
-    <!--TEST-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 </project>

@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+  ##################################################################################################
+  # ACTIVEMQ
+  # https://hub.docker.com/r/rmohr/activemq
+  ##################################################################################################
+  activemq:
+    image: 'rmohr/activemq:${ACTIVEMQ_TAG}'
+    restart: always
+    container_name: '${PROJECT_NAME}_activemq'
+    ports:
+      - '${ACTIVEMQ_ADMIN_PORT}:8161'
+      - '${ACTIVEMQ_PORT}:61616'
+    volumes:
+      - ./activemq/conf:/opt/activemq/conf
+      - ./activemq/data:/opt/activemq/data
+
+  ##################################################################################################
+  # MARIADB
+  # https://hub.docker.com/_/mariadb
+  ##################################################################################################
+  mariadb:
+    image: 'mariadb:${MARIADB_TAG}'
+    restart: always
+    container_name: '${PROJECT_NAME}_mariadb'
+    environment:
+      MYSQL_ROOT_PASSWORD: $MARIADB_ROOT_PASSWORD
+      MYSQL_USER: $MARIADB_USER
+      MYSQL_PASSWORD: $MARIADB_PASSWORD
+    ports:
+      - '${MARIADB_PORT}:3306'
+    volumes:
+      - ./mariadb/init:/docker-entrypoint-initdb.d
+      - ./mariadb/data/:/var/lib/mysql
+
+  ##################################################################################################
+  # KEYCLOAK
+  # https://hub.docker.com/r/jboss/keycloak/
+  ##################################################################################################
+#  keycloak:
+#    image: 'jboss/keycloak:${KEYCLOAK_TAG}'
+#    container_name: '${PROJECT_NAME}_keycloak'
+#    ports:
+#      - '${KEYCLOAK_PORT}:8080'
+#      - '${KEYCLOAK_MANAGEMENT_PORT}:9990'
+#    environment:
+#      - KEYCLOAK_LOGLEVEL=INFO
+#      - PROXY_ADDRESS_FORWARDING=true
+#      - KEYCLOAK_USER=$KEYCLOAK_USER
+#      - KEYCLOAK_PASSWORD=$KEYCLOAK_PASSWORD
+#      - DB_PORT=3306
+#      - DB_VENDOR=mariadb
+#      - DB_DATABASE=$KEYCLOAK_DB_DATABASE
+#      - DB_USER=$MARIADB_USER
+#      - DB_PASSWORD=$MARIADB_PASSWORD
+#    depends_on:
+#      - mariadb
+
+  ##################################################################################################
+  # SONARQUBE
+  # https://hub.docker.com/_/sonarqube
+  ##################################################################################################
+  sonarqube:
+    image: 'sonarqube:${SONARQUBE_TAG}'
+    restart: always
+    container_name: '${PROJECT_NAME}_sonarqube'
+    ports:
+      - '${SONARQUBE_PORT}:9000'
+#    volumes:
+#      - ./sonarqube/conf:/opt/sonarqube/conf
+#      - ./sonarqube/data:/opt/sonarqube/data
+#      - ./sonarqube/logs:/opt/sonarqube/logs
+#      - ./sonarqube/extensions:/opt/sonarqube/extensions

@@ -24,6 +24,7 @@ import com.oregor.trinity.scaffolder.java.core.api.ApiFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.app.AppScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.bom.BomScaffolder;
+import com.oregor.trinity.scaffolder.java.core.commons.CommonsModuleScaffolder;
 import com.oregor.trinity.scaffolder.java.core.context.ContextScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.extra.ExtraModuleScaffolder;
@@ -51,6 +52,7 @@ public class TrinityScaffolderJava {
   private final BomScaffolder bomScaffolder;
   private final ContextScaffolder contextScaffolder;
   private final ExtraModuleScaffolder extraModuleScaffolder;
+  private final CommonsModuleScaffolder commonsModuleScaffolder;
 
   // ===============================================================================================
   // CONSTRUCTOR(S)
@@ -67,6 +69,7 @@ public class TrinityScaffolderJava {
    * @param bomScaffolder the bom scaffolder
    * @param contextScaffolder the context scaffolder
    * @param extraModuleScaffolder the extra module scaffolder
+   * @param commonsModuleScaffolder the commons module scaffolder
    */
   public TrinityScaffolderJava(
       ProjectFamilyScaffolder projectFamilyScaffolder,
@@ -76,7 +79,8 @@ public class TrinityScaffolderJava {
       DomainFamilyScaffolder domainFamilyScaffolder,
       BomScaffolder bomScaffolder,
       ContextScaffolder contextScaffolder,
-      ExtraModuleScaffolder extraModuleScaffolder) {
+      ExtraModuleScaffolder extraModuleScaffolder,
+      CommonsModuleScaffolder commonsModuleScaffolder) {
     this.projectFamilyScaffolder = projectFamilyScaffolder;
     this.appScaffolder = appScaffolder;
     this.apiFamilyScaffolder = apiFamilyScaffolder;
@@ -85,6 +89,7 @@ public class TrinityScaffolderJava {
     this.bomScaffolder = bomScaffolder;
     this.contextScaffolder = contextScaffolder;
     this.extraModuleScaffolder = extraModuleScaffolder;
+    this.commonsModuleScaffolder = commonsModuleScaffolder;
   }
 
   // ===============================================================================================
@@ -106,6 +111,7 @@ public class TrinityScaffolderJava {
 
     projectFamilyScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
     extraModuleScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
+    commonsModuleScaffolder.scaffold(generationPathProject, projectDescription, dataModel);
 
     if (!projectDescription.getContextDescriptions().isEmpty()) {
       appScaffolder.scaffold(generationPathProject, projectDescription, dataModel);

@@ -54,28 +54,28 @@ public class TrinityDemoJavaScaffolderTest {
 
     String pathProject = EXPORT_PATH + "/" + trinityDemoProjectDescription().getProjectFolder();
 
-    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-api/pom.xml")))
-        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-api/pom.xml")));
-
-    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-api-clients/pom.xml")))
-        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-api-clients/pom.xml")));
-
-    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-api-detail/pom.xml")))
-        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-api-detail/pom.xml")));
-
-    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-aux/pom.xml")))
-        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-aux/pom.xml")));
-
-    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-aux-details/pom.xml")))
-        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-aux-details/pom.xml")));
-
-    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-domain/pom.xml")))
-        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-domain/pom.xml")));
-
-    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-domain-details/pom.xml")))
-        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-domain-details/pom.xml")));
-
     // TODO: is this useful?
+    //    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-api/pom.xml")))
+    //        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-api/pom.xml")));
+    //
+    //    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-api-clients/pom.xml")))
+    //        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-api-clients/pom.xml")));
+    //
+    //    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-api-detail/pom.xml")))
+    //        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-api-detail/pom.xml")));
+    //
+    //    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-aux/pom.xml")))
+    //        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-aux/pom.xml")));
+    //
+    //    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-aux-details/pom.xml")))
+    //        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-aux-details/pom.xml")));
+    //
+    //    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-domain/pom.xml")))
+    //        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-domain/pom.xml")));
+    //
+    //    assertThat(contentOf(new File(pathProject + "/" + PREFIX + "-domain-details/pom.xml")))
+    //        .isEqualTo(contentOf(new File(TEST_PATH + "/" + PREFIX + "-domain-details/pom.xml")));
+
     // assertThat(contentOf(new File(pathProject + "/pom.xml")))
     //    .isEqualTo(contentOf(new File(TEST_PATH + "/pom.xml")));
 

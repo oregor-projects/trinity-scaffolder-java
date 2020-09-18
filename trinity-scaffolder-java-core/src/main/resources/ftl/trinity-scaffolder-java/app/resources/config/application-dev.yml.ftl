@@ -12,7 +12,8 @@ server-config:
 spring-config:
   datasource:
     url: jdbc:mysql://localhost:3306/${ projectDescription.context }-dev?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=utf8
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.mariadb.jdbc.Driver
     username: ${ projectDescription.context }-dev
     password: ${ projectDescription.context }-dev
   flyway:
@@ -33,12 +34,12 @@ spring-config:
             client-id: SOME_CLIENT_ID
             client-secret: SOME_CLIENT_SECRET
             clientName: SOME_CLIENT_NAME
-      provider:
-        keycloak:
-          authorization-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/auth
-          token-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/token
-          user-info-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/userinfo
-          jwk-set-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/certs
+        provider:
+          keycloak:
+            authorization-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/auth
+            token-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/token
+            user-info-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/userinfo
+            jwk-set-uri: https://sso.${ projectDescription.context }.com/auth/realms/${ projectDescription.context }-dev/protocol/openid-connect/certs
 
 camel-config:
   component:

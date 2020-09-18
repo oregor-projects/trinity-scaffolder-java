@@ -24,6 +24,7 @@
 <#list projectDescription.extraModules as extraModule>
     <module>${ projectDescription.modulePrefix }${ extraModule }</module>
 </#list>
+    <module>${ projectDescription.modulePrefix }commons</module>
   </modules>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -91,7 +92,7 @@
     <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
     <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-    <sonar-maven-plugin.version>3.5.0.1254</sonar-maven-plugin.version>
+    <sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
     <license-maven-plugin.version>1.14</license-maven-plugin.version>
     <fmt-maven-plugin.version>2.10</fmt-maven-plugin.version>
     <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
@@ -103,8 +104,13 @@
     <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
     <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
     <maven-dependency-plugin.version>2.9</maven-dependency-plugin.version>
-    <cobertura-maven-plugin.version>2.6</cobertura-maven-plugin.version>
+    <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
+    <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+    <integration.tests>**/*IntegrationTest.java</integration.tests>
+    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+    <springdoc-openapi-maven-plugin.version>1.0</springdoc-openapi-maven-plugin.version>
 
     <!--SPRING SECURITY OAUTH2-->
     <spring-security-oauth2.version>2.3.5.RELEASE</spring-security-oauth2.version>
@@ -117,9 +123,6 @@
 
     <!--CAMEL-->
     <camel.version>3.0.0-RC3</camel.version>
-
-    <!--CUCUMBER-->
-    <cucumber-version>4.5.4</cucumber-version>
 
     <!--JAVA EE-->
     <jaxb-api.version>2.2.11</jaxb-api.version>
@@ -136,21 +139,63 @@
     <!--OPENAPI PARSER-->
     <openapi-parser.version>4.0.4</openapi-parser.version>
 
-    <!--SWAGGER-REQUEST-VALIDATOR-->
-    <swagger-request-validator.version>2.11.0</swagger-request-validator.version>
+    <!--SPRINGDOC OPENAPI UI-->
+    <springdoc-openapi-ui.version>1.4.6</springdoc-openapi-ui.version>
 
     <!--SWAGGER-UI-->
     <swagger-ui.version>3.32.5</swagger-ui.version>
 
     <!--TRINITY4J-->
-    <trinity4j.version>0.0.12</trinity4j.version>
+    <trinity4j.version>0.0.15-SNAPSHOT</trinity4j.version>
+
+    <!-- ===================================================================================== -->
+    <!--TESTING-->
+    <!-- ===================================================================================== -->
+
+    <!--AWAITILITY-->
+    <awaitility.version>4.0.3</awaitility.version>
+
+    <!--CUCUMBER-->
+    <cucumber.version>6.7.0</cucumber.version>
+
+    <!--EASY RANDOM-->
+    <easy-random.version>4.2.0</easy-random.version>
+
+    <!--JAVAFAKER-->
+    <javafaker.version>1.0.2</javafaker.version>
+
+    <!--SWAGGER-REQUEST-VALIDATOR-->
+    <swagger-request-validator.version>2.11.0</swagger-request-validator.version>
+
+    <!--TESTCONTAINERS-->
+    <testcontainers.version>1.14.3</testcontainers.version>
+
   </properties>
 
   <dependencies>
+    <#noparse>
     <!--SPRING BOOT TEST-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!--AWAITILITY-->
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>${awaitility.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -158,13 +203,69 @@
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
+      <version>${cucumber.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-spring</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--EASY RANDOM-->
+    <dependency>
+      <groupId>org.jeasy</groupId>
+      <artifactId>easy-random-core</artifactId>
+      <version>${easy-random.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--TESTCONTAINERS-->
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>testcontainers</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>mariadb</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>mysql</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!--H2-->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>test</scope>
+    </dependency>
+    </#noparse>
   </dependencies>
 
   <dependencyManagement>
@@ -210,24 +311,6 @@
         <#noparse>
         <version>${commons-validator.version}</version>
         </#noparse>
-      </dependency>
-
-      <!--CUCUMBER-->
-      <dependency>
-        <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-junit</artifactId>
-        <#noparse>
-        <version>${cucumber-version}</version>
-        </#noparse>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-java</artifactId>
-        <#noparse>
-        <version>${cucumber-version}</version>
-        </#noparse>
-        <scope>test</scope>
       </dependency>
 
       <!--JAVA EE-->
@@ -288,12 +371,19 @@
         </#noparse>
       </dependency>
 
-      <!--SWAGGER-REQUEST-VALIDATOR-->
+      <!--SPRINGDOC OPENAPI UI-->
       <dependency>
-        <groupId>com.atlassian.oai</groupId>
-        <artifactId>swagger-request-validator-mockmvc</artifactId>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-ui</artifactId>
         <#noparse>
-        <version>${swagger-request-validator.version}</version>
+        <version>${springdoc-openapi-ui.version}</version>
+        </#noparse>
+      </dependency>
+      <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-security</artifactId>
+        <#noparse>
+        <version>${springdoc-openapi-ui.version}</version>
         </#noparse>
       </dependency>
 
@@ -305,6 +395,28 @@
         <version>${swagger-ui.version}</version>
         </#noparse>
       </dependency>
+
+      <!-- ===================================================================================== -->
+      <!--TESTING-->
+      <!-- ===================================================================================== -->
+      <#noparse>
+      <!--SWAGGER-REQUEST-VALIDATOR-->
+      <dependency>
+        <groupId>com.atlassian.oai</groupId>
+        <artifactId>swagger-request-validator-mockmvc</artifactId>
+        <version>${swagger-request-validator.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <!--TESTCONTAINERS-->
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>testcontainers-bom</artifactId>
+        <version>${testcontainers.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      </#noparse>
 
 <#list projectDescription.contextDescriptions as contextDescription>
       <!-- ===================================================================================== -->
@@ -488,12 +600,21 @@
 
   <build>
     <plugins>
+      <!--SPRING-BOOT-->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <!--COMPILER-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>11</source>
-          <target>11</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
           <annotationProcessorPaths>
             <path>
               <groupId>org.mapstruct</groupId>
@@ -532,6 +653,54 @@
           </configuration>
         </plugin>
         <!-- ===================================================================== -->
+        <!-- UNIT TESTS                                                            -->
+        <!-- ===================================================================== -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven-surefire-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>default-test</id>
+              <phase>test</phase>
+              <goals>
+                <goal>test</goal>
+              </goals>
+              <configuration>
+                <includes>
+                  <include>**/*Test.java</include>
+                  <include>**/*Tests.java</include>
+                </includes>
+                <excludes>
+                  <exclude>${integration.tests}</exclude>
+                </excludes>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- ===================================================================== -->
+        <!-- INTEGRATION TESTS                                                     -->
+        <!-- ===================================================================== -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${maven-failsafe-plugin.version}</version>
+          <configuration>
+            <includes>
+              <include>${integration.tests}</include>
+            </includes>
+            <argLine>-Dlog4j.appender.console.threshold=WARN</argLine>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- ===================================================================== -->
         <!-- License management                                                    -->
         <!-- ===================================================================== -->
         <plugin>
@@ -560,6 +729,7 @@
               <exclude>**/*.txt</exclude>
               <exclude>**/*.properties</exclude>
               <exclude>**/*.yml</exclude>
+              <exclude>**/*.yaml</exclude>
             </excludes>
           </configuration>
         </plugin>
@@ -715,6 +885,31 @@
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
           <version>${sonar-maven-plugin.version}</version>
+        </plugin>
+        <!-- ===================================================================== -->
+        <!-- JACOCO                                                                -->
+        <!-- ===================================================================== -->
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${jacoco-maven-plugin.version}</version>
+          <configuration>
+            <append>true</append>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>report</id>
+              <phase>test</phase>
+              <goals>
+                <goal>report</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <!-- ===================================================================== -->
         <!-- The JXR plugin provides cross-reference information for SCA plugins   -->
@@ -1010,6 +1205,38 @@
                 <goals>
                   <goal>check</goal>
                   <goal>cpd-check</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!-- ===================================================================== -->
+    <!-- INTEGRATION TESTS                                                     -->
+    <!-- ===================================================================== -->
+    <profile>
+      <id>integrationTests</id>
+      <properties>
+        <argLine>-XX:MaxMetaspaceSize=512m -Xmx1g</argLine>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <configuration>
+              <includes>
+                <include>${integration.tests}</include>
+              </includes>
+              <argLine>-Dlog4j.appender.console.threshold=WARN</argLine>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
                 </goals>
               </execution>
             </executions>

@@ -56,7 +56,7 @@ public class AppScaffolderTest extends AbstractTrinityScaffolderJavaTest {
     ArgumentCaptor<String> argumentCaptorFtlTemplate = ArgumentCaptor.forClass(String.class);
     ArgumentCaptor<Path> argumentCaptorPath = ArgumentCaptor.forClass(Path.class);
 
-    verify(freemarkerService, times(6))
+    verify(freemarkerService, times(13))
         .exportIfNotExists(
             eq(dataModel()), argumentCaptorFtlTemplate.capture(), argumentCaptorPath.capture());
 

@@ -27,6 +27,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
+/**
+ * The type Extra module scaffolder.
+ *
+ * @author Christos Tsakostas
+ */
 public class ExtraModuleScaffolder extends AbstractProjectScaffolder {
 
   // ===============================================================================================

@@ -36,6 +36,7 @@ import com.oregor.trinity.scaffolder.java.core.aux.AuxDetailsScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxFamilyScaffolder;
 import com.oregor.trinity.scaffolder.java.core.aux.AuxScaffolder;
 import com.oregor.trinity.scaffolder.java.core.bom.BomScaffolder;
+import com.oregor.trinity.scaffolder.java.core.commons.CommonsModuleScaffolder;
 import com.oregor.trinity.scaffolder.java.core.context.ContextScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailRepositoryInMemoryScaffolder;
 import com.oregor.trinity.scaffolder.java.core.domain.DomainDetailRepositorySpringDataJpaScaffolder;
@@ -71,6 +72,7 @@ public class TrinityScaffolderJavaFactory {
   private static BomScaffolder bomScaffolder;
   private static ContextScaffolder contextScaffolder;
   private static ExtraModuleScaffolder extraModuleScaffolder;
+  private static CommonsModuleScaffolder commonsModuleScaffolder;
 
   static {
     FreemarkerService freemarkerService =
@@ -121,6 +123,8 @@ public class TrinityScaffolderJavaFactory {
             new DomainDetailScheduledPublisherScaffolder(freemarkerService));
 
     extraModuleScaffolder = new ExtraModuleScaffolder(freemarkerService);
+
+    commonsModuleScaffolder = new CommonsModuleScaffolder(freemarkerService);
   }
 
   // ===============================================================================================
@@ -149,6 +153,7 @@ public class TrinityScaffolderJavaFactory {
         domainFamilyScaffolder,
         bomScaffolder,
         contextScaffolder,
-        extraModuleScaffolder);
+        extraModuleScaffolder,
+        commonsModuleScaffolder);
   }
 }
