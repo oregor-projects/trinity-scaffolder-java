@@ -77,7 +77,7 @@ public class ExtraModuleScaffolder extends AbstractProjectScaffolder {
 
     dataModel.put("module", module);
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/extra-module/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));

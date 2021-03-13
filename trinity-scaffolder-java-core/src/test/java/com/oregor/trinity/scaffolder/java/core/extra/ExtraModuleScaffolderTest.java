@@ -43,7 +43,7 @@ public class ExtraModuleScaffolderTest extends AbstractTrinityScaffolderJavaTest
     extraModuleScaffolder.scaffold(generationPath(), projectDescription(), dataModel());
 
     verify(freemarkerService)
-        .export(
+        .exportIfNotExists(
             dataModel(),
             "trinity-scaffolder-java/extra-module/pom.xml.ftl",
             Paths.get(generationPath().toString(), "prefix-tools", "pom.xml"));
