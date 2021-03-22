@@ -74,7 +74,7 @@ public class CommonsModuleScaffolder extends AbstractProjectScaffolder {
 
     dataModel.put("module", module);
 
-    freemarkerService.export(
+    freemarkerService.exportIfNotExists(
         dataModel,
         "trinity-scaffolder-java/commons/pom.xml.ftl",
         Paths.get(modulePath.toString(), "pom.xml"));

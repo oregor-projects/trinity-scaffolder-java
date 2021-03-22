@@ -19,7 +19,7 @@ set -e
 
 # Stop the docker containers of compose
 cd .dev
-./docker-stop.sh
+./docker-stop.sh || true
 cd ..
 
 # Uncomment the line below if you want to include license information in your source files.
