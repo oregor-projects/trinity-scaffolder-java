@@ -104,7 +104,7 @@
     <asciidoctorj-diagram.version>1.5.8</asciidoctorj-diagram.version>
 
     <!--APACHE-->
-    <commons-io-version>2.4</commons-io-version>
+    <commons-io-version>2.7</commons-io-version>
     <slf4j.version>1.7.26</slf4j.version>
     <logback.version>1.2.3</logback.version>
   </properties>
